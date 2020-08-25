@@ -3,6 +3,9 @@
 }
 
 .App-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   width: 80%;
   max-width: 900px;
   padding: 40px;

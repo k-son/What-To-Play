@@ -8,7 +8,7 @@ class Button extends Component {
 
   render() {
     return(
-      <button className="Button" onClick={this.props.action}>
+      <button className="Button">
         <span className="Button-iconSpan">{this.props.icon}</span>
       </button>
     );

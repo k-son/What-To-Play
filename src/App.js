@@ -29,8 +29,27 @@ class App extends Component {
     super(props);
     this.state = {
       songs: this.props.songs,
-      currentSong: 'O baby baby'
+      currentSong: ''
     };
+    this.drawSong = this.drawSong.bind(this);
+    this.reloadFullSongList = this.reloadFullSongList.bind(this);
+  }
+
+  drawSong() {
+    const index = Math.floor(Math.random()*(this.state.songs.length));
+    const drawnSong = this.state.songs[index];
+    const filteredList = this.state.songs.filter(el => el !== drawnSong);
+    this.setState({
+      songs: filteredList,
+      currentSong: drawnSong
+    });
+  }
+
+  reloadFullSongList() {
+    this.setState({
+      songs: this.props.songs,
+      currentSong: ''
+    })
   }
 
   render() {
@@ -43,8 +62,9 @@ class App extends Component {
           )}
         </ul>
         <Display song={this.state.currentSong} />
-        <Button icon={<IconDices />} />
-        <Button icon={<IconRefresh />} />
+        {this.state.songs.length > 0 ? <Button icon={<IconDices onClick={this.drawSong} />} /> : <Button icon={<IconRefresh onClick={this.reloadFullSongList} />} />}
+        
+        
         <Button icon={<IconBackArrow />} />
         <Button icon={<IconChoice />} />
       </div>
