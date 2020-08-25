@@ -33,6 +33,7 @@ class App extends Component {
     };
     this.drawSong = this.drawSong.bind(this);
     this.reloadFullSongList = this.reloadFullSongList.bind(this);
+    this.putBackCurrentSong = this.putBackCurrentSong.bind(this);
   }
 
   drawSong() {
@@ -52,20 +53,28 @@ class App extends Component {
     })
   }
 
+  putBackCurrentSong() {
+    this.setState({
+      songs: this.state.songs.concat(this.state.currentSong),
+      currentSong: ''
+    })
+  }
+
   render() {
     return(
       <div className="App">
         <ul className="App-list">
-          {[...this.state.songs]
+          {this.state.songs
             .sort((a, b) => a > b ? 1 : -1)
             .map(item => <li key={item}>{item}</li>
           )}
         </ul>
         <Display song={this.state.currentSong} />
-        {this.state.songs.length > 0 ? <Button icon={<IconDices onClick={this.drawSong} />} /> : <Button icon={<IconRefresh onClick={this.reloadFullSongList} />} />}
-        
-        
-        <Button icon={<IconBackArrow />} />
+        {this.state.songs.length > 0 ? 
+          <Button icon={<IconDices onClick={this.drawSong} />} /> : 
+          <Button icon={<IconRefresh onClick={this.reloadFullSongList} />} />
+        }
+        <Button icon={<IconBackArrow onClick={this.putBackCurrentSong} />} />
         <Button icon={<IconChoice />} />
       </div>
     );
