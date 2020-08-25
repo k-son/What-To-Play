@@ -1,3 +1,33 @@
 .App {
 
 }
+
+.App-list {
+  width: 80%;
+  max-width: 900px;
+  padding: 40px;
+  margin: 36px auto;
+  color: #fff;
+  background-color: purple;
+  border-radius: 5px;
+  list-style-type: none;
+  font-size: 18px;
+  line-height: 1.8;
+}
+
+.App-list > li {
+  display: inline;
+  position: relative;
+}
+
+.App-list > li:not(:last-of-type) {
+  margin-right: 20px;
+}
+
+.App-list > li:not(:last-of-type)::after {
+  content: "\2022";
+  display: inline;
+  position: absolute;
+  left: calc(100% + 10px);
+  transform: translateX(-50%);
+}

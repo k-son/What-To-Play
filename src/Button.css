@@ -1,9 +1,9 @@
 .Button {
-  background-color: aqua;
+  background-color: rgb(171, 171, 171);
   padding: 16px 40px;
 }
 
 .Button-iconSpan svg {
   height: 64px;
-  fill: orange;
+  fill: rgb(33, 21, 0);
 }
