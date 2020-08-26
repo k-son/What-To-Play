@@ -1,8 +1,8 @@
-.App {
+.Play {
 
 }
 
-.App-list {
+.Play-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -18,16 +18,16 @@
   line-height: 1.8;
 }
 
-.App-list > li {
+.Play-list > li {
   display: inline;
   position: relative;
 }
 
-.App-list > li:not(:last-of-type) {
+.Play-list > li:not(:last-of-type) {
   margin-right: 20px;
 }
 
-.App-list > li:not(:last-of-type)::after {
+.Play-list > li:not(:last-of-type)::after {
   display: inline;
   content: "\2022";
   position: absolute;
@@ -36,8 +36,8 @@
   color: grey;
 }
 
-.App-modal-visible,
-.App-modal-hidden {
+.Play-modal-visible,
+.Play-modal-hidden {
   position: absolute;
   top: 0;
   right: 0;
@@ -50,11 +50,11 @@
   justify-content: center;
 }
 
-.App-modal-hidden {
+.Play-modal-hidden {
   display: none;
 }
 
-.App-modal-closeBtn {
+.Play-modal-closeBtn {
   display: block;
   position: absolute;
   top: 3vh;
@@ -65,18 +65,18 @@
   min-height: 32px;
 }
 
-.App-modal-list {
+.Play-modal-list {
   width: 100%;
   list-style-type: none;
   padding-left: 0;
   margin: 10vh auto;
 }
 
-.App-modal-list li {
+.Play-modal-list li {
   margin: 12px 0;
 }
 
-.App-modal-list li button {
+.Play-modal-list li button {
   display: block;
   width: 70%;
   max-width: 720px;
