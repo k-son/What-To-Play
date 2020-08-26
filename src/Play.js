@@ -53,7 +53,7 @@ class Play extends Component {
   reloadFullSongList() {
     this.setState({
       songs: this.props.songs,
-      currentSong: ''
+      currentSong: ' '
     })
   }
 
