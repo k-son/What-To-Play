@@ -29,7 +29,7 @@ class Play extends Component {
     super(props);
     this.state = {
       songs: this.props.songs,
-      currentSong: '',
+      currentSong: ' ',
       modal: 'hidden'
     };
     this.drawSong = this.drawSong.bind(this);
@@ -58,10 +58,12 @@ class Play extends Component {
   }
 
   putBackCurrentSong() {
+    console.log(this.state.currentSong);
     this.setState({
       songs: this.state.songs.concat(this.state.currentSong),
-      currentSong: ''
+      currentSong: ' '
     })
+    //setTimeout(function() {console.log(this.state.currentSong);}, 2000);
   }
 
   openModal() {
@@ -100,7 +102,9 @@ class Play extends Component {
           <Button action={this.drawSong} icon={<IconDices />} /> : 
           <Button action={this.reloadFullSongList} icon={<IconRefresh />} />
         }
-        {this.state.songs.length > 0 && <Button action={this.putBackCurrentSong} icon={<IconBackArrow />} />}
+        {this.state.songs.length > 0 && this.state.currentSong !== ' ' ? 
+          <Button action={this.putBackCurrentSong} icon={<IconBackArrow />} /> : 
+          null }
         {this.state.songs.length > 0 && <Button action={this.openModal} icon={<IconChoice />} />}
         <div className={`Play-modal-${this.state.modal}`}>
           <button type="button" className="Play-modal-closeBtn" onClick={this.closeModal}></button>
