@@ -28,9 +28,62 @@
 }
 
 .App-list > li:not(:last-of-type)::after {
-  content: "\2022";
   display: inline;
+  content: "\2022";
   position: absolute;
   left: calc(100% + 10px);
   transform: translateX(-50%);
+  color: grey;
+}
+
+.App-modal-visible,
+.App-modal-hidden {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  min-height: 100vh;
+  background-color: seagreen;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.App-modal-hidden {
+  display: none;
+}
+
+.App-modal-closeBtn {
+  display: block;
+  position: absolute;
+  top: 3vh;
+  right: 3vh;
+  width: 6vh;
+  min-width: 32px;
+  height: 6vh;
+  min-height: 32px;
+}
+
+.App-modal-list {
+  width: 100%;
+  list-style-type: none;
+  padding-left: 0;
+  margin: 10vh auto;
+}
+
+.App-modal-list li {
+  margin: 12px 0;
+}
+
+.App-modal-list li button {
+  display: block;
+  width: 70%;
+  max-width: 720px;
+  font-size: calc(16px + 6 * ((100vw - 320px) / 680));
+  text-align: center;
+  padding: calc(16px + 6 * ((100vw - 320px) / 1360));
+  margin: 0 auto;
+  background-color: transparent;
+  border: 1px solid white;
 }

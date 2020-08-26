@@ -29,11 +29,15 @@ class App extends Component {
     super(props);
     this.state = {
       songs: this.props.songs,
-      currentSong: ''
+      currentSong: '',
+      modal: 'hidden'
     };
     this.drawSong = this.drawSong.bind(this);
     this.reloadFullSongList = this.reloadFullSongList.bind(this);
     this.putBackCurrentSong = this.putBackCurrentSong.bind(this);
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
+    this.chooseSong = this.chooseSong.bind(this);
   }
 
   drawSong() {
@@ -60,6 +64,28 @@ class App extends Component {
     })
   }
 
+  openModal() {
+    this.setState({
+      modal: 'visible'
+    })
+  }
+
+  closeModal() {
+    this.setState({
+      modal: 'hidden'
+    })
+  }
+
+  chooseSong(e) {
+    const chosenSong = e.target.textContent;
+    const filteredList = this.state.songs.filter(el => el !== chosenSong);
+    this.setState({
+      songs: filteredList,
+      currentSong: chosenSong,
+      modal: 'hidden'
+    })
+  }
+
   render() {
     return(
       <div className="App">
@@ -71,11 +97,20 @@ class App extends Component {
         </ul>
         <Display song={this.state.currentSong} />
         {this.state.songs.length > 0 ? 
-          <Button icon={<IconDices onClick={this.drawSong} />} /> : 
-          <Button icon={<IconRefresh onClick={this.reloadFullSongList} />} />
+          <Button action={this.drawSong} icon={<IconDices />} /> : 
+          <Button action={this.reloadFullSongList} icon={<IconRefresh />} />
         }
-        <Button icon={<IconBackArrow onClick={this.putBackCurrentSong} />} />
-        <Button icon={<IconChoice />} />
+        <Button action={this.putBackCurrentSong} icon={<IconBackArrow />} />
+        <Button action={this.openModal} icon={<IconChoice />} />
+        <div className={`App-modal-${this.state.modal}`}>
+          <button type="button" className="App-modal-closeBtn" onClick={this.closeModal}></button>
+          <ul className="App-modal-list">
+            {this.state.songs
+              .sort((a, b) => a > b ? 1 : -1)
+              .map(item => <li key={item}><button type="button" onClick={this.chooseSong}>{item}</button></li>
+            )}
+          </ul>
+        </div>
       </div>
     );
   }
