@@ -1,10 +1,65 @@
 .Button {
-  display: block;
-  background-color: rgb(171, 171, 171);
-  padding: 16px 40px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background-image: linear-gradient(45deg, #464646, #1c1c1c);
+  border: none;
+  box-shadow: 0px -2px 1px -1px #595959, 0px 20px 12px -10px #000;
+  transform: rotate(45deg);
+  margin: 40px;
 }
 
-.Button-iconSpan svg {
-  height: 64px;
-  fill: rgb(33, 21, 0);
+.Button-middleBox {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-image: linear-gradient(45deg, #222, #464646);
+  transform: rotate(-45deg);
+}
+
+.Button-coloredBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background-image: linear-gradient(45deg, #b8593d, #d3ac3a);
+}
+
+.Button-innerBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background-image: linear-gradient(45deg, #222, #595959);
+}
+
+.Button-iconBox svg {
+  position: relative;
+  height: 24px;
+  fill: #b87d3d;
+}
+
+#btn-draw svg {
+  transform: translate(1px, 1px);
+}
+
+#btn-arrow svg {
+  height: 22px;
+}
+
+#btn-choice svg {
+  height: 22px;
+  transform: translate(1px, 1px);
 }

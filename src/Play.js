@@ -6,6 +6,7 @@ import { ReactComponent as IconChoice} from './icons/choice.svg';
 import { ReactComponent as IconDices} from './icons/dices.svg';
 import { ReactComponent as IconRefresh} from './icons/refresh.svg';
 import './Play.css';
+import './Button.css';
 
 class Play extends Component {
   static defaultProps = {
@@ -99,13 +100,13 @@ class Play extends Component {
         </ul>
         <Display song={this.state.currentSong} />
         {this.state.songs.length > 0 ? 
-          <Button action={this.drawSong} icon={<IconDices />} /> : 
-          <Button action={this.reloadFullSongList} icon={<IconRefresh />} />
+          <Button id="btn-draw" action={this.drawSong} icon={<IconDices />} /> : 
+          <Button id="btn-refresh" action={this.reloadFullSongList} icon={<IconRefresh />} />
         }
         {this.state.songs.length > 0 && this.state.currentSong !== ' ' ? 
-          <Button action={this.putBackCurrentSong} icon={<IconBackArrow />} /> : 
+          <Button id="btn-arrow" action={this.putBackCurrentSong} icon={<IconBackArrow />} /> : 
           null }
-        {this.state.songs.length > 0 && <Button action={this.openModal} icon={<IconChoice />} />}
+        {this.state.songs.length > 0 && <Button id="btn-choice" action={this.openModal} icon={<IconChoice />} />}
         <div className={`Play-modal-${this.state.modal}`}>
           <button type="button" className="Play-modal-closeBtn" onClick={this.closeModal}></button>
           <ul className="Play-modal-list">
