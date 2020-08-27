@@ -58,7 +58,6 @@ class Play extends Component {
   }
 
   putBackCurrentSong() {
-    console.log(this.state.currentSong);
     this.setState({
       songs: this.state.songs.concat(this.state.currentSong),
       currentSong: ' '

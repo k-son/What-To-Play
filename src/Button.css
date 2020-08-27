@@ -2,6 +2,7 @@
   --btn-color-orange: #b87c3d;
   --btn-color-yellow: #b19d2d;
   --btn-color-purple: #c73c3c;
+  --btn-color-purple: #c25026;
   --btn-color-green: #448735;
 }
 
@@ -23,11 +24,12 @@
   border: none;
   box-shadow: 0px -2px 1px -1px #595959, 0px 20px 12px -10px #000;
   transform: rotate(30deg);
+  transition: box-shadow .15s;
 }
 
 @media only screen and (max-width: 375px) {
   .Button {
-    transform: rotate(45deg) scale(.85);
+    transform: rotate(30deg) scale(.85);
   }
 }
 
@@ -39,24 +41,48 @@
   outline: none;
 }
 
-.Button:hover svg,
-.Button:focus svg,
-.Button:hover + .Button-description,
-.Button:focus + .Button-description {
+.Button:active {
+  background-image: linear-gradient(30deg, #464646, #1f1f1f);
+  box-shadow: 0px -2px 2px -1px #595959, 0px 5px 12px -3px #000;
+}
+
+.Button:active .Button-middleBox {
+  background-image: linear-gradient(30deg, #242424, #464646);
+}
+
+.Button:active .Button-coloredBox {
+  filter: saturate(200%);
+}
+
+.Button:active .Button-innerBox {
+  filter: saturate(40%);
+}
+
+#btn-draw:hover svg,
+#btn-draw:focus svg,
+#btn-draw:hover .Button-description,
+#btn-draw:focus .Button-description {
   filter: saturate(450%);
 }
 
 #btn-arrow:hover svg,
 #btn-arrow:focus svg,
-#btn-arrow:hover + .Button-description,
-#btn-arrow:focus + .Button-description {
-  filter: saturate(600%);
+#btn-arrow:hover .Button-description,
+#btn-arrow:focus .Button-description {
+  filter: saturate(700%);
+}
+
+#btn-reload:hover svg,
+#btn-reload:focus svg,
+#btn-reload:hover .Button-description,
+#btn-reload:focus .Button-description {
+  filter: saturate(350%);
 }
 
 #btn-choice:hover svg,
 #btn-choice:focus svg,
-#btn-choice:hover + .Button-description,
-#btn-choice:focus + .Button-description {
+#btn-choice:hover .Button-description,
+#btn-choice:focus .Button-description {
   filter: saturate(300%);
 }
 
@@ -68,7 +94,7 @@
   width: 70px;
   height: 70px;
   border-radius: 50%;
-  background-image: linear-gradient(45deg, #222, #464646);
+  background-image: linear-gradient(30deg, #222, #464646);
   transform: rotate(-30deg);
 }
 
@@ -82,19 +108,19 @@
 }
 
 #btn-draw .Button-coloredBox {
-  background-image: linear-gradient(45deg, #b8593d, #d3ac3a);
+  background-image: linear-gradient(30deg, #b8593d, #d3ac3a);
 }
 
 #btn-arrow .Button-coloredBox {
-  background-image: linear-gradient(45deg, #5b540a, #c6b83a);
+  background-image: linear-gradient(30deg, #6a5e07, #cdbd31);
 }
 
 #btn-choice .Button-coloredBox {
-  background-image: linear-gradient(45deg, #8a2121, #f03f3f);
+  background-image: linear-gradient(30deg, #853011, #ff703c);
 }
 
 #btn-reload .Button-coloredBox {
-  background-image: linear-gradient(45deg, #026059, #428e33);
+  background-image: linear-gradient(30deg, #026059, #428e33);
 }
 
 .Button-innerBox {
@@ -104,7 +130,7 @@
   width: 52px;
   height: 52px;
   border-radius: 50%;
-  background-image: linear-gradient(45deg, #222, #595959);
+  background-image: linear-gradient(30deg, #222, #595959);
 }
 
 .Button-iconBox svg {
@@ -136,7 +162,16 @@
 .Button-description {
   position: relative;
   font-size: calc(14px + 6 * ((100vw - 320px) / 640));
-  line-height: .6;
+  line-height: 1;
+  text-transform: uppercase;
+  margin-top: 2vw;
+}
+
+@media only screen and (min-width: 1000px) {
+  .Button-description {
+    font-size: 21px;
+    margin-top: 20px;
+  }
 }
 
 #btn-draw .Button-description {

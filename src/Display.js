@@ -5,7 +5,9 @@ class Display extends Component {
   render() {
     return(
       <div className="Display">
-        <span>{this.props.song}</span>
+        <div  className="Display-inner">
+          <span className="Display-title">{this.props.song}</span>
+        </div>
       </div>
     );
   }
