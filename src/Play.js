@@ -100,13 +100,13 @@ class Play extends Component {
         </ul>
         <Display song={this.state.currentSong} />
         {this.state.songs.length > 0 ? 
-          <Button id="btn-draw" action={this.drawSong} icon={<IconDices />} /> : 
-          <Button id="btn-refresh" action={this.reloadFullSongList} icon={<IconRefresh />} />
+          <Button id="btn-draw" action={this.drawSong} icon={<IconDices />} description="Draw" /> : 
+          <Button id="btn-reload" action={this.reloadFullSongList} icon={<IconRefresh />} description="Reload" />
         }
         {this.state.songs.length > 0 && this.state.currentSong !== ' ' ? 
-          <Button id="btn-arrow" action={this.putBackCurrentSong} icon={<IconBackArrow />} /> : 
+          <Button id="btn-arrow" action={this.putBackCurrentSong} icon={<IconBackArrow />} description="Put back" /> : 
           null }
-        {this.state.songs.length > 0 && <Button id="btn-choice" action={this.openModal} icon={<IconChoice />} />}
+        {this.state.songs.length > 0 && <Button id="btn-choice" action={this.openModal} icon={<IconChoice />} description="Choose" />}
         <div className={`Play-modal-${this.state.modal}`}>
           <button type="button" className="Play-modal-closeBtn" onClick={this.closeModal}></button>
           <ul className="Play-modal-list">

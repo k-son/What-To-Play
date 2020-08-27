@@ -8,15 +8,18 @@ class Button extends Component {
 
   render() {
     return(
-      <button type='button' className="Button" id={this.props.id} onClick={this.props.action}>
-        <span className="Button-middleBox">
-          <span className="Button-coloredBox">
-            <span className="Button-innerBox">
-              <span className="Button-iconBox">{this.props.icon}</span> 
+      <div className="Button-container">
+        <button type='button' className="Button" id={this.props.id} onClick={this.props.action}>
+          <span className="Button-middleBox">
+            <span className="Button-coloredBox">
+              <span className="Button-innerBox">
+                <span className="Button-iconBox">{this.props.icon}</span> 
+              </span>
             </span>
           </span>
-        </span>
-      </button>
+        </button>
+        <p className="Button-description">{this.props.description}</p>
+      </div>
     );
   }
 }
