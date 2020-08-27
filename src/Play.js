@@ -2,11 +2,10 @@ import React, {Component} from 'react';
 import Button from './Button';
 import Display from './Display';
 import { ReactComponent as IconBackArrow} from './icons/back-arrow.svg';
-import { ReactComponent as IconChoice} from './icons/choice.svg';
+import { ReactComponent as IconChoice} from './icons/one.svg';
 import { ReactComponent as IconDices} from './icons/dices.svg';
 import { ReactComponent as IconRefresh} from './icons/refresh.svg';
 import './Play.css';
-import './Button.css';
 
 class Play extends Component {
   static defaultProps = {
@@ -64,7 +63,6 @@ class Play extends Component {
       songs: this.state.songs.concat(this.state.currentSong),
       currentSong: ' '
     })
-    //setTimeout(function() {console.log(this.state.currentSong);}, 2000);
   }
 
   openModal() {
@@ -99,6 +97,7 @@ class Play extends Component {
           )}
         </ul>
         <Display song={this.state.currentSong} />
+        <div className="Play-buttons">
         {this.state.songs.length > 0 ? 
           <Button id="btn-draw" action={this.drawSong} icon={<IconDices />} description="Draw" /> : 
           <Button id="btn-reload" action={this.reloadFullSongList} icon={<IconRefresh />} description="Reload" />
@@ -107,6 +106,7 @@ class Play extends Component {
           <Button id="btn-arrow" action={this.putBackCurrentSong} icon={<IconBackArrow />} description="Put back" /> : 
           null }
         {this.state.songs.length > 0 && <Button id="btn-choice" action={this.openModal} icon={<IconChoice />} description="Choose" />}
+        </div>
         <div className={`Play-modal-${this.state.modal}`}>
           <button type="button" className="Play-modal-closeBtn" onClick={this.closeModal}></button>
           <ul className="Play-modal-list">

@@ -1,7 +1,7 @@
 :root {
   --btn-color-orange: #b87c3d;
   --btn-color-yellow: #b19d2d;
-  --btn-color-purple: #b13f8f;
+  --btn-color-purple: #c73c3c;
   --btn-color-green: #448735;
 }
 
@@ -25,6 +25,12 @@
   transform: rotate(45deg);
 }
 
+@media only screen and (max-width: 375px) {
+  .Button {
+    transform: rotate(45deg) scale(.85);
+  }
+}
+
 .Button:hover {
   cursor: pointer;
 }
@@ -37,21 +43,21 @@
 .Button:focus svg,
 .Button:hover + .Button-description,
 .Button:focus + .Button-description {
-  filter: saturate(250%);
+  filter: saturate(450%);
 }
 
 #btn-arrow:hover svg,
 #btn-arrow:focus svg,
 #btn-arrow:hover + .Button-description,
 #btn-arrow:focus + .Button-description {
-  filter: saturate(400%);
+  filter: saturate(600%);
 }
 
 #btn-choice:hover svg,
 #btn-choice:focus svg,
 #btn-choice:hover + .Button-description,
 #btn-choice:focus + .Button-description {
-  filter: saturate(180%);
+  filter: saturate(300%);
 }
 
 .Button-middleBox {
@@ -80,11 +86,11 @@
 }
 
 #btn-arrow .Button-coloredBox {
-  background-image: linear-gradient(45deg, #7e761a, #c6b83a);
+  background-image: linear-gradient(45deg, #5b540a, #c6b83a);
 }
 
 #btn-choice .Button-coloredBox {
-  background-image: linear-gradient(45deg, #882d6d, #d0387a);
+  background-image: linear-gradient(45deg, #8a2121, #f03f3f);
 }
 
 #btn-reload .Button-coloredBox {
@@ -118,7 +124,6 @@
 
 #btn-choice svg {
   height: 22px;
-  transform: translate(1px, 1px);
   fill: var(--btn-color-purple);
 }
 
@@ -132,18 +137,18 @@
   font-size: calc(14px + 6 * ((100vw - 320px) / 640));
 }
 
-#btn-draw + .Button-description {
+#btn-draw .Button-description {
   color: var(--btn-color-orange);
 }
 
-#btn-arrow + .Button-description {
+#btn-arrow .Button-description {
   color: var(--btn-color-yellow);
 }
 
-#btn-choice + .Button-description {
+#btn-choice .Button-description {
   color: var(--btn-color-purple);
 }
 
-#btn-reload + .Button-description {
+#btn-reload .Button-description {
   color: var(--btn-color-green);
 }

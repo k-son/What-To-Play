@@ -4,6 +4,8 @@
   background-color: #1a1a1a;
 }
 
+
+/* Song list */
 .Play-list {
   display: flex;
   flex-wrap: wrap;
@@ -37,6 +39,33 @@
   color: grey;
 }
 
+
+/* Buttons */
+.Play-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 33.3333%);
+  width: 90%;
+  max-width: 500px;
+  margin: 40px auto;
+}
+
+#btn-draw {
+  grid-column: 1 / 2;
+}
+
+#btn-arrow {
+  grid-column: 2 / 3;
+}
+
+#btn-choice {
+  grid-column: 3 / 4;
+}
+
+#btn-reload {
+  grid-column: 2 / 3;
+}
+
+/* Modal */
 .Play-modal-visible,
 .Play-modal-hidden {
   position: absolute;
