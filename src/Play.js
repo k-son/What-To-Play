@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Button from './Button';
 import Display from './Display';
+import Logo from './Logo';
 import { ReactComponent as IconBackArrow} from './icons/back-arrow.svg';
 import { ReactComponent as IconChoice} from './icons/one.svg';
 import { ReactComponent as IconDices} from './icons/dices.svg';
@@ -21,7 +22,9 @@ class Play extends Component {
     'The man who sold the world',
     'Where did you sleep last night',
     'Zombie',
-    'Bad romance'
+    'Bad romance',
+    'Love Buzz',
+    'Like a virgin'
     ]
   }
 
@@ -89,10 +92,11 @@ class Play extends Component {
   render() {
     return(
       <div className="Play">
+        <Logo />
         <ul className="Play-list">
           {this.state.songs
             .sort((a, b) => a > b ? 1 : -1)
-            .map(item => <li key={item}>{item}</li>
+            .map(item => <li key={item}><span className="Play-dot">&bull;</span>{item}</li>
           )}
         </ul>
         <Display song={this.state.currentSong} />

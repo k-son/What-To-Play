@@ -1,52 +1,66 @@
 .Play {
+  display: grid;
+  grid-template-rows: min-content 1fr 25vh 25vh;
   width: 100%;
   height: 100vh;
   background-color: #1a1a1a;
+  background-image: radial-gradient(120% 150% at 50% 20%, #414141, #1a1a1a 60%);
 }
-
 
 /* Song list */
 .Play-list {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  width: 80%;
-  max-width: 900px;
-  padding: 40px;
-  margin: 36px auto;
-  color: #fff;
+  grid-row: 2 / 3;
+  align-self: center;
+  width: fit-content;
+  max-width: 60%;
+  margin: 0 auto;
   border-radius: 5px;
   list-style-type: none;
-  font-size: 18px;
-  line-height: 1.8;
+  overflow: hidden;
 }
 
 .Play-list > li {
   display: inline;
   position: relative;
+  font-size: calc(14px + 6 * ((100vw - 320px) / 1020));
+  font-weight: 300;
+  line-height: 1.2;
+  color: #888;
+}
+
+@media only screen and (min-width: 1000px) {
+  .Play-list > li {
+    font-size: 18px;
+  }
 }
 
 .Play-list > li:not(:last-of-type) {
-  margin-right: 20px;
+  margin-right: 6px;
 }
-
+/*
 .Play-list > li:not(:last-of-type)::after {
   display: inline;
   content: "\2022";
   position: absolute;
-  left: calc(100% + 10px);
+  right: -10px;
   transform: translateX(-50%);
-  color: grey;
+  color: red;
 }
+*/ 
 
+.Play-dot {
+  margin-right: 6px;
+}
 
 /* Buttons */
 .Play-buttons {
+  grid-row: 4 / 5;
+  align-self: center;
   display: grid;
   grid-template-columns: repeat(3, 33.3333%);
   width: 90%;
   max-width: 500px;
-  margin: 40px auto;
+  margin: 24px auto 40px auto;
 }
 
 #btn-draw {
