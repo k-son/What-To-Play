@@ -111,11 +111,28 @@ class Play extends Component {
         {this.state.songs.length > 0 && <Button id="btn-choice" action={this.openModal} icon={<IconChoice />} description="Choose" />}
         </div>
         <div className={`Play-modal-${this.state.modal}`}>
-          <button type="button" className="Play-modal-closeBtn" onClick={this.closeModal}></button>
+          <button type="button" className="Play-modal-closeBtn" onClick={this.closeModal}>
+            <span className="xBar xBar-1">
+              <span className="circle circle-left"></span>
+              <span className="circle circle-right"></span>
+            </span>
+            <span className="xBar xBar-2">
+              <span className="circle circle-left"></span>
+              <span className="circle circle-right"></span>
+            </span>
+          </button>
           <ul className="Play-modal-list">
             {this.state.songs
               .sort((a, b) => a > b ? 1 : -1)
-              .map(item => <li key={item}><button type="button" onClick={this.chooseSong}>{item}</button></li>
+              .map(item => 
+              <li key={item}>
+                <button type="button" onClick={this.chooseSong}>
+                  <div className="Play-circle">
+                    <div></div>
+                  </div>
+                  <p>{item}</p>
+                </button>
+              </li>
             )}
           </ul>
         </div>
