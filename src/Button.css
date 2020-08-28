@@ -55,7 +55,7 @@
 }
 
 .Button:active .Button-innerBox {
-  filter: saturate(40%);
+  filter: saturate(20%);
 }
 
 #btn-draw:hover svg,
