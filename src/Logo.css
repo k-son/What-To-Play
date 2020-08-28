@@ -1,0 +1,6 @@
+.Logo {
+  grid-row: 1 / 2;
+  color: #999;
+  text-align: center;
+  margin: 24px 0;
+}
