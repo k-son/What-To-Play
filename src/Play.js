@@ -95,13 +95,16 @@ class Play extends Component {
   }
 
   render() {
-    let progressBar;
+    let progressBar, progressCount;
     if (this.progress() > 66) {
-      progressBar = <div className="bg-green" style={{width: this.progress() + '%'}}></div>;
+      progressBar = <div className="progressBar-max" style={{width: this.progress() + '%'}}></div>;
+      progressCount = <span className="progressCount-max" style={{left: this.progress() + '%'}}>{this.progress()}%</span>;
     } else if (this.progress() > 33 && this.progress() <= 66) {
-      progressBar = <div className="bg-yellow" style={{width: this.progress() + '%'}}></div>;
+      progressBar = <div className="progressBar-mid" style={{width: this.progress() + '%'}}></div>;
+      progressCount = <span className="progressCount-mid" style={{left: this.progress() + '%'}}>{this.progress()}%</span>;
     } else {
-      progressBar = <div className="bg-red" style={{width: this.progress() + '%'}}></div>;
+      progressBar = <div className="progressBar-min" style={{width: this.progress() + '%'}}></div>;
+      progressCount = <span className="progressCount-min" style={{left: this.progress() + '%'}}>{this.progress()}%</span>;
     }
 
     return(
@@ -116,7 +119,7 @@ class Play extends Component {
         <div className="Play-progress">
           <div>
             {progressBar}
-            <span style={{left: this.progress() + '%'}}>{this.progress()}%</span>
+            {progressCount}
           </div>
         </div>
         <Display song={this.state.currentSong} />

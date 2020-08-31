@@ -1,6 +1,6 @@
 .Play {
   display: grid;
-  grid-template-rows: min-content 1fr min-content 25vh 25vh;
+  grid-template-rows: min-content 1fr min-content min-content 25vh;
   width: 100%;
   height: 100vh;
   padding: 16px;
@@ -54,12 +54,13 @@
 
 .Play-progress > div {
   position: relative;
-  width: 90%;
-  max-width: 500px;
-  height: 20px;
+  width: 66%;
+  max-width: 400px;
+  height: 12px;
   margin: 24px auto;
-  padding: 2px;
-  background-color: black;
+  padding: 0px;
+  background-color: #1d1d1d;
+  border: 1px solid #555;
   border-radius: 25px;
 }
 
@@ -73,19 +74,36 @@
 
 .Play-progress span {
   position: absolute;
-  top: -32px;
-  transform: translateX(-100%);
+  top: -28px;
+  transform: translateX(-50%);
+  font-size: 14px;
+
 }
 
-.bg-green {
-  background-color: green;
+.progressBar-max {
+  background-color: var(--btn-color-yellow);
 }
-.bg-yellow {
-  background-color: yellow;
+
+.progressBar-mid {
+  background-color: var(--btn-color-orange);
 }
-.bg-red {
-  background-color: red;
+
+.progressBar-min {
+  background-color: var(--btn-color-red);
 }
+
+.progressCount-max {
+  color: var(--btn-color-yellow);
+}
+
+.progressCount-mid {
+  color: var(--btn-color-orange);
+}
+
+.progressCount-min {
+  color: var(--btn-color-red);
+}
+
 
 /* Buttons */
 .Play-buttons {

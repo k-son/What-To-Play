@@ -1,8 +1,7 @@
 :root {
   --btn-color-orange: #b87c3d;
   --btn-color-yellow: #b19d2d;
-  --btn-color-purple: #c73c3c;
-  --btn-color-purple: #c25026;
+  --btn-color-red: #c25026;
   --btn-color-green: #448735;
 }
 
@@ -150,7 +149,7 @@
 
 #btn-choice svg {
   height: 22px;
-  fill: var(--btn-color-purple);
+  fill: var(--btn-color-red);
 }
 
 #btn-reload svg {
@@ -183,7 +182,7 @@
 }
 
 #btn-choice .Button-description {
-  color: var(--btn-color-purple);
+  color: var(--btn-color-red);
 }
 
 #btn-reload .Button-description {
