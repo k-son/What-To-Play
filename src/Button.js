@@ -5,11 +5,10 @@ class Button extends Component {
   constructor(props) {
     super(props);
   }
-
   render() {
     return(
       <div className="Button-container" id={this.props.id}>
-        <button type='button' className="Button" onClick={this.props.action}>
+        <button type='button' className="Button" onClick={this.props.action} tabIndex={this.props.tabindex}>
           <span className="Button-middleBox">
             <span className="Button-coloredBox">
               <span className="Button-innerBox">
