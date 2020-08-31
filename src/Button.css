@@ -59,34 +59,34 @@
 }
 
 #btn-draw:hover svg,
-#btn-draw:focus svg,
+#btn-draw:focus-within svg,
 #btn-draw:hover .Button-description,
-#btn-draw:focus .Button-description {
+#btn-draw:focus-within .Button-description {
   filter: saturate(450%);
 }
 
 #btn-arrow:hover svg,
-#btn-arrow:focus svg,
+#btn-arrow:focus-within svg,
 #btn-arrow:hover .Button-description,
-#btn-arrow:focus .Button-description {
+#btn-arrow:focus-within .Button-description {
   filter: saturate(700%);
 }
 
 #btn-reload:hover svg,
-#btn-reload:focus svg,
+#btn-reload:focus-within svg,
 #btn-reload:hover .Button-description,
-#btn-reload:focus .Button-description {
+#btn-reload:focus-within .Button-description {
   filter: saturate(350%);
 }
 
 #btn-choice:hover svg,
-#btn-choice:focus svg,
+#btn-choice:focus-within svg,
 #btn-choice:hover .Button-description,
-#btn-choice:focus .Button-description {
+#btn-choice:focus-within .Button-description {
   filter: saturate(300%);
 }
 
-.Button-middleBox {
+.Button-middleBox { 
   position: relative;
   display: flex;
   justify-content: center;
