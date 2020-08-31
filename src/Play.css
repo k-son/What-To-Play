@@ -28,6 +28,7 @@
   font-size: calc(14px + 6 * ((100vw - 320px) / 1020));
   font-weight: 300;
   line-height: 1.2;
+  text-transform: capitalize;
   color: #888;
 }
 
