@@ -1,6 +1,17 @@
 .Logo {
   grid-row: 1 / 2;
-  color: #999;
+  position: relative;
+  color: rgba(153, 153, 153, 0.4);
+  font-size: 20px;
+  letter-spacing: 2px;
   text-align: center;
   margin: 24px 0;
+  text-shadow: -2px 1px rgb(43, 43, 43);
+}
+
+.Logo span:nth-child(1),
+.Logo span:nth-child(3),
+.Logo span:nth-child(7),
+.Logo span:nth-child(9) {
+
 }
