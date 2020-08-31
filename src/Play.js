@@ -89,7 +89,21 @@ class Play extends Component {
     })
   }
 
+  progress() {
+    const percentage = Math.ceil(parseFloat(this.state.songs.length / this.props.songs.length).toFixed(2) * 100);
+    return percentage;
+  }
+
   render() {
+    let progressBar;
+    if (this.progress() > 66) {
+      progressBar = <div className="bg-green" style={{width: this.progress() + '%'}}></div>;
+    } else if (this.progress() > 33 && this.progress() <= 66) {
+      progressBar = <div className="bg-yellow" style={{width: this.progress() + '%'}}></div>;
+    } else {
+      progressBar = <div className="bg-red" style={{width: this.progress() + '%'}}></div>;
+    }
+
     return(
       <div className="Play">
         <Logo />
@@ -99,6 +113,12 @@ class Play extends Component {
             .map(item => <li key={item}><span className="Play-dot">&bull;</span>{item}</li>
           )}
         </ul>
+        <div className="Play-progress">
+          <div>
+            {progressBar}
+            <span style={{left: this.progress() + '%'}}>{this.progress()}%</span>
+          </div>
+        </div>
         <Display song={this.state.currentSong} />
         <div className="Play-buttons">
         {this.state.songs.length > 0 ? 
