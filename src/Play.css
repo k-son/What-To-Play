@@ -321,6 +321,7 @@
   line-height: 1.4;
   font-weight: 300;
   text-align: center;
+  text-transform: capitalize;
   color: #b8b8b8;
   padding: 0 16px;
 }
