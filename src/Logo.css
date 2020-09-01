@@ -1,10 +1,10 @@
 .Logo {
   grid-row: 1 / 2;
   position: relative;
-  color: #525252;
   font-size: 24px;
   letter-spacing: 1px;
   text-align: center;
+  color: #525252;
   margin: 24px 0;
   text-shadow: -1px 1px 0 rgba(0, 0, 0, .75);
 }

@@ -50,39 +50,45 @@
 }
 
 .Button:active .Button-coloredBox {
-  filter: saturate(200%);
+  -webkit-filter: saturate(200%);
+          filter: saturate(200%);
 }
 
 .Button:active .Button-innerBox {
-  filter: saturate(20%);
+  -webkit-filter: saturate(20%);
+          filter: saturate(20%);
 }
 
 #btn-draw:hover svg,
 #btn-draw:focus-within svg,
 #btn-draw:hover .Button-description,
 #btn-draw:focus-within .Button-description {
-  filter: saturate(450%);
+  -webkit-filter: saturate(450%);
+          filter: saturate(450%);
 }
 
 #btn-arrow:hover svg,
 #btn-arrow:focus-within svg,
 #btn-arrow:hover .Button-description,
 #btn-arrow:focus-within .Button-description {
-  filter: saturate(700%);
+  -webkit-filter: saturate(700%);
+          filter: saturate(700%);
 }
 
 #btn-reload:hover svg,
 #btn-reload:focus-within svg,
 #btn-reload:hover .Button-description,
 #btn-reload:focus-within .Button-description {
-  filter: saturate(350%);
+  -webkit-filter: saturate(350%);
+          filter: saturate(350%);
 }
 
 #btn-choice:hover svg,
 #btn-choice:focus-within svg,
 #btn-choice:hover .Button-description,
 #btn-choice:focus-within .Button-description {
-  filter: saturate(300%);
+  -webkit-filter: saturate(300%);
+          filter: saturate(300%);
 }
 
 .Button-middleBox { 

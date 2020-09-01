@@ -1,5 +1,6 @@
 .Play {
   display: grid;
+  grid-template-rows: -webkit-min-content 1fr -webkit-min-content -webkit-min-content 25vh;
   grid-template-rows: min-content 1fr min-content min-content 25vh;
   width: 100%;
   height: 100vh;
@@ -13,6 +14,8 @@
 .Play-list {
   grid-row: 2 / 3;
   align-self: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   max-width: 66%;
   max-height: 30vh;
@@ -256,6 +259,7 @@
 .Play-modal-list li button {
   display: grid;
   align-items: center;
+  grid-template-columns: -webkit-max-content 1fr;
   grid-template-columns: max-content 1fr;
   width: 70%;
   max-width: 640px;
