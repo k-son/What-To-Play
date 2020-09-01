@@ -1,7 +1,8 @@
 {
   "name": "what_to_play",
   "version": "0.1.0",
-  "private": true,
+  "author": "jacek jarczok k-son.eu",
+  "private": false,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
@@ -29,6 +30,7 @@
       "last 1 chrome version",
       "last 1 firefox version",
       "last 1 safari version"
-    ]
+    ],
+    "homepage": "http://whattoplay.k-son.eu"
   }
 }
