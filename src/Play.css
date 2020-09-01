@@ -264,14 +264,17 @@
   margin: 0 auto;
   border: none;
   border-bottom: 1px solid #1d1d1d;
+  border-radius: 3px;
 }
 
 .Play-modal-list li button:hover {
   cursor: pointer;
+  background-color: rgba(255, 255, 255, .05);
 }
 
 .Play-modal-list li button:focus {
   outline: none;
+  background-color: rgba(255, 255, 255, .05);
 }
 
 .Play-modal-list li button:hover .Play-circle, 
