@@ -5,7 +5,7 @@ class Logo extends Component {
   render() {
     return(
       <div className="Logo">
-        <p>what to play ?</p>
+        <h1>what to play ?</h1>
       </div>
     );
   }

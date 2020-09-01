@@ -25,6 +25,36 @@ class Play extends Component {
     'Bad romance',
     'Love Buzz',
     'Like a virgin'
+    /*
+    'Abou a girl',
+    'Born to be ild',
+    'Crep',
+    'olene',
+    'Lake Fire',
+    'Persnal Jesus',
+    'Rape dMe',
+    'Seven Natin Army',
+    'The mawho sold the world',
+    'Where dd you sleep last night',
+    'Zombi',
+    'Bad omance',
+    'Lover Buzz',
+    'Like a pirgin',
+    'About a gir',
+    'Born to be ssswild',
+    'Creefsdsp',
+    'JolenaFDe',
+    'Lake Of SFDSFFire',
+    'Personal JesuSFSDFs',
+    'Rape MAAAe',
+    'Seven Natdfdion Army',
+    'The man who gdgsold the world',
+    'Where did you ssdfsleep last night',
+    'Zombisse',
+    'Bad romdffance',
+    'Love Buzzee',
+    'Like a virgsssfin'
+    */
     ]
   }
 
@@ -110,28 +140,32 @@ class Play extends Component {
     return(
       <div className="Play">
         <Logo />
-        <ul className="Play-list">
-          {this.state.songs
-            .sort((a, b) => a > b ? 1 : -1)
-            .map(item => <li key={item}><span className="Play-dot">&bull;</span>{item}</li>
-          )}
-        </ul>
-        <div className="Play-progress">
-          <div>
-            {progressBar}
-            {progressCount}
-          </div>
+        <div className="Play-listContainer">
+          <ul className="Play-list">
+            {this.state.songs
+              .sort((a, b) => a > b ? 1 : -1)
+              .map(item => <li key={item}><span className="Play-dot">&bull;</span>{item}</li>
+            )}
+          </ul>
         </div>
-        <Display song={this.state.currentSong} />
-        <div className="Play-buttons">
-        {this.state.songs.length > 0 ? 
-          <Button id="btn-draw" action={this.drawSong} icon={<IconDices />} tabindex="1" labelledby="Draw" description="Draw" /> : 
-          <Button id="btn-reload" action={this.reloadFullSongList} icon={<IconRefresh />} tabindex="1" labelledby="Reload" description="Reload" />
-        }
-        {this.state.songs.length > 0 && this.state.currentSong !== ' ' ? 
-          <Button id="btn-arrow" action={this.putBackCurrentSong} icon={<IconBackArrow />} tabindex="2" labelledby="Back" description="Back" /> : 
-          null }
-        {this.state.songs.length > 0 && <Button id="btn-choice" action={this.openModal} icon={<IconChoice />} tabindex="2" labelledby="Choose" description="Choose" />}
+        <div className="Play-box">
+          <div className="Play-progress">
+            <div>
+              {progressBar}
+              {progressCount}
+            </div>
+          </div>
+          <Display song={this.state.currentSong} />
+          <div className="Play-buttons">
+          {this.state.songs.length > 0 ? 
+            <Button id="btn-draw" action={this.drawSong} icon={<IconDices />} tabindex="1" labelledby="Draw" description="Draw" /> : 
+            <Button id="btn-reload" action={this.reloadFullSongList} icon={<IconRefresh />} tabindex="1" labelledby="Reload" description="Reload" />
+          }
+          {this.state.songs.length > 0 && this.state.currentSong !== ' ' ? 
+            <Button id="btn-arrow" action={this.putBackCurrentSong} icon={<IconBackArrow />} tabindex="2" labelledby="Back" description="Back" /> : 
+            null }
+          {this.state.songs.length > 0 && <Button id="btn-choice" action={this.openModal} icon={<IconChoice />} tabindex="2" labelledby="Choose" description="Choose" />}
+          </div>
         </div>
         <div className={`Play-modal-${this.state.modal}`}>
           <button type="button" className="Play-modal-closeBtn" onClick={this.closeModal}>
