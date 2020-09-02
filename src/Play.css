@@ -296,10 +296,8 @@
 }
 
 .Play-modal-list li button {
-  display: grid;
+  display: flex;
   align-items: center;
-  grid-template-columns: -webkit-max-content 1fr;
-  grid-template-columns: max-content 1fr;
   width: 70%;
   max-width: 640px;
   background-color: transparent;
@@ -333,6 +331,7 @@
 }
 
 .Play-circle {
+  flex: 0 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -347,6 +346,7 @@
   .Play-circle {
     width: 20px;
     height: 20px;
+    margin-right: 32px;
   }
 }
 
@@ -354,6 +354,7 @@
   .Play-circle {
     width: 24px;
     height: 24px;
+    margin-right: 48px;
   }
 }
 
@@ -365,11 +366,12 @@
 }
 
 .Play-modal-list li button p {
+  flex: 0 1 auto;
   font-family: 'Roboto', sans-serif;
   font-size: calc(16px + 6 * ((100vw - 320px) / 680));
   line-height: 1.4;
   font-weight: 300;
-  text-align: center;
+  text-align: left;
   text-transform: capitalize;
   color: #b8b8b8;
   padding: 0 16px;
