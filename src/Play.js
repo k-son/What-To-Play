@@ -24,7 +24,7 @@ class Play extends Component {
     'Zombie',
     'Bad romance',
     'Love Buzz',
-    'Like a virgin',
+    'Like a virgin'
   /*
     'Abou a girl',
     'Born to be ild',
