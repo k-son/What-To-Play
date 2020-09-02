@@ -157,14 +157,13 @@ class Play extends Component {
           </div>
           <Display song={this.state.currentSong} />
           <div className="Play-buttons">
-          {this.state.songs.length > 0 ? 
-            <Button id="btn-draw" action={this.drawSong} icon={<IconDices />} tabindex="1" labelledby="Draw" description="Draw" /> : 
-            <Button id="btn-reload" action={this.reloadFullSongList} icon={<IconRefresh />} tabindex="1" labelledby="Reload" description="Reload" />
-          }
-          {this.state.songs.length > 0 && this.state.currentSong !== ' ' ? 
-            <Button id="btn-arrow" action={this.putBackCurrentSong} icon={<IconBackArrow />} tabindex="2" labelledby="Back" description="Back" /> : 
-            null }
-          {this.state.songs.length > 0 && <Button id="btn-choice" action={this.openModal} icon={<IconChoice />} tabindex="2" labelledby="Choose" description="Choose" />}
+            {this.state.songs.length > 0 ? 
+              <Button id="btn-draw" action={this.drawSong} icon={<IconDices />} tabindex="1" labelledby="Draw" description="Draw" /> : 
+              <Button id="btn-reload" action={this.reloadFullSongList} icon={<IconRefresh />} tabindex="1" labelledby="Reload" description="Reload" />}
+            {this.state.songs.length > 0 && this.state.currentSong !== ' ' ? 
+              <Button id="btn-arrow" action={this.putBackCurrentSong} icon={<IconBackArrow />} tabindex="2" labelledby="Back" description="Back" /> : 
+              null }
+            {this.state.songs.length > 0 && <Button id="btn-choice" action={this.openModal} icon={<IconChoice />} tabindex="2" labelledby="Choose" description="Choose" />}
           </div>
         </div>
         <div className={`Play-modal-${this.state.modal}`}>
@@ -182,14 +181,14 @@ class Play extends Component {
             {this.state.songs
               .sort((a, b) => a > b ? 1 : -1)
               .map(item => 
-              <li key={item}>
-                <button type="button" onClick={this.chooseSong} aria-labelledby={item}>
-                  <div className="Play-circle">
-                    <div></div>
-                  </div>
-                  <p id={item}>{item}</p>
-                </button>
-              </li>
+                <li key={item}>
+                  <button type="button" onClick={this.chooseSong} aria-labelledby={item}>
+                    <div className="Play-circle">
+                      <div></div>
+                    </div>
+                    <p id={item}>{item}</p>
+                  </button>
+                </li>
             )}
           </ul>
         </div>
