@@ -213,6 +213,11 @@
   outline: none;
 }
 
+.Play-modal-closeBtn:hover,
+.Play-modal-closeBtn:focus {
+  background-color: rgba(255, 255, 255, .05);
+}
+
 .Play-modal-closeBtn:active {
   border: 2px solid #2c9b15;
 }
@@ -307,11 +312,14 @@
 
 .Play-modal-list li button:hover {
   cursor: pointer;
-  background-color: rgba(255, 255, 255, .05);
 }
 
 .Play-modal-list li button:focus {
   outline: none;
+}
+
+.Play-modal-list li button:hover,
+.Play-modal-list li button:focus {
   background-color: rgba(255, 255, 255, .05);
 }
 
