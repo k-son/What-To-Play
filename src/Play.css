@@ -9,16 +9,16 @@
 /* Song list */
 .Play-listContainer {
   position: fixed;
-  top: 80px;
+  top: 72px;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
   align-items: center;
-  width: calc(66% + 32px);
-  max-width: 672px;
-  height: calc(100vh - 80px - 400px);
-  min-height: 150px;
-  max-height: 33vh;
+  width: calc(80% + 32px);
+  max-width: 640px;
+  height: calc(100vh - 80px - 560px);
+  min-height: 100px;
+  max-height: 30vh;
 }
 
 .Play-list {
@@ -34,21 +34,22 @@
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 16px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #262626;
+  background: #1d1d1d;
   border-radius: 15px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-image: linear-gradient(to bottom, #4a4a4a, #333);
+  background-image: linear-gradient(to bottom, #666, #444);
+  border: 1px solid #1d1d1d;
   border-radius: 15px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-image: linear-gradient(to bottom, #555, #555);
+  background-image: linear-gradient(to bottom, #888, #666);
 }
 
 .Play-list > li {
@@ -59,7 +60,7 @@
   line-height: 1.4;
   text-transform: capitalize;
   text-align: center;
-  color: #888;
+  color: #999;
 }
 
 @media only screen and (min-width: 1000px) {
@@ -88,14 +89,20 @@
   z-index: 2;
 }
 
+@media only screen and (max-width: 375px) {
+  .Play-box {
+    bottom: -6px;
+  }
+}
+
 
 /* Progress bar */
 .Play-progress > div {
   position: relative;
-  width: 66%;
+  width: 68%;
   max-width: 400px;
   height: 12px;
-  margin: 24px auto;
+  margin: 20px auto;
   padding: 0px;
   background-color: #1d1d1d;
   border: 1px solid #555;
@@ -148,21 +155,24 @@
   align-self: center;
   display: grid;
   grid-template-columns: repeat(3, 33.3333%);
-  width: 90%;
-  max-width: 500px;
-  margin: 24px auto 40px auto;
+  width: 86%;
+  max-width: 400px;
+  margin: 20px auto 40px auto;
 }
 
 #btn-draw {
   grid-column: 1 / 2;
+  justify-self: start;
 }
 
 #btn-arrow {
   grid-column: 2 / 3;
+  justify-self: center;
 }
 
 #btn-choice {
   grid-column: 3 / 4;
+  justify-self: end;
 }
 
 #btn-reload {
