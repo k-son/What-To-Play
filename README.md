@@ -12,7 +12,7 @@ Designed to use mainly on mobile devices.
 * Withdrawal of a drawn song
 * Manual selection from the remaining songs
 * Song list sorted alphabetically
-* Deactivation of *put back* and *select* buttons when useless
+* Buttons deactivation when useless
 * Keyboard accessibility
 
 ## Setup
