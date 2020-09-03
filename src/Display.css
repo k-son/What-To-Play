@@ -21,6 +21,12 @@
   }
 }
 
+@media only screen and (min-height: 800px) {
+  .Display {
+    margin: 4vh auto;
+  }
+}
+
 .Display::before {
   display: block;
   content: "";
