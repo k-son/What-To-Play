@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Button from './components/Button';
 import Display from './components/Display';
 import Logo from './components/Logo';
+import ProgressBar from './components/ProgressBar';
 import KeyDownListener from './components/KeyDownListener';
 import MouseDownListener from './components/MouseDownListener';
 import {ReactComponent as IconBackArrow} from './icons/back-arrow.svg';
@@ -10,6 +11,7 @@ import {ReactComponent as IconDices} from './icons/dices.svg';
 import {ReactComponent as IconRefresh} from './icons/refresh.svg';
 import {songList} from './songList';
 import './Play.css';
+
 
 class Play extends Component {
   static defaultProps = {
@@ -99,18 +101,6 @@ class Play extends Component {
   }
 
   render() {
-    let progressBar, progressCount;
-    if (this.progress() > 66) {
-      progressBar = <div className="progressBar-max" style={{width: this.progress() + '%'}}></div>;
-      progressCount = <span className="progressCount-max" style={{left: this.progress() + '%'}}>{this.progress()}%</span>;
-    } else if (this.progress() > 33 && this.progress() <= 66) {
-      progressBar = <div className="progressBar-mid" style={{width: this.progress() + '%'}}></div>;
-      progressCount = <span className="progressCount-mid" style={{left: this.progress() + '%'}}>{this.progress()}%</span>;
-    } else {
-      progressBar = <div className="progressBar-min" style={{width: this.progress() + '%'}}></div>;
-      progressCount = <span className="progressCount-min" style={{left: this.progress() + '%'}}>{this.progress()}%</span>;
-    }
-
     return(
       <div className="Play">
         <KeyDownListener onKeyDown={this.handleKeyDown} />
@@ -125,12 +115,7 @@ class Play extends Component {
           </ul>
         </div>
         <div className="Play-box">
-          <div className="Play-progress">
-            <div>
-              {progressBar}
-              {progressCount}
-            </div>
-          </div>
+          <ProgressBar progress={this.progress()} />
           <Display song={this.state.currentSong} />
           <div className="Play-buttons">
             {this.state.songs.length > 0 ? 

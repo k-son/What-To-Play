@@ -115,60 +115,6 @@
 }
 
 
-/* Progress bar */
-.Play-progress > div {
-  position: relative;
-  width: 68%;
-  max-width: 400px;
-  height: 12px;
-  margin: 20px auto;
-  padding: 0px;
-  background-color: #1d1d1d;
-  border: 1px solid #555;
-  border-radius: 25px;
-}
-
-.Play-progress div div {
-  width: 80%;
-  height: 100%;
-  border-top-left-radius: 15px;
-  border-bottom-left-radius: 15px;
-  border-radius: 25px;
-}
-
-.Play-progress span {
-  position: absolute;
-  top: -28px;
-  transform: translateX(-50%);
-  font-size: 14px;
-
-}
-
-.progressBar-max {
-  background-color: var(--btn-color-yellow);
-}
-
-.progressBar-mid {
-  background-color: var(--btn-color-orange);
-}
-
-.progressBar-min {
-  background-color: var(--btn-color-red);
-}
-
-.progressCount-max {
-  color: var(--btn-color-yellow);
-}
-
-.progressCount-mid {
-  color: var(--btn-color-orange);
-}
-
-.progressCount-min {
-  color: var(--btn-color-red);
-}
-
-
 /* Buttons */
 .Play-buttons {
   align-self: center;
