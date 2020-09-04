@@ -11,6 +11,7 @@ import {ReactComponent as IconDices} from './icons/dices.svg';
 import {ReactComponent as IconRefresh} from './icons/refresh.svg';
 import {songList} from './songList';
 import './Play.css';
+import './variables.css'
 
 
 class Play extends Component {

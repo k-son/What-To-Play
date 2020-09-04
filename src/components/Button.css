@@ -1,10 +1,3 @@
-:root {
-  --btn-color-orange: #ba7226;
-  --btn-color-yellow: #b19d2d;
-  --btn-color-red: #c25026;
-  --btn-color-green: #448735;
-}
-
 .Button-container {
   display: flex;
   flex-direction: column;
