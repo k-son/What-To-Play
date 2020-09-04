@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import Button from './Button';
 import Display from './Display';
 import Logo from './Logo';
+import KeyDownListener from './KeyDownListener';
+import MouseDownListener from './MouseDownListener';
 import { ReactComponent as IconBackArrow} from './icons/back-arrow.svg';
 import { ReactComponent as IconChoice} from './icons/one.svg';
 import { ReactComponent as IconDices} from './icons/dices.svg';
@@ -124,6 +126,22 @@ class Play extends Component {
     return percentage;
   }
 
+  // add outline to buttons when accessing by keyboard 
+  handleKeyDown() {
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Tab') {
+          document.body.classList.remove('intent-mouse')
+      }
+    });
+  }
+
+  // removes outline from buttons when accessing by mouse click 
+  handleMouseDown() {
+    document.addEventListener('mousedown', () =>
+    document.body.classList.add('intent-mouse') 
+    );
+  }
+
   render() {
     let progressBar, progressCount;
     if (this.progress() > 66) {
@@ -139,6 +157,8 @@ class Play extends Component {
 
     return(
       <div className="Play">
+        <KeyDownListener onKeyDown={this.handleKeyDown} />
+        <MouseDownListener onMouseDown={this.handleMouseDown} />
         <Logo />
         <div className="Play-listContainer">
           <ul className="Play-list">

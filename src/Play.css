@@ -238,12 +238,7 @@
   cursor: pointer;
 }
 
-.Play-modal-closeBtn:focus {
-  outline: none;
-}
-
-.Play-modal-closeBtn:hover,
-.Play-modal-closeBtn:focus {
+.Play-modal-closeBtn:hover {
   background-color: rgba(255, 255, 255, .05);
 }
 
@@ -251,23 +246,19 @@
   border: 2px solid #2c9b15;
 }
 
-.Play-modal-closeBtn:hover .xBar,
-.Play-modal-closeBtn:focus .xBar {
+.Play-modal-closeBtn:hover .xBar {
   background-color: #2c9b15;
 }
 
-.Play-modal-closeBtn:hover .circle,
-.Play-modal-closeBtn:focus .circle {
+.Play-modal-closeBtn:hover .circle {
   background-color: #b8b8b8;
 }
 
-.Play-modal-closeBtn:hover .circle-left,
-.Play-modal-closeBtn:focus .circle-left {
+.Play-modal-closeBtn:hover .circle-left {
   margin-left: calc(100% - 2px);
 }
 
-.Play-modal-closeBtn:hover .circle-right,
-.Play-modal-closeBtn:focus .circle-right {
+.Play-modal-closeBtn:hover .circle-right {
   margin-left: 0;
 }
 
@@ -341,17 +332,11 @@
   cursor: pointer;
 }
 
-.Play-modal-list li button:focus {
-  outline: none;
-}
-
-.Play-modal-list li button:hover,
-.Play-modal-list li button:focus {
+.Play-modal-list li button:hover {
   background-color: rgba(255, 255, 255, .05);
 }
 
-.Play-modal-list li button:hover .Play-circle, 
-.Play-modal-list li button:focus .Play-circle {
+.Play-modal-list li button:hover .Play-circle {
   border: 2px solid #2c9b15;
 }
 
