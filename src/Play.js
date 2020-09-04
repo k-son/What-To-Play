@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import Button from './Button';
-import Display from './Display';
-import Logo from './Logo';
-import KeyDownListener from './KeyDownListener';
-import MouseDownListener from './MouseDownListener';
+import Button from './components/Button';
+import Display from './components/Display';
+import Logo from './components/Logo';
+import KeyDownListener from './components/KeyDownListener';
+import MouseDownListener from './components/MouseDownListener';
 import {ReactComponent as IconBackArrow} from './icons/back-arrow.svg';
 import {ReactComponent as IconChoice} from './icons/one.svg';
 import {ReactComponent as IconDices} from './icons/dices.svg';
