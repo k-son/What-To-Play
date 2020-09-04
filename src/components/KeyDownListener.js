@@ -8,7 +8,6 @@ class KeyDownListener extends Component {
   componentWillUnmount() {
     document.removeEventListener('keydown', this.props.onKeyDown);
   }
-
   render() {
     return null;
   }

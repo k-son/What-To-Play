@@ -8,7 +8,6 @@ class MouseDownListener extends Component {
   componentWillUnmount() {
     document.removeEventListener('mousedown', this.props.onMouseDown);
   }
-
   render() {
     return null;
   }
