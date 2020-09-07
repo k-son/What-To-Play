@@ -3,7 +3,7 @@ import './ProgressRing.css';
 
 class ProgressRing extends Component {
   constructor(props) {
-    super(props);
+    super();
   }
   render() {
     // Size of the enclosing square

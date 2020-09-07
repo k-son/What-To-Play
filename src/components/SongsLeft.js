@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import './SongsLeft.css';
 
 class SongsLeft extends Component {
+  constructor(props) {
+    super();
+  }
   render() {
     return(
         <div className="SongsLeft">

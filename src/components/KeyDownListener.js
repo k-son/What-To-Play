@@ -2,6 +2,10 @@ import React, {Component} from 'react';
 import './eventListeners.css';
 
 class KeyDownListener extends Component {
+  constructor(props) {
+    super();
+  }
+  
   componentDidMount() {
     document.addEventListener('keydown', this.props.onKeyDown);
   }

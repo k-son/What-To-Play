@@ -3,6 +3,9 @@ import './ProgressBar.css';
 import SongsLeft from './SongsLeft';
 
 class ProgressBar extends Component {
+  constructor(props) {
+    super();
+  }
   render() {
 
     let barCol;
