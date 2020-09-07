@@ -3,6 +3,7 @@ import Button from './components/Button';
 import Display from './components/Display';
 import Logo from './components/Logo';
 import ProgressBar from './components/ProgressBar';
+import ProgressRing from './components/ProgressRing';
 import KeyDownListener from './components/KeyDownListener';
 import MouseDownListener from './components/MouseDownListener';
 import {ReactComponent as IconBackArrow} from './icons/back-arrow.svg';
@@ -145,6 +146,7 @@ class Play extends Component {
           </ul>
         </div>
         <div className="Play-box">
+          <ProgressRing sqSize="140" strokeWidth="8" percentage={this.progress()}/>
           <ProgressBar progress={this.progress()} songsLeft={this.state.songs.length} />
           <Display song={this.state.currentSong} />
           <div className="Play-buttons">
