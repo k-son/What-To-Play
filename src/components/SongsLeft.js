@@ -1,0 +1,14 @@
+import React, {Component} from 'react';
+import './SongsLeft.css';
+
+class SongsLeft extends Component {
+  render() {
+    return(
+        <div className="SongsLeft">
+          <span style={{color: this.props.color}}>{this.props.songsLeft}</span><span> songs left</span>
+        </div>
+      );
+  }
+}
+
+export default SongsLeft;

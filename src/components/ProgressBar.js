@@ -1,22 +1,26 @@
 import React, {Component} from 'react';
 import './ProgressBar.css';
+import SongsLeft from './SongsLeft';
 
 class ProgressBar extends Component {
   render() {
 
-    let bgCol;
+    let barCol;
     if (this.props.progress > 66) {
-      bgCol = 'var(--btn-color-yellow)'
+      barCol = 'var(--btn-color-yellow)'
     } else if (this.props.progress > 33 && this.props.progress <= 66) {
-      bgCol = 'var(--btn-color-orange)'
+      barCol = 'var(--btn-color-orange)'
     } else {
-      bgCol = 'var(--btn-color-red)'
+      barCol = 'var(--btn-color-red)'
     }
 
     return(
       <div className="ProgressBar">
-        <div className="ProgressBar-bar" style={{width: this.props.progress + '%', backgroundColor: bgCol}}></div>
-        <span className="ProgressBar-count" style={{left: this.props.progress + '%', color: bgCol}}>{this.props.progress}%</span>
+        <SongsLeft songsLeft={this.props.songsLeft} color={barCol} />
+        <div className="ProgressBar-bar">
+          <div style={{width: this.props.progress + '%', backgroundColor: barCol}}></div>
+          <span className="ProgressBar-count" style={{left: this.props.progress + '%', color: barCol}}>{this.props.progress}%</span>
+        </div>
       </div>
     );
   }

@@ -116,7 +116,7 @@ class Play extends Component {
           </ul>
         </div>
         <div className="Play-box">
-          <ProgressBar progress={this.progress()} />
+          <ProgressBar progress={this.progress()} songsLeft={this.state.songs.length} />
           <Display song={this.state.currentSong} />
           <div className="Play-buttons">
             {this.state.songs.length > 0 ? 
