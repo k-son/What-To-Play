@@ -101,6 +101,11 @@ class Play extends Component {
       this.setState({
         songs: filteredList
       })
+      if (this.state.songs.length === 1) {
+        this.setState({
+          modal: 'hidden'
+        })
+      }
     }
   }
 
