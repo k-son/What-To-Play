@@ -73,6 +73,7 @@ class Play extends Component {
     })
   }
 
+  // choose a song to play in modal view
   chooseSong(e) {
     const chosenSong = e.target.textContent;
     const filteredList = this.state.songs.filter(el => el !== chosenSong);
@@ -83,6 +84,8 @@ class Play extends Component {
     })
   }
 
+  // track in state currently hovered list item in modal view
+  // for removeSong() method purpose
   hoverSong(e) {
     const hoveredSong = e.target.textContent;
     this.setState({
@@ -90,6 +93,7 @@ class Play extends Component {
     })
   }
 
+  // remove song from current song list 
   removeSong() {
     const songToRemove = this.state.hoveredSong;
     if (window.confirm(`Remove '${songToRemove}' from current list?`)) {
