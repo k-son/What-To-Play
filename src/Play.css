@@ -17,6 +17,8 @@
   width: calc(80% + 32px);
   max-width: 640px;
   height: 100px;
+
+  display: none;
 }
 
 @media only screen and (min-height: 700px) {
