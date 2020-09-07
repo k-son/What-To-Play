@@ -24,7 +24,8 @@ class Play extends Component {
     this.state = {
       songs: this.props.songs,
       currentSong: ' ',
-      modal: 'hidden'
+      modal: 'hidden',
+      hoveredSong: ''
     };
     this.drawSong = this.drawSong.bind(this);
     this.reloadFullSongList = this.reloadFullSongList.bind(this);
@@ -32,6 +33,8 @@ class Play extends Component {
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.chooseSong = this.chooseSong.bind(this);
+    this.hoverSong = this.hoverSong.bind(this);
+    this.removeSong = this.removeSong.bind(this);
   }
 
   drawSong() {
@@ -78,6 +81,23 @@ class Play extends Component {
       currentSong: chosenSong,
       modal: 'hidden'
     })
+  }
+
+  hoverSong(e) {
+    const hoveredSong = e.target.textContent;
+    this.setState({
+      hoveredSong: hoveredSong
+    })
+  }
+
+  removeSong() {
+    const songToRemove = this.state.hoveredSong;
+    if (window.confirm(`Remove '${songToRemove}' from current list?`)) {
+      const filteredList = this.state.songs.filter(el => el !== songToRemove);
+      this.setState({
+        songs: filteredList
+      })
+    }
   }
 
   progress() {
@@ -143,13 +163,14 @@ class Play extends Component {
             {this.state.songs
               .sort((a, b) => a > b ? 1 : -1)
               .map(item => 
-                <li key={item}>
-                  <button type="button" onClick={this.chooseSong} aria-labelledby={item}>
+                <li key={item} onMouseEnter={this.hoverSong}>
+                  <button className="ModalList-chooseBtn" type="button" onClick={this.chooseSong} aria-labelledby={item}>
                     <div className="Play-circle">
                       <div></div>
                     </div>
                     <p id={item}>{item}</p>
                   </button>
+                  <button className="ModalList-removeSongBtn" type="button" onClick={this.removeSong} title="Remove song from current list" aria-label="remove song from current list"></button>
                 </li>
             )}
           </ul>
