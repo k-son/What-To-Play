@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import './ProgressRing.css';
 
 class ProgressRing extends Component {
   constructor(props) {
@@ -15,6 +16,15 @@ class ProgressRing extends Component {
     const dashArray = radius * Math.PI * 2;
     // Scale 100% coverage overlay with the actual percent
     const dashOffset = dashArray - dashArray * this.props.percentage / 100;
+    // Stroke color 
+    let barCol;
+    if (this.props.percentage > 66) {
+      barCol = 'var(--btn-color-yellow)'
+    } else if (this.props.percentage > 33 && this.props.percentage <= 66) {
+      barCol = 'var(--btn-color-orange)'
+    } else {
+      barCol = 'var(--btn-color-red)'
+    }
 
     return (
       <figure className="ProgressRing">
@@ -29,7 +39,6 @@ class ProgressRing extends Component {
               r={radius}
               strokeWidth={`${this.props.strokeWidth}px`} 
               style={{
-                stroke: "red",
                 fill: "none"
               }}
               />
@@ -45,19 +54,16 @@ class ProgressRing extends Component {
                 fill: "none",
                 strokeDasharray: dashArray,
                 strokeDashoffset: dashOffset,
-                stroke: "blue",
+                stroke: barCol,
                 strokeLinecap: "round",
                 strokeLinejoin: "round"
               }} />
-            <text
-              className="ProgressRing-text"
-              x="50%"
-              y="50%"
-              dy=".3em"
-              textAnchor="middle">
-              {`${this.props.percentage}%`}
-            </text>
         </svg>
+        <div className="ProgressRing-text">
+          <p style={{color: barCol}}>{this.props.songsLeft}</p>
+          <p style={{color: barCol}}>({this.props.percentage}%)</p>
+          <p>songs left</p>
+        </div>
       </figure>
     );
   }

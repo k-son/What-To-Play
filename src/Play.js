@@ -146,7 +146,7 @@ class Play extends Component {
           </ul>
         </div>
         <div className="Play-box">
-          <ProgressRing sqSize="140" strokeWidth="8" percentage={this.progress()}/>
+          <ProgressRing sqSize="200" strokeWidth="8" songsLeft={this.state.songs.length} percentage={this.progress()}/>
           <ProgressBar progress={this.progress()} songsLeft={this.state.songs.length} />
           <Display song={this.state.currentSong} />
           <div className="Play-buttons">
