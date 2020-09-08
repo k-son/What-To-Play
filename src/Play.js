@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Button from './components/Button';
 import Display from './components/Display';
 import Logo from './components/Logo';
+import CurrentList from './components/CurrentList';
 import ProgressBar from './components/ProgressBar';
 import ProgressRing from './components/ProgressRing';
 import KeyDownListener from './components/KeyDownListener';
@@ -127,17 +128,13 @@ class Play extends Component {
         <KeyDownListener onKeyDown={this.handleKeyDown} />
         <MouseDownListener onMouseDown={this.handleMouseDown} />
         <Logo />
-        <div className="Play-listContainer">
-          <ul className="Play-list">
-            {this.state.songs
-              .sort((a, b) => a > b ? 1 : -1)
-              .map(item => <li key={item}><span className="Play-dot">&bull;</span>{item}</li>
-            )}
-          </ul>
-        </div>
+        <CurrentList songs={this.state.songs} />
+
         <div className="Play-box">
+        {/*
           <ProgressRing sqSize="200" strokeWidth="8" songsLeft={this.state.songs.length} percentage={this.progress()}/>
           <ProgressBar progress={this.progress()} songsLeft={this.state.songs.length} />
+        */}
           <Display song={this.state.currentSong} />
           <div className="Play-buttons">
             {this.state.songs.length > 0 ? 
