@@ -335,8 +335,8 @@
   flex-shrink: 0;
   position: relative;
   display: block;
-  width: 48px;
-  height: 48px;
+  width: 52px;
+  height: 52px;
   margin-right: 12px;
   background-color: transparent;
   border: none;
@@ -357,7 +357,7 @@
   transform: translate(-50%, -50%);
   width: 24px;
   height: 24px;
-  background-color: #c20013;
+  background-color: hsl(16, 97%, 40%);
   border-radius: 50%;
 }
 
@@ -370,7 +370,7 @@
   transform: translate(-50%, -50%);
   width: 12px;
   height: 2px;
-  background-color: #cecece;
+  background-color: #eee;
   border-radius: 5px;
   z-index: 2;
 }
