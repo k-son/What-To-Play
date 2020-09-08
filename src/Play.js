@@ -14,6 +14,8 @@ import {ReactComponent as IconRefresh} from './icons/refresh.svg';
 import {songList} from './songList';
 import './Play.css';
 import './variables.css'
+import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
+import 'pure-react-carousel/dist/react-carousel.es.css';
 
 
 class Play extends Component {
@@ -128,13 +130,20 @@ class Play extends Component {
         <KeyDownListener onKeyDown={this.handleKeyDown} />
         <MouseDownListener onMouseDown={this.handleMouseDown} />
         <Logo />
-        <CurrentList songs={this.state.songs} />
-
+        
+        <CarouselProvider className="mobileCarousel"
+          naturalSlideWidth={300}
+          naturalSlideHeight={300}
+          totalSlides={2}
+        >
+          <Slider className="mobileCarousel-slider">
+            <Slide className="mobileCarousel-slide" index={0}><ProgressRing sqSize="200" strokeWidth="8" songsLeft={this.state.songs.length} percentage={this.progress()}/></Slide>
+            <Slide className="mobileCarousel-slide" index={1}><div><CurrentList songs={this.state.songs} /></div></Slide>
+          </Slider>
+          <ButtonBack>Progress</ButtonBack>
+          <ButtonNext>Song list</ButtonNext>
+        </CarouselProvider>
         <div className="Play-box">
-        {/*
-          <ProgressRing sqSize="200" strokeWidth="8" songsLeft={this.state.songs.length} percentage={this.progress()}/>
-          <ProgressBar progress={this.progress()} songsLeft={this.state.songs.length} />
-        */}
           <Display song={this.state.currentSong} />
           <div className="Play-buttons">
             {this.state.songs.length > 0 ? 

@@ -4,14 +4,13 @@
   align-items: center;
   width: calc(80% + 32px);
   max-width: 640px;
+  height: 200px;
   margin: 0 auto;
-  border: 1px solid yellow;
-  height: 100px;
 }
 
 @media only screen and (min-height: 700px) {
   .CurrentList {
-    //height: 33vh;
+    height: 33vh;
   }
 }
 
