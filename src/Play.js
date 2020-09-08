@@ -140,8 +140,10 @@ class Play extends Component {
             <Slide className="mobileCarousel-slide" index={0}><ProgressRing sqSize="200" strokeWidth="8" songsLeft={this.state.songs.length} percentage={this.progress()}/></Slide>
             <Slide className="mobileCarousel-slide" index={1}><div><CurrentList songs={this.state.songs} /></div></Slide>
           </Slider>
-          <ButtonBack>Progress</ButtonBack>
-          <ButtonNext>Song list</ButtonNext>
+          <div className="mobileCarousel-buttons">
+            <ButtonBack>Progress</ButtonBack>
+            <ButtonNext>Song list</ButtonNext>
+          </div>
         </CarouselProvider>
         <div className="Play-box">
           <Display song={this.state.currentSong} />

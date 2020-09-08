@@ -27,11 +27,13 @@
 
 }
 
-.mobileCarousel .carousel__back-button,
-.mobileCarousel .carousel__next-button {
+.mobileCarousel-buttons {
   position: absolute;
   bottom: 0;
-  transform: translateX(-50%);
+}
+
+.mobileCarousel [type="button"] {
+  position: relative;
   font-size: 14px;
   text-transform: uppercase;
   color: #999;
@@ -40,20 +42,25 @@
   padding: 8px 4px;
 }
 
+.mobileCarousel [type="button"]:hover {
+  color: #bbb;
+}
 
 .mobileCarousel .carousel__back-button {
-  left: 35%;
+  margin-right: 24px;
+
 }
 
 .mobileCarousel .carousel__next-button {
-  left: 65%;
+
 }
 
 .mobileCarousel [type="button"]:disabled {
-  color: var(--btn-color-green);
+  color: var(--btn-color-yellow); 
 }
 
 .mobileCarousel [type="button"]:disabled::after {
+  display: inline;
   content: "\2022";
   position: absolute;
   left: 50%;
