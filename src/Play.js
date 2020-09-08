@@ -25,8 +25,7 @@ class Play extends Component {
     this.state = {
       songs: this.props.songs,
       currentSong: ' ',
-      modal: 'hidden',
-      hoveredSong: ''
+      modal: 'hidden'
     };
     this.drawSong = this.drawSong.bind(this);
     this.reloadFullSongList = this.reloadFullSongList.bind(this);
@@ -34,7 +33,6 @@ class Play extends Component {
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.chooseSong = this.chooseSong.bind(this);
-    this.hoverSong = this.hoverSong.bind(this);
     this.removeSong = this.removeSong.bind(this);
   }
 
@@ -85,18 +83,9 @@ class Play extends Component {
     })
   }
 
-  // track in state currently hovered list item in modal view
-  // for removeSong() method purpose
-  hoverSong(e) {
-    const hoveredSong = e.target.textContent;
-    this.setState({
-      hoveredSong: hoveredSong
-    })
-  }
-
   // remove song from current song list 
-  removeSong() {
-    const songToRemove = this.state.hoveredSong;
+  removeSong(e) {
+    const songToRemove = e.target.dataset.song;
     if (window.confirm(`Remove '${songToRemove}' from current list?`)) {
       const filteredList = this.state.songs.filter(el => el !== songToRemove);
       this.setState({
@@ -110,6 +99,7 @@ class Play extends Component {
     }
   }
 
+  // tracks percentage of the songs left to play
   progress() {
     const percentage = Math.ceil(parseFloat(this.state.songs.length / this.props.songs.length).toFixed(2) * 100);
     return percentage;
@@ -174,14 +164,14 @@ class Play extends Component {
             {this.state.songs
               .sort((a, b) => a > b ? 1 : -1)
               .map(item => 
-                <li key={item} onMouseEnter={this.hoverSong}>
+                <li key={item}>
                   <button className="ModalList-chooseBtn" type="button" onClick={this.chooseSong} aria-labelledby={item}>
                     <div className="Play-circle">
                       <div></div>
                     </div>
                     <p id={item}>{item}</p>
                   </button>
-                  <button className="ModalList-removeSongBtn" type="button" onClick={this.removeSong} title="Remove song from current list" aria-label="remove song from current list"></button>
+                  <button className="ModalList-removeSongBtn" type="button" onClick={this.removeSong} data-song={item} title="Remove song from current list" aria-label="remove song from current list"></button>
                 </li>
             )}
           </ul>
