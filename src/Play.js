@@ -14,7 +14,7 @@ import {ReactComponent as IconRefresh} from './icons/refresh.svg';
 import {songList} from './songList';
 import './Play.css';
 import './variables.css'
-import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
+import {CarouselProvider, Slider, Slide, ButtonBack, ButtonNext} from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 
 
