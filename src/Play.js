@@ -149,12 +149,12 @@ class Play extends Component {
           <Display song={this.state.currentSong} />
           <div className="Play-buttons">
             {this.state.songs.length > 0 ? 
-              <Button id="btn-draw" action={this.drawSong} icon={<IconDices />} tabindex="1" labelledby="Draw" description="Draw" /> : 
-              <Button id="btn-reload" action={this.reloadFullSongList} icon={<IconRefresh />} tabindex="1" labelledby="Reload" description="Reload" />}
+              <Button id="btn-draw" action={this.drawSong} icon={<IconDices />} description="Draw" tabindex="1" labelledby="Draw" /> : 
+              <Button id="btn-reload" action={this.reloadFullSongList} icon={<IconRefresh />} description="Reload" tabindex="1" labelledby="Reload" />}
             {this.state.songs.length > 0 && this.state.currentSong !== ' ' ? 
-              <Button id="btn-arrow" action={this.putBackCurrentSong} icon={<IconBackArrow />} tabindex="2" labelledby="Back" description="Back" /> : 
+              <Button id="btn-arrow" action={this.putBackCurrentSong} icon={<IconBackArrow />} description="Back" tabindex="2" labelledby="Back" /> : 
               null }
-            {this.state.songs.length > 0 && <Button id="btn-choice" action={this.openModal} icon={<IconChoice />} tabindex="2" labelledby="Choose" description="Choose" />}
+            {this.state.songs.length > 0 && <Button id="btn-choice" action={this.openModal} icon={<IconChoice />} description="Choose" tabindex="2" labelledby="Choose" />}
           </div>
         </div>
         <div className={`Play-modal-${this.state.modal}`}>
