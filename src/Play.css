@@ -233,7 +233,7 @@
 }
 
 .ModalList-chooseBtn:hover .Play-circle {
-  border: 2px solid #2c9b15;
+  border: 2px solid var(--btn-color-green);
 }
 
 .ModalList-chooseBtn:active .Play-circle div {
