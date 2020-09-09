@@ -58,7 +58,7 @@ class Play extends Component {
   }
 
   reloadFullSongListConfirm() {
-    if (window.confirm('Load again full setlist?')) {
+    if (window.confirm('Reload full setlist?')) {
       this.reloadFullSongList();
       this.setState({
         modal: 'hidden'
