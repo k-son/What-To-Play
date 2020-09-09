@@ -3,6 +3,7 @@
   height: 100vh;
   padding: 24px 16px;
   background-image: radial-gradient(120% 150% at 50% 20%, #414141, #1a1a1a 60%);
+  overflow-x: hidden;
 }
 
 /* Mobile carousel */
@@ -145,14 +146,21 @@
 }
 
 
-/* Modal reload button */
+/* Modal close and reload button */
 .Modal-reloadBtnBox {
   position: absolute;
   top: 4vh;
   left: 4vh;
 }
 
-.Modal-reloadBtnBox .Button {
+.Modal-closeBtnBox {
+  position: absolute;
+  top: 4vh;
+  right: 4vh;
+}
+
+.Modal-reloadBtnBox .Button,
+.Modal-closeBtnBox .Button {
   width: 48px;
   height: 48px;
   background-color: transparent;
@@ -160,14 +168,18 @@
   box-shadow: none;
 }
 
-.Modal-reloadBtnBox .Button-middleBox {
+.Modal-reloadBtnBox .Button-middleBox, 
+.Modal-closeBtnBox .Button-middleBox {
   background-image: none !important;
 }
 
 .Modal-reloadBtnBox .Button-iconBox svg {
-  height: 32px !important;
+  height: 32px;
 }
 
+.Modal-closeBtnBox .Button-iconBox svg {
+  height: 20px;
+}
 
 
 /* Modal close button */
@@ -382,7 +394,7 @@
   transform: translate(-50%, -50%);
   width: 24px;
   height: 24px;
-  background-color: hsl(16, 97%, 40%);
+  background-color: var(--btn-color-red--close);
   border-radius: 50%;
 }
 

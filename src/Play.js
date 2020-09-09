@@ -11,6 +11,7 @@ import {ReactComponent as IconBackArrow} from './icons/back-arrow.svg';
 import {ReactComponent as IconChoice} from './icons/one.svg';
 import {ReactComponent as IconDices} from './icons/dices.svg';
 import {ReactComponent as IconRefresh} from './icons/refresh.svg';
+import {ReactComponent as IconClose} from './icons/close.svg';
 import {songList} from './songList';
 import './Play.css';
 import './variables.css'
@@ -168,16 +169,9 @@ class Play extends Component {
           </div>
         </div>
         <div className={`Play-modal-${this.state.modal}`}>
-          <button type="button" className="Play-modal-closeBtn" onClick={this.closeModal}>
-            <span className="xBar xBar-1">
-              <span className="circle circle-left"></span>
-              <span className="circle circle-right"></span>
-            </span>
-            <span className="xBar xBar-2">
-              <span className="circle circle-left"></span>
-              <span className="circle circle-right"></span>
-            </span>
-          </button>
+          <div className="Modal-closeBtnBox">
+            <Button addClass="btn-close" action={this.closeModal} icon={<IconClose />} title="Close choice view" ariaLabel="Close choice view"/>
+          </div>
           <div className="Modal-reloadBtnBox">
             <Button addClass="btn-reload" action={this.reloadFullSongListConfirm} icon={<IconRefresh />} title="Reload full setlist" ariaLabel="Reaload full setlist"/>
           </div>
