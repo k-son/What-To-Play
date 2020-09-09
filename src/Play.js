@@ -177,7 +177,7 @@ class Play extends Component {
                     <div className="Play-circle">
                       <div></div>
                     </div>
-                    <p id={item}>{item}</p>
+                    <p>{item}</p>
                   </button>
                   <button className="ModalList-removeSongBtn" type="button" onClick={this.removeSong} data-song={item} title="Remove song from current list" aria-label="remove song from current list"></button>
                 </li>
