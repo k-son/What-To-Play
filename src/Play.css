@@ -104,22 +104,22 @@
   margin: 20px auto 40px auto;
 }
 
-#btn-draw {
+.btn-draw {
   grid-column: 1 / 2;
   justify-self: start;
 }
 
-#btn-arrow {
+.btn-arrow {
   grid-column: 2 / 3;
   justify-self: center;
 }
 
-#btn-choice {
+.btn-choice {
   grid-column: 3 / 4;
   justify-self: end;
 }
 
-#btn-reload {
+.btn-reload {
   grid-column: 2 / 3;
 }
 
@@ -143,6 +143,31 @@
 .Play-modal-hidden {
   display: none;
 }
+
+
+/* Modal reload button */
+.Modal-reloadBtnBox {
+  position: absolute;
+  top: 4vh;
+  left: 4vh;
+}
+
+.Modal-reloadBtnBox .Button {
+  width: 48px;
+  height: 48px;
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
+}
+
+.Modal-reloadBtnBox .Button-middleBox {
+  background-image: none !important;
+}
+
+.Modal-reloadBtnBox .Button-iconBox svg {
+  height: 32px !important;
+}
+
 
 
 /* Modal close button */

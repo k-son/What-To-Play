@@ -32,6 +32,7 @@ class Play extends Component {
     };
     this.drawSong = this.drawSong.bind(this);
     this.reloadFullSongList = this.reloadFullSongList.bind(this);
+    this.reloadFullSongListConfirm = this.reloadFullSongListConfirm.bind(this);
     this.putBackCurrentSong = this.putBackCurrentSong.bind(this);
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -54,6 +55,15 @@ class Play extends Component {
       songs: this.props.songs,
       currentSong: ' '
     })
+  }
+
+  reloadFullSongListConfirm() {
+    if (window.confirm('Load again full setlist?')) {
+      this.reloadFullSongList();
+      this.setState({
+        modal: 'hidden'
+      })
+    }
   }
 
   putBackCurrentSong() {
@@ -149,12 +159,12 @@ class Play extends Component {
           <Display song={this.state.currentSong} />
           <div className="Play-buttons">
             {this.state.songs.length > 0 ? 
-              <Button id="btn-draw" action={this.drawSong} icon={<IconDices />} description="Draw" tabindex="1" labelledby="Draw" /> : 
-              <Button id="btn-reload" action={this.reloadFullSongList} icon={<IconRefresh />} description="Reload" tabindex="1" labelledby="Reload" />}
+              <Button addClass="btn-draw" action={this.drawSong} icon={<IconDices />} description="Draw" tabindex="1" labelledby="Draw" /> : 
+              <Button addClass="btn-reload" action={this.reloadFullSongList} icon={<IconRefresh />} description="Reload" tabindex="1" labelledby="Reload" />}
             {this.state.songs.length > 0 && this.state.currentSong !== ' ' ? 
-              <Button id="btn-arrow" action={this.putBackCurrentSong} icon={<IconBackArrow />} description="Back" tabindex="2" labelledby="Back" /> : 
+              <Button addClass="btn-arrow" action={this.putBackCurrentSong} icon={<IconBackArrow />} description="Back" tabindex="2" labelledby="Back" /> : 
               null }
-            {this.state.songs.length > 0 && <Button id="btn-choice" action={this.openModal} icon={<IconChoice />} description="Choose" tabindex="2" labelledby="Choose" />}
+            {this.state.songs.length > 0 && <Button addClass="btn-choice" action={this.openModal} icon={<IconChoice />} description="Choose" tabindex="2" labelledby="Choose" />}
           </div>
         </div>
         <div className={`Play-modal-${this.state.modal}`}>
@@ -168,6 +178,9 @@ class Play extends Component {
               <span className="circle circle-right"></span>
             </span>
           </button>
+          <div className="Modal-reloadBtnBox">
+            <Button addClass="btn-reload" action={this.reloadFullSongListConfirm} icon={<IconRefresh />} title="Reload full setlist"/>
+          </div>
           <ul className="Play-modal-list">
             {this.state.songs
               .sort((a, b) => a > b ? 1 : -1)

@@ -7,8 +7,8 @@ class Button extends Component {
   }
   render() {
     return(
-      <div className="Button-container" id={this.props.id}>
-        <button type='button' className="Button" onClick={this.props.action} tabIndex={this.props.tabindex} aria-labelledby={this.props.labelledby}>
+      <div className={`Button-container ${this.props.addClass}`}>
+        <button type='button' className="Button" onClick={this.props.action} tabIndex={this.props.tabindex} aria-labelledby={this.props.labelledby} title={this.props.title}>
           <span className="Button-middleBox">
             <span className="Button-coloredBox">
               <span className="Button-innerBox">
