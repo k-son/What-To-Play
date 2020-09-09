@@ -159,12 +159,12 @@ class Play extends Component {
           <Display song={this.state.currentSong} />
           <div className="Play-buttons">
             {this.state.songs.length > 0 ? 
-              <Button addClass="btn-draw" action={this.drawSong} icon={<IconDices />} description="Draw" tabindex="1" labelledby="Draw" /> : 
-              <Button addClass="btn-reload" action={this.reloadFullSongList} icon={<IconRefresh />} description="Reload" tabindex="1" labelledby="Reload" />}
+              <Button addClass="btn-draw" action={this.drawSong} icon={<IconDices />} description="Draw" tabindex="1" title="Draw random song" ariaLabelledby="Draw" /> : 
+              <Button addClass="btn-reload" action={this.reloadFullSongList} icon={<IconRefresh />} description="Reload" tabindex="1" title="Reload full setlist" ariaLabelledby="Reload" />}
             {this.state.songs.length > 0 && this.state.currentSong !== ' ' ? 
-              <Button addClass="btn-arrow" action={this.putBackCurrentSong} icon={<IconBackArrow />} description="Back" tabindex="2" labelledby="Back" /> : 
+              <Button addClass="btn-arrow" action={this.putBackCurrentSong} icon={<IconBackArrow />} description="Back" tabindex="2" title="Put back current song" ariaLabelledby="Back" /> : 
               null }
-            {this.state.songs.length > 0 && <Button addClass="btn-choice" action={this.openModal} icon={<IconChoice />} description="Choose" tabindex="2" labelledby="Choose" />}
+            {this.state.songs.length > 0 && <Button addClass="btn-choice" action={this.openModal} icon={<IconChoice />} description="Choose" tabindex="2" title="Choose song manually" ariaLabelledby="Choose" />}
           </div>
         </div>
         <div className={`Play-modal-${this.state.modal}`}>
@@ -179,7 +179,7 @@ class Play extends Component {
             </span>
           </button>
           <div className="Modal-reloadBtnBox">
-            <Button addClass="btn-reload" action={this.reloadFullSongListConfirm} icon={<IconRefresh />} title="Reload full setlist"/>
+            <Button addClass="btn-reload" action={this.reloadFullSongListConfirm} icon={<IconRefresh />} title="Reload full setlist" ariaLabel="Reaload full setlist"/>
           </div>
           <ul className="Play-modal-list">
             {this.state.songs
