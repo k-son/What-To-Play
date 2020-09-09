@@ -156,11 +156,22 @@
 .Modal-closeBtnBox {
   position: absolute;
   top: 4vh;
-  right: 4vh;
+  right: 9vh;
 }
 
-.Modal-reloadBtnBox .Button,
-.Modal-closeBtnBox .Button {
+.Modal-buttons {
+  position: absolute;
+  left: 50%;
+  top: 24px;
+  transform: translateX(-50%);
+  display: flex;
+}
+
+.Modal-buttons .Button-container:first-of-type {
+  margin-right: 40px;
+}
+
+.Modal-buttons .Button {
   width: 48px;
   height: 48px;
   background-color: transparent;
@@ -168,100 +179,16 @@
   box-shadow: none;
 }
 
-.Modal-reloadBtnBox .Button-middleBox, 
-.Modal-closeBtnBox .Button-middleBox {
+.Modal-buttons .Button-middleBox {
   background-image: none !important;
 }
 
-.Modal-reloadBtnBox .Button-iconBox svg {
+.Modal-buttons .Button-container:first-of-type .Button-iconBox svg {
   height: 32px;
 }
 
-.Modal-closeBtnBox .Button-iconBox svg {
+.Modal-buttons .Button-container:nth-of-type(2) .Button-iconBox svg {
   height: 20px;
-}
-
-
-/* Modal close button */
-.Play-modal-closeBtn {
-  display: block;
-  position: absolute;
-  top: 4vh;
-  right: 4vh;
-  width: 48px;
-  height: 48px;
-  background-color: transparent;
-  border: none;
-  border-radius: 50%;
-  border: 2px solid rgba(184, 184, 184, .6);
-}
-
-.Play-modal-closeBtn:hover {
-  cursor: pointer;
-}
-
-.Play-modal-closeBtn:hover {
-  background-color: rgba(255, 255, 255, .05);
-}
-
-.Play-modal-closeBtn:active {
-  border: 2px solid #2c9b15;
-}
-
-.Play-modal-closeBtn:hover .xBar {
-  background-color: #2c9b15;
-}
-
-.Play-modal-closeBtn:hover .circle {
-  background-color: #b8b8b8;
-}
-
-.Play-modal-closeBtn:hover .circle-left {
-  margin-left: calc(100% - 2px);
-}
-
-.Play-modal-closeBtn:hover .circle-right {
-  margin-left: 0;
-}
-
-.xBar {
-  display: inline-block;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 70%;
-  height: 2px;
-  background-color: #b8b8b8;
-  border-radius: 10px;
-  transition: all .65s cubic-bezier(.215,.61,.355,1);
-}
-
-.xBar-1 {
-  transform: translate(-50%, -50%) rotate(45deg);
-}
-
-.xBar-2 {
-  transform: translate(-50%, -50%) rotate(-45deg);
-}
-
-.circle {
-  display: inline-block;
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 2px;
-  height: 2px;
-  border-radius: 50%;
-  background-color: transparent;
-  transition: all .65s cubic-bezier(.215,.61,.355,1);
-}
-
-.circle-left {
-  margin-left: 0;
-}
-
-.circle-right {
-  margin-left: calc(100% - 4px);
 }
 
 

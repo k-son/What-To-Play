@@ -43,9 +43,19 @@
           filter: saturate(200%);
 }
 
+.btn-close:active .Button-coloredBox {
+  -webkit-filter: saturate(140%);
+          filter: saturate(140%);
+}
+
 .Button:active .Button-innerBox {
   -webkit-filter: saturate(20%);
           filter: saturate(20%);
+}
+
+.btn-close:active .Button-innerBox {
+  -webkit-filter: saturate(40%);
+          filter: saturate(40%);
 }
 
 .btn-draw:hover svg,
@@ -116,7 +126,7 @@
 }
 
 .btn-close .Button-coloredBox {
-  background-image: linear-gradient(30deg, #7e1705ec, #eb6600eb);
+  background-image: linear-gradient(30deg, #a41900f3, #b85000e5);
 }
 
 .Button-innerBox {

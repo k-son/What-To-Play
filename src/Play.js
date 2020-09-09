@@ -169,11 +169,9 @@ class Play extends Component {
           </div>
         </div>
         <div className={`Play-modal-${this.state.modal}`}>
-          <div className="Modal-closeBtnBox">
-            <Button addClass="btn-close" action={this.closeModal} icon={<IconClose />} title="Close choice view" ariaLabel="Close choice view"/>
-          </div>
-          <div className="Modal-reloadBtnBox">
+          <div className="Modal-buttons">
             <Button addClass="btn-reload" action={this.reloadFullSongListConfirm} icon={<IconRefresh />} title="Reload full setlist" ariaLabel="Reaload full setlist"/>
+            <Button addClass="btn-close" action={this.closeModal} icon={<IconClose />} title="Close choice view" ariaLabel="Close choice view"/>
           </div>
           <ul className="Play-modal-list">
             {this.state.songs
