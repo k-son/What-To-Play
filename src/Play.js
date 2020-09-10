@@ -161,7 +161,7 @@ class Play extends Component {
           </div>
           <div className="Display-box">
             <Display song={this.state.currentSong} />
-            {this.state.currentSong === ' ' && <p className="substitution">Song to play</p>}
+            {this.state.currentSong === ' ' && <p className="substitution">song to play</p>}
           </div>
           <div className="Buttons-box">
             <div className="Play-buttons">

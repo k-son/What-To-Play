@@ -42,7 +42,7 @@ main {
   position: relative;
   font-size: 14px;
   text-transform: uppercase;
-  color: #999;
+  color: #aaa;
   background-color: transparent;
   border: none;
   padding: 8px 4px;
@@ -54,7 +54,6 @@ main {
 
 .mobileCarousel .carousel__back-button {
   margin-right: 24px;
-
 }
 
 .mobileCarousel [type="button"]:disabled {
@@ -87,7 +86,7 @@ main {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  color: #666;
+  color: #999;
   font-size: 16px;
   font-weight: 300;
   letter-spacing: 1px;
