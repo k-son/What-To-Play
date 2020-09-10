@@ -13,7 +13,7 @@ export const songList = [
   'Bad romance',
   'Love Buzz',
   'Like a virgin',
-/*
+
   'Abou a girl',
   'Born to be ild',
   'Crep',
@@ -26,6 +26,8 @@ export const songList = [
   'Where dd you sleep last night',
   'Zombi',
   'Bad omance',
+
+  /*
   'Lover Buzz',
   'Like a pirgin',
   'About a gir',

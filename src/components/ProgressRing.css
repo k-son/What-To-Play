@@ -12,29 +12,32 @@
 .ProgressRing-text {
   position: absolute;
   left: 50%;
-  top: 48%;
+  top: 46%;
   transform: translate(-50%, -50%);
   width: 100%;
   text-align: center;
 }
 
+/* songs left count */
 .ProgressRing-text p:first-of-type {
-  font-size: 48px;
+  font-size: 32px;
   font-weight: 400;
   line-height: 1;
 }
 
+/* percentage left */
 .ProgressRing-text p:nth-child(2) {
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 300;
-
 }
 
+/* songs left text */
 .ProgressRing-text p:nth-child(3) {
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-top: 8px;
   color: #999;
+  color: #777;
 }

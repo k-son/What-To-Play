@@ -144,12 +144,13 @@ class Play extends Component {
         <Logo />
         
         <CarouselProvider className="mobileCarousel"
-          naturalSlideWidth={300}
-          naturalSlideHeight={300}
+          naturalSlideWidth={200}
+          naturalSlideHeight={200}
           totalSlides={2}
+          touchEnabled={false}
         >
           <Slider className="mobileCarousel-slider">
-            <Slide className="mobileCarousel-slide" index={0}><ProgressRing sqSize="200" strokeWidth="8" songsLeft={this.state.songs.length} percentage={this.progress()}/></Slide>
+            <Slide className="mobileCarousel-slide" index={0}><ProgressRing sqSize="140" strokeWidth="4" songsLeft={this.state.songs.length} percentage={this.progress()}/></Slide>
             <Slide className="mobileCarousel-slide" index={1}><div><CurrentList songs={this.state.songs} /></div></Slide>
           </Slider>
           <div className="mobileCarousel-buttons">
