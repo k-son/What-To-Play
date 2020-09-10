@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Button from './components/Button';
 import Display from './components/Display';
+import DisplayMinimal from './components/DisplayMinimal';
 import Logo from './components/Logo';
 import CurrentList from './components/CurrentList';
 import ProgressBar from './components/ProgressBar';
@@ -157,6 +158,7 @@ class Play extends Component {
           </div>
         </CarouselProvider>
         <div className="Play-box">
+          <DisplayMinimal song={this.state.currentSong} />
           <Display song={this.state.currentSong} />
           <div className="Play-buttons">
             {this.state.songs.length > 0 ? 

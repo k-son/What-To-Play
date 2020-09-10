@@ -13,6 +13,8 @@
   border: 1px solid #323232;
   background-color: #2e2e2e;
   z-index: 2;
+
+  display: none;
 }
 
 @media only screen and (max-width: 375px) {
