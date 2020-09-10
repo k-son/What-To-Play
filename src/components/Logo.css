@@ -1,10 +1,6 @@
 .Logo {
-  grid-row: 1 / 2;
-  position: relative;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100%;
+  height: var(--logo-height);
+  padding: 16px;
 }
 
 .Logo h1 {

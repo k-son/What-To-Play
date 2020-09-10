@@ -1,37 +1,41 @@
 .Play {
   width: 100%;
   height: 100vh;
-  padding: 24px 16px;
   background-image: radial-gradient(120% 150% at 50% 20%, #414141, #1a1a1a 60%);
   overflow-x: hidden;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: calc(100vh - var(--logo-height));
+}
+
 
 /* Mobile carousel [pure-react-carousel] */
+.Carousel-box {
+  //border: 1px solid green;
+}
+
 .mobileCarousel {
   position: relative;
   display: flex;
   align-items: top;
   justify-content: center;
-  height: 190px;
-  margin: 32px auto;
-
-  //border: 1px solid pink;
+  height: 220px;
+  margin: 0 auto;
+  padding: 32px 24px;
 }
 
 .mobileCarousel-slider {
   width: 100%;
-  height: 190px;
-  //border: 1px solid violet;
-}
-
-.mobileCarousel-slide {
-
 }
 
 .mobileCarousel-buttons {
   position: absolute;
-  bottom: 0;
+  bottom: -4px;
 }
 
 .mobileCarousel [type="button"] {
@@ -53,10 +57,6 @@
 
 }
 
-.mobileCarousel .carousel__next-button {
-
-}
-
 .mobileCarousel [type="button"]:disabled {
   color: var(--btn-color-yellow); 
 }
@@ -72,38 +72,36 @@
 }
 
 
-/* Play Box - container holding status bar, display and buttons */
-.Play-box {
-  position: fixed;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
+/* Display Box - container holding Display component */
+.Display-box {
+  display: flex;
+  justify-content: center;
   width: 100%;
-  padding-top: 24px;
+  height: 130px;
+  //border: 1px solid yellowgreen;
+}
+
+
+/* Play Box - container holding Buttons */
+.Buttons-box {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 100%;
+  height: 25vh;
+  height: 150px;
+  padding-bottom: 32px;
   z-index: 2;
-}
-
-@media only screen and (max-width: 375px) {
-  .Play-box {
-    bottom: -6px;
-  }
-}
-
-@media only screen and (min-height: 900px) {
-  .Play-box {
-    bottom: 3vh;
-  }
+  //border: 1px solid green;
 }
 
 
 /* Buttons */
 .Play-buttons {
-  align-self: center;
   display: grid;
   grid-template-columns: repeat(3, 33.3333%);
   width: 86%;
   max-width: 400px;
-  margin: 20px auto 40px auto;
 }
 
 .btn-draw {
@@ -129,9 +127,6 @@
 /* Modal */
 .Play-modal-visible,
 .Play-modal-hidden {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   position: absolute;
   top: 0;
   right: 0;
@@ -148,28 +143,15 @@
 
 
 /* Modal close and reload button */
-.Modal-reloadBtnBox {
-  position: absolute;
-  top: 4vh;
-  left: 4vh;
-}
-
-.Modal-closeBtnBox {
-  position: absolute;
-  top: 4vh;
-  right: 9vh;
-}
-
 .Modal-buttons {
-  position: absolute;
-  left: 50%;
-  top: 24px;
-  transform: translateX(-50%);
   display: flex;
+  justify-content: center;
+  padding: 32px;
+  padding-bottom: 16px;
 }
 
 .Modal-buttons .Button-container:first-of-type {
-  margin-right: 40px;
+  margin-right: 48px;
 }
 
 .Modal-buttons .Button {
@@ -195,11 +177,9 @@
 
 /* Modal list */
 .Play-modal-list {
-  width: 100%;
   list-style-type: none;
-  padding: 0 24px;
-  padding-left: 0;
-  margin: 14vh auto;
+  width: 100%;
+  margin: 0 auto 80px;
 }
 
 .Play-modal-list li {
@@ -312,6 +292,7 @@
 .ModalList-removeSongBtn:hover {
   cursor: pointer;
   background-color: rgba(255, 255, 255, .05);
+  filter: saturate(200%);
 }
 
 .ModalList-removeSongBtn::before {

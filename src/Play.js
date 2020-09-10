@@ -141,36 +141,41 @@ class Play extends Component {
       <div className="Play">
         <KeyDownListener onKeyDown={this.handleKeyDown} />
         <MouseDownListener onMouseDown={this.handleMouseDown} />
+        <main>
+          <div className="Carousel-box">
+            <CarouselProvider className="mobileCarousel"
+              naturalSlideWidth={200}
+              naturalSlideHeight={200}
+              totalSlides={2}
+              touchEnabled={false}
+            >
+              <Slider className="mobileCarousel-slider">
+                <Slide className="mobileCarousel-slide" index={0}><ProgressRing sqSize="140" strokeWidth="4" songsLeft={this.state.songs.length} percentage={this.progress()}/></Slide>
+                <Slide className="mobileCarousel-slide" index={1}><div><CurrentList songs={this.state.songs} /></div></Slide>
+              </Slider>
+              <div className="mobileCarousel-buttons">
+                <ButtonBack>Progress</ButtonBack>
+                <ButtonNext>Song list</ButtonNext>
+              </div>
+            </CarouselProvider>
+          </div>
+          <div className="Display-box">
+            <DisplayMinimal song={this.state.currentSong} />
+            <Display song={this.state.currentSong} />
+          </div>
+          <div className="Buttons-box">
+            <div className="Play-buttons">
+              {this.state.songs.length > 0 ? 
+                <Button addClass="btn-draw" action={this.drawSong} icon={<IconDices />} description="Draw" tabindex="1" title="Draw random song" ariaLabelledby="Draw" /> : 
+                <Button addClass="btn-reload" action={this.reloadFullSongList} icon={<IconRefresh />} description="Reload" tabindex="1" title="Reload full setlist" ariaLabelledby="Reload" />}
+              {this.state.songs.length > 0 && this.state.currentSong !== ' ' ? 
+                <Button addClass="btn-arrow" action={this.putBackCurrentSong} icon={<IconBackArrow />} description="Back" tabindex="2" title="Put back current song" ariaLabelledby="Back" /> : 
+                null }
+              {this.state.songs.length > 0 && <Button addClass="btn-choice" action={this.openModal} icon={<IconChoice />} description="Choose" tabindex="2" title="Choose song manually" ariaLabelledby="Choose" />}
+            </div>
+          </div>
+        </main>
         <Logo />
-        
-        <CarouselProvider className="mobileCarousel"
-          naturalSlideWidth={200}
-          naturalSlideHeight={200}
-          totalSlides={2}
-          touchEnabled={false}
-        >
-          <Slider className="mobileCarousel-slider">
-            <Slide className="mobileCarousel-slide" index={0}><ProgressRing sqSize="140" strokeWidth="4" songsLeft={this.state.songs.length} percentage={this.progress()}/></Slide>
-            <Slide className="mobileCarousel-slide" index={1}><div><CurrentList songs={this.state.songs} /></div></Slide>
-          </Slider>
-          <div className="mobileCarousel-buttons">
-            <ButtonBack>Progress</ButtonBack>
-            <ButtonNext>Song list</ButtonNext>
-          </div>
-        </CarouselProvider>
-        <div className="Play-box">
-          <DisplayMinimal song={this.state.currentSong} />
-          <Display song={this.state.currentSong} />
-          <div className="Play-buttons">
-            {this.state.songs.length > 0 ? 
-              <Button addClass="btn-draw" action={this.drawSong} icon={<IconDices />} description="Draw" tabindex="1" title="Draw random song" ariaLabelledby="Draw" /> : 
-              <Button addClass="btn-reload" action={this.reloadFullSongList} icon={<IconRefresh />} description="Reload" tabindex="1" title="Reload full setlist" ariaLabelledby="Reload" />}
-            {this.state.songs.length > 0 && this.state.currentSong !== ' ' ? 
-              <Button addClass="btn-arrow" action={this.putBackCurrentSong} icon={<IconBackArrow />} description="Back" tabindex="2" title="Put back current song" ariaLabelledby="Back" /> : 
-              null }
-            {this.state.songs.length > 0 && <Button addClass="btn-choice" action={this.openModal} icon={<IconChoice />} description="Choose" tabindex="2" title="Choose song manually" ariaLabelledby="Choose" />}
-          </div>
-        </div>
         <div className={`Play-modal-${this.state.modal}`}>
           <div className="Modal-buttons">
             <Button addClass="btn-reload" action={this.reloadFullSongListConfirm} icon={<IconRefresh />} title="Reload full setlist" ariaLabel="Reaload full setlist"/>

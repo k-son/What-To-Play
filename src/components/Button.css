@@ -127,6 +127,7 @@
 
 .btn-close .Button-coloredBox {
   background-image: linear-gradient(30deg, #b01e05f3, #b85000e5);
+  background-image: linear-gradient(30deg, #853011, #ff703c);
 }
 
 .Button-innerBox {
