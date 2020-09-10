@@ -4,10 +4,13 @@
 }
 
 .Logo h1 {
-  font-size: 18px;
+  position: relative;
+  font-size: 24px;
   line-height: 1;
   letter-spacing: 1px;
   text-align: center;
-  color: #525252;
-  text-shadow: -1px 1px 0 rgba(0, 0, 0, .55);
+  color: #111;
+  text-shadow: 1px -1px 0 #444;
 }
+
+
