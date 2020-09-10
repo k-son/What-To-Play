@@ -74,6 +74,7 @@ main {
 
 /* Display Box - container holding Display component */
 .Display-box {
+  position: relative;
   display: flex;
   justify-content: center;
   width: 100%;
@@ -81,6 +82,19 @@ main {
   //border: 1px solid yellowgreen;
 }
 
+.Display-box .substitution {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  color: #666;
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 1px;
+  line-height: 1.4;
+  text-align: center;
+  z-index: 2;
+}
 
 /* Play Box - container holding Buttons */
 .Buttons-box {

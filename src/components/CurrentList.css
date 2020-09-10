@@ -9,12 +9,6 @@
   margin: 0 auto;
 }
 
-@media only screen and (min-height: 700px) {
-  .CurrentList {
-    height: 33vh;
-  }
-}
-
 @media only screen and (min-width: 1200px) {
   .CurrentList {
     width: 75%;

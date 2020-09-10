@@ -160,8 +160,8 @@ class Play extends Component {
             </CarouselProvider>
           </div>
           <div className="Display-box">
-            <DisplayMinimal song={this.state.currentSong} />
             <Display song={this.state.currentSong} />
+            {this.state.currentSong === ' ' && <p className="substitution">Song to play</p>}
           </div>
           <div className="Buttons-box">
             <div className="Play-buttons">
