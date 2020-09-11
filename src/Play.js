@@ -1,4 +1,6 @@
 import React, {Component} from 'react';
+
+import {songList} from './songList';
 import Button from './components/Button';
 import Display from './components/Display';
 import DisplayMinimal from './components/DisplayMinimal';
@@ -7,16 +9,18 @@ import CurrentList from './components/CurrentList';
 import ProgressBar from './components/ProgressBar';
 import ProgressRing from './components/ProgressRing';
 import Dialog from './components/Dialog';
-import KeyDownListener from './components/KeyDownListener';
-import MouseDownListener from './components/MouseDownListener';
 import {ReactComponent as IconBackArrow} from './icons/back-arrow.svg';
 import {ReactComponent as IconChoice} from './icons/one.svg';
 import {ReactComponent as IconDices} from './icons/dices.svg';
 import {ReactComponent as IconRefresh} from './icons/refresh.svg';
 import {ReactComponent as IconClose} from './icons/close.svg';
-import {songList} from './songList';
+// Functionals
+import KeyDownListener from './components/KeyDownListener';
+import MouseDownListener from './components/MouseDownListener';
+// Styles
 import './Play.css';
 import './variables.css'
+// Libraries
 import {CarouselProvider, Slider, Slide, ButtonBack, ButtonNext} from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 
@@ -48,6 +52,7 @@ class Play extends Component {
     this.removeSong = this.removeSong.bind(this);
   }
 
+
   drawSong() {
     const index = Math.floor(Math.random()*(this.state.songs.length));
     const drawnSong = this.state.songs[index];
@@ -59,12 +64,14 @@ class Play extends Component {
     });
   }
 
+
   reloadFullSongList() {
     this.setState({
       songs: this.props.songs,
       currentSong: ' '
     })
   }
+
 
   /* Reload full song list - accessible in modal window */
   reloadFullSongListConfirm() {
@@ -93,6 +100,7 @@ class Play extends Component {
     })
   }
 
+
   putBackCurrentSong() {
     this.setState({
       songs: this.state.songs.concat(this.state.currentSong),
@@ -100,17 +108,20 @@ class Play extends Component {
     })
   }
 
+
   openModal() {
     this.setState({
       modal: 'visible'
     })
   }
 
+
   closeModal() {
     this.setState({
       modal: 'hidden'
     })
   }
+
 
   // choose a song to play in modal view
   chooseSong(e) {
@@ -123,6 +134,7 @@ class Play extends Component {
       modal: 'hidden'
     })
   }
+
 
   // remove song from current song list 
   removeSong(e) {
@@ -169,6 +181,7 @@ class Play extends Component {
     return percentage;
   }
 
+
   // add outline to buttons when accessing by keyboard 
   handleKeyDown() {
     document.addEventListener('keydown', (e) => {
@@ -178,12 +191,14 @@ class Play extends Component {
     });
   }
 
+
   // removes outline from buttons when accessing by mouse click 
   handleMouseDown() {
     document.addEventListener('mousedown', () =>
     document.body.classList.add('intent-mouse') 
     );
   }
+
 
   render() {
     return(
@@ -199,7 +214,7 @@ class Play extends Component {
               touchEnabled={false}
             >
               <Slider className="mobileCarousel-slider">
-                <Slide className="mobileCarousel-slide" index={0}><ProgressRing sqSize="140" strokeWidth="4" songsLeft={this.state.songs.length} percentage={this.progress()}/></Slide>
+                <Slide className="mobileCarousel-slide" index={0}><ProgressRing sqSize="140" strokeWidth="6" songsLeft={this.state.songs.length} percentage={this.progress()}/></Slide>
                 <Slide className="mobileCarousel-slide" index={1}><div><CurrentList songs={this.state.songs} /></div></Slide>
               </Slider>
               <div className="mobileCarousel-buttons">
