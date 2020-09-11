@@ -30,6 +30,8 @@
   background-image: radial-gradient(130% 170% at 65% 20%, #bdbdbd, #828282 60%);
   border-radius: 5px;
   box-shadow: 0 0 150px #555;
+
+  /* animated properties */
   margin-top: -200vh;
   opacity: 0;
   animation: slideDownDialog .3s ease-out 1 forwards;
