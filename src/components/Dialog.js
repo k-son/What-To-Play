@@ -14,8 +14,8 @@ class Dialog extends Component {
             <p className="Dialog-songTitle">{this.props.songTitle}</p>
           </div>
           <div className="Dialog-buttons">
-            <button className="Dialog-button Dialog-cancel" onClick={this.props.onCancel}>Cancel</button>
-            <button className="Dialog-button Dialog-ok" onClick={this.props.onConfirm}>OK</button>
+            <button className="Dialog-button Dialog-cancel" type="button" onClick={this.props.onCancel}>Cancel</button>
+            <button className="Dialog-button Dialog-ok" type="button" onClick={this.props.onConfirm}>OK</button>
           </div>
         </div>
       </div>
