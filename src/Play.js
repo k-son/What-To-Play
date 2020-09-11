@@ -221,13 +221,13 @@ class Play extends Component {
               totalSlides={2}
               touchEnabled={false}
             >
-              <Slider className="mobileCarousel-slider">
-                <Slide className="mobileCarousel-slide" index={0}><ProgressRing sqSize="140" strokeWidth="6" songsLeft={this.state.songs.length} percentage={this.progress()}/></Slide>
-                <Slide className="mobileCarousel-slide" index={1}><div><CurrentList songs={this.state.songs} /></div></Slide>
+              <Slider className="mobileCarousel-slider" tabIndex={-1}>
+                <Slide className="mobileCarousel-slide" index={0} tabIndex={-1}><ProgressRing sqSize="140" strokeWidth="6" songsLeft={this.state.songs.length} percentage={this.progress()}/></Slide>
+                <Slide className="mobileCarousel-slide" index={1} tabIndex={-1}><div><CurrentList songs={this.state.songs} /></div></Slide>
               </Slider>
               <div className="mobileCarousel-buttons">
-                <ButtonBack>Progress</ButtonBack>
-                <ButtonNext>Song list</ButtonNext>
+                <ButtonBack tabIndex={(this.state.modal === 'open' || this.state.confirmDialog === 'open') ? -1 : 0}>Progress</ButtonBack>
+                <ButtonNext tabIndex={(this.state.modal === 'open' || this.state.confirmDialog === 'open') ? -1 : 0}>Song list</ButtonNext>
               </div>
             </CarouselProvider>
           </div>
