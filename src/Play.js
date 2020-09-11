@@ -35,7 +35,7 @@ class Play extends Component {
     this.state = {
       songs: this.props.songs,
       currentSong: ' ',
-      modal: 'hidden',
+      modal: 'closed',
       confirmDialog: 'closed',
       confirmQuestion: ' ',
       confirmTitle: ' ',
@@ -81,6 +81,7 @@ class Play extends Component {
         confirmCancel: undefined,
         confirmOk: undefined
       })
+      document.body.style.overflow = 'auto';
     }
     const reload = () => {
       this.reloadFullSongList();
@@ -88,8 +89,9 @@ class Play extends Component {
         confirmDialog: 'closed',
         confirmCancel: undefined,
         confirmOk: undefined,
-        modal: 'hidden'
+        modal: 'closed'
       })
+      document.body.style.overflow = 'auto';
     }
 
     this.setState({
@@ -98,6 +100,8 @@ class Play extends Component {
       confirmCancel: closeConfirmDialog,
       confirmOk: reload
     })
+
+    document.body.style.overflow = 'hidden';
   }
 
 
@@ -111,14 +115,14 @@ class Play extends Component {
 
   openModal() {
     this.setState({
-      modal: 'visible'
+      modal: 'open'
     })
   }
 
 
   closeModal() {
     this.setState({
-      modal: 'hidden'
+      modal: 'closed'
     })
   }
 
@@ -147,6 +151,7 @@ class Play extends Component {
         confirmCancel: undefined,
         confirmOk: undefined
       })
+      document.body.style.overflow = 'auto';
     }; 
     const remove = () => {
       const filteredList = this.state.songs.filter(el => el !== songToRemove);
@@ -163,6 +168,7 @@ class Play extends Component {
           modal: 'hidden'
         })
       }
+      document.body.style.overflow = 'auto';
     }
     
     this.setState({
@@ -172,6 +178,8 @@ class Play extends Component {
       confirmCancel: closeConfirmDialog,
       confirmOk: remove
     })
+
+    document.body.style.overflow = 'hidden';
   }
 
 
