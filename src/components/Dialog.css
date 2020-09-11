@@ -1,0 +1,77 @@
+.Dialog {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+  background-color: rgba(0, 0, 0, .75);
+  z-index: 9900;
+}
+
+.Dialog-conent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 80%;
+  min-width: 300px;
+  max-width: 500px;
+  height: 200px;
+  padding: 24px;
+  background-color: grey;
+  background-image: radial-gradient(130% 170% at 65% 20%, #bdbdbd, #828282 60%);
+  border-radius: 5px;
+  box-shadow: 0 0 150px #555;
+}
+
+.Dialog-text {
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.Dialog-question {
+  font-weight: 300;
+  margin-bottom: 8px;
+}
+
+.Dialog-songTitle {
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+.Dialog-buttons {
+  text-align: center;
+}
+
+.Dialog-button {
+  width: 100px;
+  height: 40px;
+  font-size: 16px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+}
+
+.Dialog-button:hover {
+  cursor: pointer;
+}
+
+.Dialog-cancel {
+  background-color: var(--btn-color-red);
+  margin-right: 40px;
+}
+
+.Dialog-cancel:hover {
+  filter: saturate(150%);
+}
+
+.Dialog-ok {
+  background-color: var(--btn-color-green);
+}
+
+.Dialog-ok:hover {
+  filter: saturate(250%);
+}

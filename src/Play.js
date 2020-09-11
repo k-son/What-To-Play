@@ -6,6 +6,7 @@ import Logo from './components/Logo';
 import CurrentList from './components/CurrentList';
 import ProgressBar from './components/ProgressBar';
 import ProgressRing from './components/ProgressRing';
+import Dialog from './components/Dialog';
 import KeyDownListener from './components/KeyDownListener';
 import MouseDownListener from './components/MouseDownListener';
 import {ReactComponent as IconBackArrow} from './icons/back-arrow.svg';
@@ -142,6 +143,7 @@ class Play extends Component {
         <KeyDownListener onKeyDown={this.handleKeyDown} />
         <MouseDownListener onMouseDown={this.handleMouseDown} />
         <main>
+          <Dialog question="Remove song from current list?" songTitle="About A Girl" />
           <div className="Carousel-box">
             <CarouselProvider className="mobileCarousel"
               naturalSlideWidth={200}
