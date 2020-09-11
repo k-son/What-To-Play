@@ -31,7 +31,12 @@ class Play extends Component {
     this.state = {
       songs: this.props.songs,
       currentSong: ' ',
-      modal: 'hidden'
+      modal: 'hidden',
+      confirmDialog: 'closed',
+      confirmQuestion: ' ',
+      confirmTitle: ' ',
+      confirmCancel: undefined,
+      confirmOk: undefined
     };
     this.drawSong = this.drawSong.bind(this);
     this.reloadFullSongList = this.reloadFullSongList.bind(this);
@@ -47,6 +52,7 @@ class Play extends Component {
     const index = Math.floor(Math.random()*(this.state.songs.length));
     const drawnSong = this.state.songs[index];
     const filteredList = this.state.songs.filter(el => el !== drawnSong);
+
     this.setState({
       songs: filteredList,
       currentSong: drawnSong
@@ -60,13 +66,31 @@ class Play extends Component {
     })
   }
 
+  /* Reload full song list - accessible in modal window */
   reloadFullSongListConfirm() {
-    if (window.confirm('Reload full setlist?')) {
+    const closeConfirmDialog = () => {
+      this.setState({
+        confirmDialog: 'closed',
+        confirmCancel: undefined,
+        confirmOk: undefined
+      })
+    }
+    const reload = () => {
       this.reloadFullSongList();
       this.setState({
+        confirmDialog: 'closed',
+        confirmCancel: undefined,
+        confirmOk: undefined,
         modal: 'hidden'
       })
     }
+
+    this.setState({
+      confirmQuestion: 'Reload full setlist?',
+      confirmDialog: 'open',
+      confirmCancel: closeConfirmDialog,
+      confirmOk: reload
+    })
   }
 
   putBackCurrentSong() {
@@ -92,6 +116,7 @@ class Play extends Component {
   chooseSong(e) {
     const chosenSong = e.target.textContent;
     const filteredList = this.state.songs.filter(el => el !== chosenSong);
+
     this.setState({
       songs: filteredList,
       currentSong: chosenSong,
@@ -102,10 +127,24 @@ class Play extends Component {
   // remove song from current song list 
   removeSong(e) {
     const songToRemove = e.target.dataset.song;
-    if (window.confirm(`Remove '${songToRemove}' from current list?`)) {
+    const closeConfirmDialog = () => {
+      this.setState({
+        confirmQuestion: ' ',
+        confirmTitle: ' ',
+        confirmDialog: 'closed',
+        confirmCancel: undefined,
+        confirmOk: undefined
+      })
+    }; 
+    const remove = () => {
       const filteredList = this.state.songs.filter(el => el !== songToRemove);
       this.setState({
-        songs: filteredList
+        songs: filteredList,
+        confirmQuestion: ' ',
+        confirmTitle: ' ',
+        confirmDialog: 'closed',
+        confirmCancel: undefined,
+        confirmOk: undefined
       })
       if (this.state.songs.length === 1) {
         this.setState({
@@ -113,7 +152,16 @@ class Play extends Component {
         })
       }
     }
+    
+    this.setState({
+      confirmQuestion: 'Remove song from current list?',
+      confirmTitle: songToRemove,
+      confirmDialog: 'open',
+      confirmCancel: closeConfirmDialog,
+      confirmOk: remove
+    })
   }
+
 
   // tracks percentage of the songs left to play
   progress() {
@@ -143,7 +191,6 @@ class Play extends Component {
         <KeyDownListener onKeyDown={this.handleKeyDown} />
         <MouseDownListener onMouseDown={this.handleMouseDown} />
         <main>
-          <Dialog question="Remove song from current list?" songTitle="About A Girl" />
           <div className="Carousel-box">
             <CarouselProvider className="mobileCarousel"
               naturalSlideWidth={200}
@@ -178,6 +225,7 @@ class Play extends Component {
           </div>
         </main>
         <Logo />
+        <Dialog isOpen={this.state.confirmDialog} question={this.state.confirmQuestion} songTitle={this.state.confirmTitle} onCancel={this.state.confirmCancel} onConfirm={this.state.confirmOk} />
         <div className={`Play-modal-${this.state.modal}`}>
           <div className="Modal-buttons">
             <Button addClass="btn-reload" action={this.reloadFullSongListConfirm} icon={<IconRefresh />} title="Reload full setlist" ariaLabel="Reaload full setlist"/>

@@ -7,15 +7,15 @@ class Dialog extends Component {
   }
   render() {
     return(
-      <div className="Dialog">
+      <div className={`Dialog-${this.props.isOpen}`}>
         <div className="Dialog-conent">
           <div className="Dialog-text">
             <p className="Dialog-question">{this.props.question}</p>
             <p className="Dialog-songTitle">{this.props.songTitle}</p>
           </div>
           <div className="Dialog-buttons">
-            <button className="Dialog-button Dialog-cancel">Cancel</button>
-            <button className="Dialog-button Dialog-ok">OK</button>
+            <button className="Dialog-button Dialog-cancel" onClick={this.props.onCancel}>Cancel</button>
+            <button className="Dialog-button Dialog-ok" onClick={this.props.onConfirm}>OK</button>
           </div>
         </div>
       </div>
