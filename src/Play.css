@@ -163,8 +163,8 @@ main {
   padding-bottom: 16px;
 }
 
-.Modal-buttons .Button-container:first-of-type {
-  margin-right: 48px;
+.Modal-buttons .Button-container:nth-of-type(2) {
+  margin-left: 48px;
 }
 
 .Modal-buttons .Button {
@@ -179,11 +179,11 @@ main {
   background-image: none !important;
 }
 
-.Modal-buttons .Button-container:first-of-type .Button-iconBox svg {
+.Modal-buttons .btn-reload .Button-iconBox svg {
   height: 32px;
 }
 
-.Modal-buttons .Button-container:nth-of-type(2) .Button-iconBox svg {
+.Modal-buttons .btn-close .Button-iconBox svg {
   height: 20px;
 }
 
