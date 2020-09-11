@@ -135,7 +135,7 @@ class Play extends Component {
     this.setState({
       songs: filteredList,
       currentSong: chosenSong,
-      modal: 'hidden'
+      modal: 'closed'
     })
   }
 
@@ -165,7 +165,7 @@ class Play extends Component {
       })
       if (this.state.songs.length === 1) {
         this.setState({
-          modal: 'hidden'
+          modal: 'closed'
         })
       }
       document.body.style.overflow = 'auto';
@@ -238,12 +238,12 @@ class Play extends Component {
           <div className="Buttons-box">
             <div className="Play-buttons">
               {this.state.songs.length > 0 ? 
-                <Button addClass="btn-draw" action={this.drawSong} icon={<IconDices />} description="Draw" tabindex="1" title="Draw random song" ariaLabelledby="Draw" /> : 
-                <Button addClass="btn-reload" action={this.reloadFullSongList} icon={<IconRefresh />} description="Reload" tabindex="1" title="Reload full setlist" ariaLabelledby="Reload" />}
+                <Button addClass="btn-draw" action={this.drawSong} icon={<IconDices />} description="Draw" title="Draw random song" ariaLabelledby="Draw" tabIndex={(this.state.modal === 'open' || this.state.confirmDialog === 'open') ? -1 : 0} /> : 
+                <Button addClass="btn-reload" action={this.reloadFullSongList} icon={<IconRefresh />} description="Reload" title="Reload full setlist" ariaLabelledby="Reload" tabIndex={(this.state.modal === 'open' || this.state.confirmDialog === 'open') ? -1 : 0} />}
               {this.state.songs.length > 0 && this.state.currentSong !== ' ' ? 
-                <Button addClass="btn-arrow" action={this.putBackCurrentSong} icon={<IconBackArrow />} description="Back" tabindex="2" title="Put back current song" ariaLabelledby="Back" /> : 
+                <Button addClass="btn-arrow" action={this.putBackCurrentSong} icon={<IconBackArrow />} description="Back" title="Put back current song" ariaLabelledby="Back" tabIndex={(this.state.modal === 'open' || this.state.confirmDialog === 'open') ? -1 : 0} /> : 
                 null }
-              {this.state.songs.length > 0 && <Button addClass="btn-choice" action={this.openModal} icon={<IconChoice />} description="Choose" tabindex="2" title="Choose song manually" ariaLabelledby="Choose" />}
+              {this.state.songs.length > 0 && <Button addClass="btn-choice" action={this.openModal} icon={<IconChoice />} description="Choose" title="Choose song manually" ariaLabelledby="Choose" tabIndex={(this.state.modal === 'open' || this.state.confirmDialog === 'open') ? -1 : 0} />}
             </div>
           </div>
         </main>
@@ -251,21 +251,21 @@ class Play extends Component {
         <Dialog isOpen={this.state.confirmDialog} question={this.state.confirmQuestion} songTitle={this.state.confirmTitle} onCancel={this.state.confirmCancel} onConfirm={this.state.confirmOk} />
         <div className={`Play-modal-${this.state.modal}`}>
           <div className="Modal-buttons">
-            {this.progress() < 100 && <Button addClass="btn-reload" action={this.reloadFullSongListConfirm} icon={<IconRefresh />} title="Reload full setlist" ariaLabel="Reaload full setlist"/> }
-            <Button addClass="btn-close" action={this.closeModal} icon={<IconClose />} title="Close choice view" ariaLabel="Close choice view"/>
+            {this.progress() < 100 && <Button addClass="btn-reload" action={this.reloadFullSongListConfirm} icon={<IconRefresh />} title="Reload full setlist" ariaLabel="Reaload full setlist" tabIndex={this.state.confirmDialog === 'open' ? -1 : 0} /> }
+            <Button addClass="btn-close" action={this.closeModal} icon={<IconClose />} title="Close choice view" ariaLabel="Close choice view" tabIndex={this.state.confirmDialog === 'open' ? -1 : 0} />
           </div>
           <ul className="Play-modal-list">
             {this.state.songs
               .sort((a, b) => a > b ? 1 : -1)
               .map(item => 
                 <li key={item}>
-                  <button className="ModalList-chooseBtn" type="button" onClick={this.chooseSong} aria-labelledby={item}>
+                  <button className="ModalList-chooseBtn" type="button" onClick={this.chooseSong} aria-labelledby={item} tabIndex={this.state.confirmDialog === 'open' ? -1 : 0}>
                     <div className="Play-circle">
                       <div></div>
                     </div>
                     <p>{item}</p>
                   </button>
-                  <button className="ModalList-removeSongBtn" type="button" onClick={this.removeSong} data-song={item} title="Remove song from current list" aria-label="remove song from current list"></button>
+                  <button className="ModalList-removeSongBtn" type="button" onClick={this.removeSong} data-song={item} title="Remove song from current list" aria-label="remove song from current list" tabIndex={this.state.confirmDialog === 'open' ? -1 : 0}></button>
                 </li>
             )}
           </ul>
