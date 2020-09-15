@@ -53,6 +53,7 @@ class Play extends Component {
   }
 
 
+  // On Draw Button press - draw a random song from current song list
   drawSong() {
     const index = Math.floor(Math.random()*(this.state.songs.length));
     const drawnSong = this.state.songs[index];
@@ -65,6 +66,29 @@ class Play extends Component {
   }
 
 
+  // On Back Button press - move back drawn song to current song list
+  putBackCurrentSong() {
+    this.setState({
+      songs: this.state.songs.concat(this.state.currentSong),
+      currentSong: ' '
+    })
+  }
+
+
+  // On Choose Button press - opens a modal view, then you choose song to play from current song list
+  chooseSong(e) {
+    const chosenSong = e.target.textContent;
+    const filteredList = this.state.songs.filter(el => el !== chosenSong);
+
+    this.setState({
+      songs: filteredList,
+      currentSong: chosenSong,
+      modal: 'closed'
+    })
+  }
+
+
+  // On Reload Button press - loads full setlist when you want to start all over
   reloadFullSongList() {
     this.setState({
       songs: this.props.songs,
@@ -73,7 +97,7 @@ class Play extends Component {
   }
 
 
-  /* Reload full song list - accessible in modal window */
+  // Reloads full setlist - accessible in modal window when at least one song has already been drawn/chosen
   reloadFullSongListConfirm() {
     const closeConfirmDialog = () => {
       this.setState({
@@ -105,14 +129,14 @@ class Play extends Component {
   }
 
 
-  putBackCurrentSong() {
-    this.setState({
-      songs: this.state.songs.concat(this.state.currentSong),
-      currentSong: ' '
-    })
+  // Tracks percentage of the songs left to play in current song list
+  progress() {
+    const percentage = Math.ceil(parseFloat(this.state.songs.length / this.props.songs.length).toFixed(2) * 100);
+    return percentage;
   }
 
 
+  // Opens modal view with current song list
   openModal() {
     this.setState({
       modal: 'open'
@@ -120,6 +144,7 @@ class Play extends Component {
   }
 
 
+  // Closes modal view
   closeModal() {
     this.setState({
       modal: 'closed'
@@ -127,20 +152,7 @@ class Play extends Component {
   }
 
 
-  // choose a song to play in modal view
-  chooseSong(e) {
-    const chosenSong = e.target.textContent;
-    const filteredList = this.state.songs.filter(el => el !== chosenSong);
-
-    this.setState({
-      songs: filteredList,
-      currentSong: chosenSong,
-      modal: 'closed'
-    })
-  }
-
-
-  // remove song from current song list 
+  // Remove song from current song list 
   removeSong(e) {
     const songToRemove = e.target.dataset.song;
     const closeConfirmDialog = () => {
@@ -183,14 +195,7 @@ class Play extends Component {
   }
 
 
-  // tracks percentage of the songs left to play
-  progress() {
-    const percentage = Math.ceil(parseFloat(this.state.songs.length / this.props.songs.length).toFixed(2) * 100);
-    return percentage;
-  }
-
-
-  // add outline to buttons when accessing by keyboard 
+  // Adds outline to buttons when accessing by keyboard 
   handleKeyDown() {
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Tab') {
@@ -200,7 +205,7 @@ class Play extends Component {
   }
 
 
-  // removes outline from buttons when accessing by mouse click 
+  // Removes outline from buttons on mouse click 
   handleMouseDown() {
     document.addEventListener('mousedown', () =>
     document.body.classList.add('intent-mouse') 
@@ -208,6 +213,7 @@ class Play extends Component {
   }
 
 
+  // RENDER
   render() {
     return(
       <div className="Play">
@@ -248,6 +254,8 @@ class Play extends Component {
           </div>
         </main>
         <Logo />
+
+        {/* Confirm dialog */}
         <Dialog isOpen={this.state.confirmDialog} question={this.state.confirmQuestion} songTitle={this.state.confirmTitle} onCancel={this.state.confirmCancel} onConfirm={this.state.confirmOk} />
         
         {/* Modal */}
