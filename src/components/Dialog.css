@@ -32,7 +32,14 @@
   /* animated properties */
   margin-top: 0;
   opacity: 0;
-  animation: slideDownDialog .3s ease-out 1 forwards;
+  animation: slideDownDialog .25s ease-out 1 forwards;
+}
+
+@keyframes slideDownDialog {
+  to {
+    margin-top: 120px;
+    opacity: 1;
+  }
 }
 
 .Dialog-text {
@@ -87,16 +94,6 @@
   filter: saturate(250%);
 }
 
-@keyframes slideDownDialog {
-  to {
-    margin-top: 160px;
-    opacity: 1;
-  }
-}
-
-@media (any-pointer: fine) {
-
-  .padding-right-20 {
-    padding-right: 20px;
-  }
+.padding-right-20 {
+  padding-right: 20px;
 }
