@@ -3,9 +3,6 @@
   position: fixed;
   top: 0;
   left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100%;
   min-height: 100vh;
   background-color: rgba(0, 0, 0, .75);
@@ -25,14 +22,15 @@
   min-width: 300px;
   max-width: 500px;
   height: 200px;
+  margin: 0 auto;
   padding: 24px;
   background-color: grey;
-  background-image: radial-gradient(130% 170% at 65% 20%, #bdbdbd, #828282 60%);
+  background-image: radial-gradient(140% 170% at 65% 20%, #484848, #282828 60%);
+  border: 2px solid #666;
   border-radius: 5px;
-  box-shadow: 0 0 150px #555;
 
   /* animated properties */
-  margin-top: -200vh;
+  margin-top: 0;
   opacity: 0;
   animation: slideDownDialog .3s ease-out 1 forwards;
 }
@@ -40,17 +38,19 @@
 .Dialog-text {
   font-size: 16px;
   text-align: center;
-  margin-bottom: 40px;
+  color: #ccc;
+  margin-bottom: 36px;
 }
 
 .Dialog-question {
   font-weight: 300;
-  margin-bottom: 8px;
+  margin-bottom: 12px;
 }
 
 .Dialog-songTitle {
   font-weight: 400;
   letter-spacing: 1px;
+  color: #ddd;
 }
 
 .Dialog-buttons {
@@ -61,7 +61,7 @@
   width: 100px;
   height: 40px;
   font-size: 16px;
-  color: #fff;
+  color: #eee;
   border: none;
   border-radius: 5px;
 }
@@ -89,7 +89,7 @@
 
 @keyframes slideDownDialog {
   to {
-    margin-top: 0;
+    margin-top: 160px;
     opacity: 1;
   }
 }
