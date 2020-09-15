@@ -41,6 +41,13 @@
   z-index: -1;
 }
 
+@media only screen and (min-width: 710px ) {
+  
+  .Display::after {
+    background-image: linear-gradient(15deg, #222 3%, #272727 30%, transparent);
+  }
+}
+
 .Display-inner {
   display: flex;
   justify-content: center;
