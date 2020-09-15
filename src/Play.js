@@ -259,7 +259,7 @@ class Play extends Component {
         <Dialog isOpen={this.state.confirmDialog} question={this.state.confirmQuestion} songTitle={this.state.confirmTitle} onCancel={this.state.confirmCancel} onConfirm={this.state.confirmOk} />
         
         {/* Modal */}
-        <div className={`Play-modal-${this.state.modal}`}>
+        <div className={`Play-modal-${this.state.modal} ${this.state.confirmDialog === 'open' && 'padding-right-20'}`}>
           <div className="Modal-buttons">
             {this.progress() < 100 && <Button addClass="btn-reload" action={this.reloadFullSongListConfirm} icon={<IconRefresh />} title="Reload full setlist" ariaLabel="Reaload full setlist" tabIndex={this.state.confirmDialog === 'open' ? -1 : 0} /> }
             <Button addClass="btn-close" action={this.closeModal} icon={<IconClose />} title="Close choice view" ariaLabel="Close choice view" tabIndex={this.state.confirmDialog === 'open' ? -1 : 0} />
