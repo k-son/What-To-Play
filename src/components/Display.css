@@ -71,6 +71,18 @@
   animation: tracking-in-expand 0.7s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
 }
 
+@media only screen and (min-width: 600px) {
+  .Display-title {
+    font-size: 18px;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .Display-title {
+    font-size: 21px;
+  }
+}
+
 @-webkit-keyframes tracking-in-expand {
   0% {
     letter-spacing: -0.5em;
@@ -96,18 +108,7 @@
   }
 }
 
-@media only screen and (min-width: 600px) {
-  .Display-title {
-    font-size: 18px;
-  }
-}
-
-@media only screen and (min-width: 900px) {
-  .Display-title {
-    font-size: 21px;
-  }
-}
-
+/* Assigned to Display-title for a very short time, when dismissed the animation in launched */
 .Display-title-off {
   display: none;
 }
