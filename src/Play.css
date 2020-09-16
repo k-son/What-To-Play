@@ -186,6 +186,13 @@ main {
   display: none;
 }
 
+@media only screen and (min-height: 901px) {
+  .Play-modal-open,
+  .Play-modal-closed {
+    padding-top: 4vh;
+  }
+}
+
 
 /* Modal close and reload button */
 .Modal-buttons {
