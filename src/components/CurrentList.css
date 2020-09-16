@@ -12,8 +12,12 @@
   .CurrentList {
     width: 75%;
     max-width: 1200px;
-    height: unset;
-    max-height: 300px;
+  }
+}
+
+@media only screen and (min-height: 1000px) {
+  .CurrentList {
+    height: 180px;
   }
 }
 
