@@ -3,7 +3,7 @@ import './Dialog.css';
 
 class Dialog extends Component {
   constructor(props) {
-    super(props)
+    super()
   }
   render() {
     return(
