@@ -64,6 +64,10 @@
   }
 }
 
+.CurrentList-list li:first-of-type .CurrentList-dot {
+  display: none;
+}
+
 .CurrentList-list > li:not(:last-of-type) {
   margin-right: 6px;
 }
