@@ -3,7 +3,6 @@ import React, {Component} from 'react';
 import {songList} from './songList';
 import Button from './components/Button';
 import Display from './components/Display';
-import DisplayMinimal from './components/DisplayMinimal';
 import Logo from './components/Logo';
 import CurrentList from './components/CurrentList';
 import ProgressBar from './components/ProgressBar';
@@ -236,14 +235,22 @@ class Play extends Component {
               touchEnabled={false}
             >
               <Slider className="mobileCarousel-slider" tabIndex={-1}>
-                <Slide className="mobileCarousel-slide" index={0} tabIndex={-1}><ProgressRing sqSize="140" strokeWidth="6" songsLeft={this.state.songs.length} percentage={this.progress()}/></Slide>
-                <Slide className="mobileCarousel-slide" index={1} tabIndex={-1}><div><CurrentList songs={this.state.songs} /></div></Slide>
+                <Slide className="mobileCarousel-slide" index={0} tabIndex={-1}>
+                  <ProgressRing sqSize="140" strokeWidth="6" songsLeft={this.state.songs.length} percentage={this.progress()}/>
+                </Slide>
+                <Slide className="mobileCarousel-slide" index={1} tabIndex={-1}>
+                  <div><CurrentList songs={this.state.songs} /></div>
+                </Slide>
               </Slider>
               <div className="mobileCarousel-buttons">
                 <ButtonBack tabIndex={(this.state.modal === 'open' || this.state.confirmDialog === 'open') ? -1 : 0}>Progress</ButtonBack>
                 <ButtonNext tabIndex={(this.state.modal === 'open' || this.state.confirmDialog === 'open') ? -1 : 0}>Song list</ButtonNext>
               </div>
             </CarouselProvider>
+          </div>
+          <div className="Progress-box">
+            <CurrentList songs={this.state.songs} />
+            <ProgressBar progress={this.progress()} songsLeft={this.state.songs.length} />
           </div>
           <div className="Display-box">
             <Display song={this.state.currentSong} slideTitle={this.state.slideTitle} />
