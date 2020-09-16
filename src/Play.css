@@ -20,6 +20,12 @@ main {
   }
 }
 
+@media only screen and (min-height: 801px) {
+  main {
+    padding: 7vh 0;
+  }
+}
+
 @media only screen and (min-height: 901px) {
   main {
     padding: 12vh 0 8vh;
@@ -34,7 +40,7 @@ main {
 
 
 /* Mobile carousel [pure-react-carousel] */
-@media only screen and (min-height: 901px) {
+@media only screen and (min-height: 801px) {
   .Carousel-box {
     display: none;
   }
@@ -97,7 +103,7 @@ main {
   padding: 0 16px;
 }
 
-@media only screen and (max-height: 900px) {
+@media only screen and (max-height: 800px) {
   .Progress-box {
     display: none;
   }
@@ -186,7 +192,7 @@ main {
   display: none;
 }
 
-@media only screen and (min-height: 901px) {
+@media only screen and (min-height: 801px) {
   .Play-modal-open,
   .Play-modal-closed {
     padding-top: 4vh;
