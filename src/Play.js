@@ -35,6 +35,7 @@ class Play extends Component {
     this.state = {
       songs: this.props.songs,
       currentSong: ' ',
+      slideTitle: 'off', //animates song title in Display
       modal: 'closed',
       confirmDialog: 'closed',
       confirmQuestion: ' ',
@@ -61,8 +62,15 @@ class Play extends Component {
 
     this.setState({
       songs: filteredList,
-      currentSong: drawnSong
+      currentSong: drawnSong,
+      slideTitle: 'on'
     });
+
+    setTimeout(() => {
+      this.setState({
+        slideTitle: 'off'
+      })
+    }, 10)
   }
 
 
@@ -238,7 +246,7 @@ class Play extends Component {
             </CarouselProvider>
           </div>
           <div className="Display-box">
-            <Display song={this.state.currentSong} />
+            <Display song={this.state.currentSong} slideTitle={this.state.slideTitle} />
             {this.state.currentSong === ' ' && <p className="substitution">song to play</p>}
           </div>
           <div className="Buttons-box">

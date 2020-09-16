@@ -9,7 +9,7 @@ class Display extends Component {
     return(
       <div className="Display">
         <div  className="Display-inner">
-          <span className="Display-title">{this.props.song}</span>
+          <span className={`Display-title ${this.props.slideTitle === 'on' && 'Display-title-off'}`}>{this.props.song}</span>
         </div>
       </div>
     );
