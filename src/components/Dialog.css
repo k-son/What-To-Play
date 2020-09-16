@@ -28,7 +28,7 @@
   background-image: radial-gradient(140% 170% at 65% 20%, #484848, #282828 60%);
   border: 2px solid #666;
   border-radius: 5px;
-  animation: slideDownDialog 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation: slideDownDialog .4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
 @keyframes slideDownDialog {
