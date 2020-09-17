@@ -9,7 +9,7 @@ class Logo extends Component {
   render() {
     return(
       <div className="Logo">
-        <h1 title="what to play ?">what to play ?</h1>
+        <h1 title="what to play ?"><span>w</span><span>h</span><span>a</span><span>t</span><span>t</span><span>o</span><span>p</span><span>l</span><span>a</span><span>y</span></h1>
         <Dice />
       </div>
     );

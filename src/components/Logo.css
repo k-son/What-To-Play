@@ -20,12 +20,62 @@
 
 .Logo h1 {
   position: relative;
-  font-size: 20px;
-  line-height: 1;
-  letter-spacing: 1px;
+  font-size: 24px;
+  font-weight: 900;
+  text-transform: uppercase;
   text-align: center;
-  color: #555;
-  text-shadow: -1px 1px 0 #111;
+  color: #777;
+  text-shadow: -1px 0px 0 #222;
+  margin-right: 8px;
+  transform: translateX(7px);
 }
+
+.Logo h1 span {
+  position: relative;
+  display: inline-block;
+  letter-spacing: -2px;
+}
+
+.Logo h1 span:nth-of-type(even) {
+  color: #999;
+  font-size: 24px;
+}
+
+/* t */
+.Logo h1 span:nth-of-type(4) {
+  transform: translateX(-1px);
+}
+
+/* t */
+.Logo h1 span:nth-of-type(5) {
+  transform: translateX(-3px);
+}
+
+/* o */
+.Logo h1 span:nth-of-type(6) {
+  transform: translateX(-3px);
+}
+
+/* p */
+.Logo h1 span:nth-of-type(7) {
+  transform: translateX(-3px);
+}
+
+/* l */
+.Logo h1 span:nth-of-type(8) {
+  transform: translateX(-4px);
+}
+
+/* a */
+.Logo h1 span:nth-of-type(9) {
+  transform: translateX(-5px);
+}
+
+/* y */
+.Logo h1 span:nth-of-type(10) {
+  transform: translateX(-7px);
+}
+
+
 
 
