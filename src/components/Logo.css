@@ -1,3 +1,15 @@
+@media only screen and (min-height: 801px) {
+  .Logo-box-mobile {
+    display: none;
+  }
+}
+
+@media only screen and (max-height: 800px) {
+  .Logo-box-desktop {
+    display: none;
+  }
+}
+
 .Logo {
   height: var(--logo-height);
   padding: 16px;

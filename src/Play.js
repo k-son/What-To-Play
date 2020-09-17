@@ -226,6 +226,9 @@ class Play extends Component {
       <div className="Play">
         <KeyDownListener onKeyDown={this.handleKeyDown} />
         <MouseDownListener onMouseDown={this.handleMouseDown} />
+        <div className="Logo-box-desktop">
+          <Logo />
+        </div>
         <main>
           <div className="Carousel-box">
             <CarouselProvider className="mobileCarousel"
@@ -268,7 +271,9 @@ class Play extends Component {
             </div>
           </div>
         </main>
-        <Logo />
+        <div className="Logo-box-mobile">
+          <Logo />
+        </div>
 
         {/* Confirm dialog */}
         <Dialog isOpen={this.state.confirmDialog} question={this.state.confirmQuestion} songTitle={this.state.confirmTitle} onCancel={this.state.confirmCancel} onConfirm={this.state.confirmOk} />
