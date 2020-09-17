@@ -2,17 +2,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: calc(var(--dice-side) * 2);
-  height: calc(var(--dice-side) * 2);
+  width: var(--dice-side);
+  height: var(--dice-side);
   perspective: 1000px;
   perspective-origin: top right;
-  transform: translateX(-1px);
 }
 
 .Dice {
   position: relative;
-  width: var(--dice-side);
-  height: var(--dice-side);
+  width: 100%;
+  height: 100%;
   transform-style: preserve-3d;
   animation: diceRotate 10s linear infinite;
 }
