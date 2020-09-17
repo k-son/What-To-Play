@@ -5,6 +5,18 @@
   overflow-x: hidden;
 }
 
+@media only screen and (min-height: 801px) {
+  .Play {
+    padding-top: 10px;
+  }
+}
+
+@media only screen and (min-height: 901px) {
+  .Play {
+    padding-top: 24px;
+  }
+}
+
 main {
   display: flex;
   flex-direction: column;
@@ -22,12 +34,14 @@ main {
 
 @media only screen and (min-height: 801px) {
   main {
+    height: calc(100vh - var(--logo-height) - 10px);
     padding: 7vh 0;
   }
 }
 
 @media only screen and (min-height: 901px) {
   main {
+    height: calc(100vh - var(--logo-height) - 24px);
     padding: 12vh 0 8vh;
   }
 }
