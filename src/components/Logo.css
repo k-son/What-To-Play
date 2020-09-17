@@ -43,37 +43,37 @@
 
 /* t */
 .Logo h1 span:nth-of-type(4) {
-  transform: translateX(-2px);
+  transform: translateX(-1px);
 }
 
 /* t */
 .Logo h1 span:nth-of-type(5) {
-  transform: translateX(-4px);
+  transform: translateX(-3px);
 }
 
 /* o */
 .Logo h1 span:nth-of-type(6) {
-  transform: translateX(-4px);
+  transform: translateX(-3px);
 }
 
 /* p */
 .Logo h1 span:nth-of-type(7) {
-  transform: translateX(-4px);
+  transform: translateX(-3px);
 }
 
 /* l */
 .Logo h1 span:nth-of-type(8) {
-  transform: translateX(-5px);
+  transform: translateX(-4px);
 }
 
 /* a */
 .Logo h1 span:nth-of-type(9) {
-  transform: translateX(-6px);
+  transform: translateX(-5px);
 }
 
 /* y */
 .Logo h1 span:nth-of-type(10) {
-  transform: translateX(-8px);
+  transform: translateX(-7px);
 }
 
 
