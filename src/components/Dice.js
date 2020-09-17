@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import './Dice.css';
+import '../variables.css';
 
 class Dice extends Component {
   constructor(props) {

@@ -1,12 +1,24 @@
 .Dice-container {
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(var(--dice-side) * 2);
+  height: calc(var(--dice-side) * 2);
+  perspective: 1000px;
+  perspective-origin: top right;
 }
 
 .Dice {
   position: relative;
-  width: 40px;
-  height: 40px;
+  width: var(--dice-side);
+  height: var(--dice-side);
   transform-style: preserve-3d;
+  animation: cubeRotate 10s linear infinite;
+}
+
+@keyframes cubeRotate {
+  from { transform: rotateY(0deg) rotateX(720deg) rotateZ(0deg); }
+  to { transform: rotateY(360deg) rotateX(0deg) rotateZ(360deg); }
 }
 
 .Dice-side {
@@ -19,23 +31,24 @@
   width: 100%;
   height: 100%;
   padding: 10%;
-  background-color: orange;
   border-radius: 3px;
+  background-color: #bbb;
 }
 
 .Dice-side span {
   display: block;
   align-self: center;
   justify-self: center;
-  width: 6px;
-  height: 6px;
+  width: calc(var(--dice-side) * 0.15);
+  height: calc(var(--dice-side) * 0.15);
   border-radius: 50%;
-  background-color: white;
+  background-color: #222;
 }
 
 .front {
   grid-template-columns: repeat(3, 33.33333%);
   grid-template-rows: repeat(3, 33.33333%);
+  transform: translateZ(calc(var(--dice-side) / 2));
 }
 
 .front span:nth-of-type(1) {
@@ -66,6 +79,7 @@
 .back {
   grid-template-columns: repeat(2, 50%);
   grid-template-rows: repeat(2, 50%);
+  transform: translateZ(calc(-1 * (var(--dice-side) / 2)));
 }
 
 
@@ -82,6 +96,7 @@
 .left {
   grid-template-columns: repeat(2, 50%);
   grid-template-rows: repeat(3, 33.33333%);
+  transform: rotateY(90deg) translateZ(calc(-1 * (var(--dice-side) / 2)));
 }
 
 .left span:nth-of-type(1) {
@@ -115,11 +130,13 @@
 }
 
 .right {
+  transform: rotateY(90deg) translateZ(calc(var(--dice-side) / 2));
 }
 
 .top {
   grid-template-columns: repeat(3, 33.33333%);
   grid-template-rows: repeat(3, 33.33333%);
+  transform: rotateX(90deg) translateZ(calc(var(--dice-side) / 2));
 }
 
 .top span:nth-of-type(1) {
@@ -140,4 +157,5 @@
 .bottom {
   grid-template-columns: repeat(2, 50%);
   grid-template-rows: repeat(2, 50%);
+  transform: rotateX(90deg) translateZ(calc(-1 * (var(--dice-side) / 2)));
 }
