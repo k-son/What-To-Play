@@ -66,9 +66,10 @@
   font-weight: 300;
   letter-spacing: 1px;
   line-height: 1.4;
-  text-transform: capitalize;
   text-align: center;
-  animation: tracking-in-expand .4s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+  text-transform: capitalize;
+  -webkit-animation: tracking-in-expand .4s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+          animation: tracking-in-expand .4s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
 }
 
 @media only screen and (min-width: 600px) {
@@ -95,6 +96,7 @@
     opacity: 1;
   }
 }
+
 @keyframes tracking-in-expand {
   0% {
     letter-spacing: -0.5em;
