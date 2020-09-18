@@ -1,6 +1,8 @@
 .ProgressRing {
   position: relative;
   width: -webkit-fill-available;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   margin: 0 auto;
 }
