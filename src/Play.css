@@ -312,18 +312,10 @@ main {
   margin-right: 16px;
 }
 
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 1000px) {
   .Play-circle {
     width: 20px;
     height: 20px;
-    margin-right: 32px;
-  }
-}
-
-@media only screen and (min-width: 1000px) {
-  .Play-circle {
-    width: 24px;
-    height: 24px;
     margin-right: 48px;
   }
 }
