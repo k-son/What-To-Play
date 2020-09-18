@@ -258,7 +258,7 @@ class Play extends Component {
             <CurrentList songs={this.state.songs} />
             <ProgressBar progress={this.progress()} songsLeft={this.state.songs.length} />
           </div>
-          {/* Showcase displaying song title to play */}
+          {/* Showcase displaying song title to play. When no song drawn/selected, a substituting text shows up. */}
           <div className="Display-box">
             <Display song={this.state.currentSong} slideTitle={this.state.slideTitle} />
             {this.state.currentSong === ' ' && <p className="substitution">song to play</p>}
