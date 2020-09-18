@@ -24,11 +24,22 @@
   height: 200px;
   margin: 0 auto;
   padding: 24px;
-  background-color: grey;
   background-image: radial-gradient(140% 170% at 65% 20%, #484848, #282828 60%);
   border: 2px solid #666;
   border-radius: 5px;
-  animation: slideDownDialog .4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  -webkit-animation: slideDownDialog .4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+          animation: slideDownDialog .4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+@-webkit-keyframes slideDownDialog {
+  from {
+    margin-top: 0;
+    opacity: 0;
+  }
+  to {
+    margin-top: 120px;
+    opacity: 1;
+  }
 }
 
 @keyframes slideDownDialog {
@@ -83,7 +94,8 @@
 }
 
 .Dialog-cancel:hover {
-  filter: saturate(150%);
+  -webkit-filter: saturate(150%);
+          filter: saturate(150%);
 }
 
 .Dialog-ok {
@@ -91,7 +103,8 @@
 }
 
 .Dialog-ok:hover {
-  filter: saturate(250%);
+  -webkit-filter: saturate(250%);
+          filter: saturate(250%);
 }
 
 .padding-right-20 {
