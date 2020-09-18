@@ -295,13 +295,13 @@ class Play extends Component {
               .sort((a, b) => a > b ? 1 : -1)
               .map(item => 
                 <li key={item}>
-                  <button className="ModalList-chooseBtn" type="button" onClick={this.chooseSong} aria-labelledby={item} tabIndex={this.state.confirmDialog === 'open' ? -1 : 0}>
+                  <button className="ModalList-chooseBtn" type="button" onClick={this.chooseSong} aria-label={item} tabIndex={this.state.confirmDialog === 'open' ? -1 : 0}>
                     <div className="Play-circle">
                       <div></div>
                     </div>
                     <p>{item}</p>
                   </button>
-                  <button className="ModalList-removeSongBtn" type="button" onClick={this.removeSong} data-song={item} title="Remove song from current list" aria-label="remove song from current list" tabIndex={this.state.confirmDialog === 'open' ? -1 : 0}></button>
+                  <button className="ModalList-removeSongBtn" type="button" onClick={this.removeSong} data-song={item} title="Remove song from current list" aria-label={`Remove '${item}' from current list`} tabIndex={this.state.confirmDialog === 'open' ? -1 : 0}></button>
                 </li>
             )}
           </ul>
