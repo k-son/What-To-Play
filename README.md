@@ -11,18 +11,19 @@ Designed to use mainly on mobile devices.
 * Random song draw
 * Withdrawal of a drawn song
 * Manual song selection
+* Progress tracking
+* Remaining songs tracking
 * Removing song from current setlist
 * Reload full setlist
-* Progress tracking
 * Song list sorted alphabetically
 * Buttons deactivation when useless
 * Keyboard accessibility
 
 ## Setup
-Include your song titles in static defaultProps in Play.js file.
+Include your song titles in songList.js file.
 
 ## Status
-In development.
+In usage. Constant improvements.
 
 ## Contact
 Design and code by @Jacek Jarczok.
