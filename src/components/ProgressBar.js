@@ -7,7 +7,6 @@ class ProgressBar extends Component {
     super();
   }
   render() {
-
     let barCol;
     if (this.props.progress > 66) {
       barCol = 'var(--btn-color-yellow)'
@@ -16,7 +15,6 @@ class ProgressBar extends Component {
     } else {
       barCol = 'var(--btn-color-red)'
     }
-
     return(
       <div className="ProgressBar">
         <SongsLeft songsLeft={this.props.songsLeft} color={barCol} />
