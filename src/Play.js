@@ -253,7 +253,7 @@ class Play extends Component {
               </div>
             </CarouselProvider>
           </div>
-          {/* Horizontal progress bar - for higher screens. */}
+          {/* Horizontal progress bar and current song list, both visible at the same time - for higher screens. */}
           <div className="Progress-box">
             <CurrentList songs={this.state.songs} />
             <ProgressBar progress={this.progress()} songsLeft={this.state.songs.length} />
