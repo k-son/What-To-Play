@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-
 import {songList} from './songList';
 import Button from './components/Button';
 import Display from './components/Display';
@@ -224,12 +223,15 @@ class Play extends Component {
   render() {
     return(
       <div className="Play">
+        {/* Adds outline to element on keyboard access. Removes outline whent accessed by mouse. */}
         <KeyDownListener onKeyDown={this.handleKeyDown} />
         <MouseDownListener onMouseDown={this.handleMouseDown} />
+        {/* Logo at the top - for higher screens */}
         <div className="Logo-box-desktop">
           <Logo />
         </div>
         <main>
+          {/* [pure-react-carousel] For lower screens. With the buttons you can switch between circular progress bar and current song list. */}
           <div className="Carousel-box">
             <CarouselProvider className="mobileCarousel"
               naturalSlideWidth={200}
@@ -251,14 +253,17 @@ class Play extends Component {
               </div>
             </CarouselProvider>
           </div>
+          {/* Horizontal progress bar - for higher screens. */}
           <div className="Progress-box">
             <CurrentList songs={this.state.songs} />
             <ProgressBar progress={this.progress()} songsLeft={this.state.songs.length} />
           </div>
+          {/* Showcase displaying song title to play */}
           <div className="Display-box">
             <Display song={this.state.currentSong} slideTitle={this.state.slideTitle} />
             {this.state.currentSong === ' ' && <p className="substitution">song to play</p>}
           </div>
+          {/* Main buttons */}
           <div className="Buttons-box">
             <div className="Play-buttons">
               {this.state.songs.length > 0 ? 
@@ -271,14 +276,15 @@ class Play extends Component {
             </div>
           </div>
         </main>
+        {/* Logo at the bottom - for lower viewports */}
         <div className="Logo-box-mobile">
           <Logo />
         </div>
 
-        {/* Confirm dialog */}
+        {/* Confirm dialog. Out of the normal document flow. */}
         <Dialog isOpen={this.state.confirmDialog} question={this.state.confirmQuestion} songTitle={this.state.confirmTitle} onCancel={this.state.confirmCancel} onConfirm={this.state.confirmOk} />
-        
-        {/* Modal */}
+
+        {/* Modal. Out of the normal document flow. */}
         <div className={`Play-modal-${this.state.modal} ${this.state.confirmDialog === 'open' && 'padding-right-20'}`}>
           <div className="Modal-buttons">
             {this.progress() < 100 && <Button addClass="btn-reload" action={this.reloadFullSongListConfirm} icon={<IconRefresh />} title="Reload full setlist" ariaLabel="Reaload full setlist" tabIndex={this.state.confirmDialog === 'open' ? -1 : 0} /> }
