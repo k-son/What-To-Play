@@ -16,12 +16,12 @@
   border-top-left-radius: 15px;
   border-bottom-left-radius: 15px;
   border-radius: 25px;
-  transition: width .5s;
+  transition: width .4s;
 }
 
 .ProgressBar-count {
   position: absolute;
   top: -28px;
   font-size: 14px;
-  transition: left .5s;
+  transition: left .4s;
 }

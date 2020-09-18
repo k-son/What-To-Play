@@ -10,7 +10,7 @@
 }
 
 .ProgressRing-progressCircle {
-  transition: stroke-dashoffset .5s;
+  transition: stroke-dashoffset .4s;
 }
 
 .ProgressRing-text {
