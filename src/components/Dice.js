@@ -7,36 +7,36 @@ class Dice extends Component {
   }
   render() {
     return(
-      <div class="Dice-container">
-        <div class="Dice">
-          <div class="Dice-side front">
+      <div className="Dice-container">
+        <div className="Dice">
+          <div className="Dice-side front">
             <span></span>
             <span></span>
             <span></span>
             <span></span>
             <span></span>
           </div>
-          <div class="Dice-side back">
+          <div className="Dice-side back">
             <span></span>
             <span></span>
           </div>
-          <div class="Dice-side left">
+          <div className="Dice-side left">
             <span></span>
             <span></span>
             <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-          <div class="Dice-side right">
-            <span></span>
-          </div>
-          <div class="Dice-side top">
             <span></span>
             <span></span>
             <span></span>
           </div>
-          <div class="Dice-side bottom">
+          <div className="Dice-side right">
+            <span></span>
+          </div>
+          <div className="Dice-side top">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div className="Dice-side bottom">
             <span></span>
             <span></span>
             <span></span>
