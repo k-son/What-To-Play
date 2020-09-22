@@ -199,6 +199,9 @@ main {
   min-height: 100vh;
   background-image: radial-gradient(120% 150% at 50% 20%, #414141, #1a1a1a 60%);
   z-index: 9000;
+  box-shadow: 0 0 50px rgba(255, 255, 255, .35);
+  -webkit-animation: scale-in-bottom 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation: scale-in-bottom 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
 .App-modal-closed {
@@ -209,6 +212,40 @@ main {
   .App-modal-open,
   .App-modal-closed {
     padding-top: 4vh;
+  }
+}
+
+@-webkit-keyframes scale-in-bottom {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    -webkit-transform-origin: 50% 100%;
+            transform-origin: 50% 100%;
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-transform-origin: 50% 100%;
+            transform-origin: 50% 100%;
+    opacity: 1;
+  }
+}
+
+@keyframes scale-in-bottom {
+  0% {
+    -webkit-transform: scale(0);
+            transform: scale(0);
+    -webkit-transform-origin: 50% 100%;
+            transform-origin: 50% 100%;
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-transform-origin: 50% 100%;
+            transform-origin: 50% 100%;
+    opacity: 1;
   }
 }
 
