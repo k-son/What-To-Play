@@ -106,11 +106,3 @@
   -webkit-filter: saturate(250%);
           filter: saturate(250%);
 }
-
-/* For non-touch devices. Scrollbar hides when Dialog is open - we prevent content from moving to the right */
-@media (pointer: fine) {
-  .padding-right-12 {
-    padding-right: 12px;
-  }
-}
-

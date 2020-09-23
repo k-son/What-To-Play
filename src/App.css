@@ -249,6 +249,13 @@ main {
   }
 }
 
+/* For non-touch devices. Scrollbar hides when Dialog is open - we prevent content from moving to the right */
+@media (pointer: fine) {
+  .padding-right-20 {
+    padding-right: 20px;
+  }
+}
+
 
 /* Modal close and reload button */
 .Modal-buttons {
