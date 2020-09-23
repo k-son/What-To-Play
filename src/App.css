@@ -250,7 +250,7 @@ main {
 }
 
 /* For non-touch devices. Scrollbar hides when Dialog is open - we prevent content from moving to the right */
-@media (pointer: fine) {
+@media (hover: hover) and (pointer: fine) {
   .padding-right-20 {
     padding-right: 20px;
   }
