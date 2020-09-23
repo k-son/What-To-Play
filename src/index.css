@@ -15,3 +15,21 @@ body {
   font-family: 'Roboto', sans-serif;
   min-height: 100vh;
 }
+
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1d1d1d;
+}
+
+::-webkit-scrollbar-thumb {
+  background-image: linear-gradient(to bottom, #666, #444);
+  border: 1px solid #1d1d1d;
+  border-radius: 15px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-image: linear-gradient(to bottom, #888, #666);
+}

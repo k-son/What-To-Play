@@ -34,24 +34,6 @@
   overflow-y: auto;
 }
 
-.CurrentList-list::-webkit-scrollbar {
-  width: 20px;
-}
-
-.CurrentList-list::-webkit-scrollbar-track {
-  background: #1d1d1d;
-}
-
-.CurrentList-list::-webkit-scrollbar-thumb {
-  background-image: linear-gradient(to bottom, #666, #444);
-  border: 1px solid #1d1d1d;
-  border-radius: 15px;
-}
-
-.CurrentList-list::-webkit-scrollbar-thumb:hover {
-  background-image: linear-gradient(to bottom, #888, #666);
-}
-
 .CurrentList-list > li {
   display: inline;
   position: relative;
