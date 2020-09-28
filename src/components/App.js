@@ -31,8 +31,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      songs: this.props.songs,
-      currentSong: ' ',
+      songs: localStorage.getItem('currentSongList') !== null ? JSON.parse(localStorage.getItem('currentSongList')) : this.props.songs,
+      currentSong: localStorage.getItem('currentSong') !== null ? localStorage.getItem('currentSong') : ' ',
       slideTitle: 'off', //animates song title in Display
       modal: 'closed',
       confirmDialog: 'closed',
@@ -49,6 +49,17 @@ class App extends Component {
     this.closeModal = this.closeModal.bind(this);
     this.chooseSong = this.chooseSong.bind(this);
     this.removeSong = this.removeSong.bind(this);
+  }
+
+
+  // Local storage
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.songs !== this.state.songs) {
+      localStorage.setItem('currentSongList', JSON.stringify(this.state.songs));
+    }
+    if (prevState.currentSong !== this.state.currentSong) {
+      localStorage.setItem('currentSong', this.state.currentSong);
+    }
   }
 
 
