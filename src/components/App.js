@@ -237,12 +237,12 @@ class App extends Component {
         {/* Adds outline to element on keyboard access. Removes outline whent accessed by mouse. */}
         <KeyDownListener onKeyDown={this.handleKeyDown} />
         <MouseDownListener onMouseDown={this.handleMouseDown} />
-        {/* Logo at the top - for higher screens */}
+        {/* Logo at the top - for high viewports */}
         <div className="Logo-box-desktop">
           <Logo />
         </div>
         <main>
-          {/* [pure-react-carousel] For lower screens. With the buttons you can switch between circular progress bar and current song list. */}
+          {/* [pure-react-carousel] For small viewports. With the buttons you can switch between circular progress bar and current song list. */}
           <div className="Carousel-box">
             <CarouselProvider className="mobileCarousel"
               naturalSlideWidth={200}
@@ -252,7 +252,11 @@ class App extends Component {
             >
               <Slider className="mobileCarousel-slider" tabIndex={-1}>
                 <Slide className="mobileCarousel-slide" index={0} tabIndex={-1}>
-                  <ProgressRing sqSize="140" strokeWidth="6" songsLeft={this.state.songs.length} percentage={this.progress()}/>
+                  <ProgressRing 
+                    sqSize="140" 
+                    strokeWidth="6" 
+                    songsLeft={this.state.songs.length} 
+                    percentage={this.progress()} />
                 </Slide>
                 <Slide className="mobileCarousel-slide" index={1} tabIndex={-1}>
                   <div><CurrentList songs={this.state.songs} /></div>
@@ -264,26 +268,69 @@ class App extends Component {
               </div>
             </CarouselProvider>
           </div>
-          {/* Horizontal progress bar and current song list, both visible at the same time - for higher screens. */}
+          {/* Horizontal progress bar and current song list, both visible at the same time - for higher viewports. */}
           <div className="Progress-box">
             <CurrentList songs={this.state.songs} />
-            <ProgressBar progress={this.progress()} songsLeft={this.state.songs.length} />
+            <ProgressBar 
+              progress={this.progress()} 
+              songsLeft={this.state.songs.length} 
+            />
           </div>
           {/* Showcase displaying song title to play. When no song drawn/selected, a substituting text shows up. */}
           <div className="Display-box">
-            <Display song={this.state.currentSong} slideTitle={this.state.slideTitle} />
+            <Display 
+              song={this.state.currentSong} 
+              slideTitle={this.state.slideTitle} 
+            />
             {this.state.currentSong === ' ' && <p className="substitution">song to play</p>}
           </div>
           {/* Main buttons */}
           <div className="Buttons-box">
             <div className="App-buttons">
               {this.state.songs.length > 0 ? 
-                <Button addClass="btn-draw" action={this.drawSong} icon={<IconDices />} description="Draw" title="Draw random song" ariaLabelledby="Draw" tabIndex={(this.state.modal === 'open' || this.state.confirmDialog === 'open') ? -1 : 0} /> : 
-                <Button addClass="btn-reload" action={this.reloadFullSongList} icon={<IconRefresh />} description="Reload" title="Reload full setlist" ariaLabelledby="Reload" tabIndex={(this.state.modal === 'open' || this.state.confirmDialog === 'open') ? -1 : 0} />}
+                <Button 
+                  addClassName="btn-draw" 
+                  onClick={this.drawSong} 
+                  icon={<IconDices />} 
+                  description="Draw" 
+                  title="Draw random song" 
+                  ariaLabelledby="Draw" 
+                  tabIndex={(this.state.modal === 'open' || this.state.confirmDialog === 'open') ? -1 : 0} 
+                /> 
+                : 
+                <Button 
+                  addClassName="btn-reload" 
+                  onClick={this.reloadFullSongList} 
+                  icon={<IconRefresh />} 
+                  description="Reload" 
+                  title="Reload full setlist" 
+                  ariaLabelledby="Reload" 
+                  tabIndex={(this.state.modal === 'open' || this.state.confirmDialog === 'open') ? -1 : 0} 
+                />
+              }
               {this.state.songs.length > 0 && this.state.currentSong !== ' ' ? 
-                <Button addClass="btn-arrow" action={this.putBackCurrentSong} icon={<IconBackArrow />} description="Back" title="Put back current song" ariaLabelledby="Back" tabIndex={(this.state.modal === 'open' || this.state.confirmDialog === 'open') ? -1 : 0} /> : 
-                null }
-              {this.state.songs.length > 0 && <Button addClass="btn-choice" action={this.openModal} icon={<IconChoice />} description="Choose" title="Choose song manually" ariaLabelledby="Choose" tabIndex={(this.state.modal === 'open' || this.state.confirmDialog === 'open') ? -1 : 0} />}
+                <Button 
+                  addClassName="btn-arrow" 
+                  onClick={this.putBackCurrentSong} 
+                  icon={<IconBackArrow />} 
+                  description="Back" 
+                  title="Put back current song" 
+                  ariaLabelledby="Back" 
+                  tabIndex={(this.state.modal === 'open' || this.state.confirmDialog === 'open') ? -1 : 0} 
+                /> 
+                : null 
+              }
+              {this.state.songs.length > 0 && 
+                <Button 
+                  addClassName="btn-choice" 
+                  onClick={this.openModal} 
+                  icon={<IconChoice />} 
+                  description="Choose" 
+                  title="Choose song manually" 
+                  ariaLabelledby="Choose" 
+                  tabIndex={(this.state.modal === 'open' || this.state.confirmDialog === 'open') ? -1 : 0} 
+                />
+              }
             </div>
           </div>
         </main>
@@ -293,26 +340,62 @@ class App extends Component {
         </div>
 
         {/* Confirm dialog. Out of the normal document flow. */}
-        <Dialog isOpen={this.state.confirmDialog} question={this.state.confirmQuestion} songTitle={this.state.confirmTitle} onCancel={this.state.confirmCancel} onConfirm={this.state.confirmOk} />
+        <Dialog 
+          isOpen={this.state.confirmDialog} 
+          question={this.state.confirmQuestion} 
+          songTitle={this.state.confirmTitle} 
+          onCancel={this.state.confirmCancel} 
+          onConfirm={this.state.confirmOk} 
+        />
 
         {/* Modal. Out of the normal document flow. */}
         <div className={`App-modal-${this.state.modal} ${this.state.confirmDialog === 'open' && 'padding-right-20'}`}>
           <div className="Modal-buttons">
-            {this.progress() < 100 && <Button addClass="btn-reload" action={this.reloadFullSongListConfirm} icon={<IconRefresh />} title="Reload full setlist" ariaLabel="Reaload full setlist" tabIndex={this.state.confirmDialog === 'open' ? -1 : 0} /> }
-            <Button addClass="btn-close" action={this.closeModal} icon={<IconClose />} title="Close choice view" ariaLabel="Close choice view" tabIndex={this.state.confirmDialog === 'open' ? -1 : 0} />
+            {this.progress() < 100 && 
+              <Button 
+                addClassName="btn-reload" 
+                onClick={this.reloadFullSongListConfirm} 
+                icon={<IconRefresh />} 
+                title="Reload full setlist" 
+                ariaLabel="Reaload full setlist" 
+                tabIndex={this.state.confirmDialog === 'open' ? -1 : 0} 
+              />
+            }
+            <Button 
+              addClassName="btn-close" 
+              onClick={this.closeModal} 
+              icon={<IconClose />} 
+              title="Close choice view" 
+              ariaLabel="Close choice view" 
+              tabIndex={this.state.confirmDialog === 'open' ? -1 : 0} 
+            />
           </div>
           <ul className="App-modal-list">
             {this.state.songs
               .sort((a, b) => a > b ? 1 : -1)
               .map(item => 
                 <li key={item}>
-                  <button className="ModalList-chooseBtn" type="button" onClick={this.chooseSong} aria-label={item} tabIndex={this.state.confirmDialog === 'open' ? -1 : 0}>
+                  <button 
+                    className="ModalList-chooseBtn" 
+                    type="button" 
+                    onClick={this.chooseSong} 
+                    aria-label={item} 
+                    tabIndex={this.state.confirmDialog === 'open' ? -1 : 0}
+                  >
                     <div className="ModalList-circle">
                       <div></div>
                     </div>
                     <p>{item}</p>
                   </button>
-                  <button className="ModalList-removeSongBtn" type="button" onClick={this.removeSong} data-song={item} title="Remove song from current list" aria-label={`Remove '${item}' from current list`} tabIndex={this.state.confirmDialog === 'open' ? -1 : 0}></button>
+                  <button 
+                    className="ModalList-removeSongBtn" 
+                    type="button" 
+                    onClick={this.removeSong} 
+                    data-song={item} 
+                    title="Remove song from current list" 
+                    aria-label={`Remove '${item}' from current list`} 
+                    tabIndex={this.state.confirmDialog === 'open' ? -1 : 0}
+                  ></button>
                 </li>
             )}
           </ul>
