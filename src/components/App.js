@@ -1,23 +1,23 @@
 import React, {Component} from 'react';
-import {songList} from './songList';
-import Button from './components/Button';
-import Display from './components/Display';
-import Logo from './components/Logo';
-import CurrentList from './components/CurrentList';
-import ProgressBar from './components/ProgressBar';
-import ProgressRing from './components/ProgressRing';
-import Dialog from './components/Dialog';
-import {ReactComponent as IconBackArrow} from './icons/back-arrow.svg';
-import {ReactComponent as IconChoice} from './icons/one.svg';
-import {ReactComponent as IconDices} from './icons/dices.svg';
-import {ReactComponent as IconRefresh} from './icons/refresh.svg';
-import {ReactComponent as IconClose} from './icons/close.svg';
+import {songList} from '../songList';
+import Button from './Button';
+import Display from './Display';
+import Logo from './Logo';
+import CurrentList from './CurrentList';
+import ProgressBar from './ProgressBar';
+import ProgressRing from './ProgressRing';
+import Dialog from './Dialog';
+import {ReactComponent as IconBackArrow} from '../icons/back-arrow.svg';
+import {ReactComponent as IconChoice} from '../icons/one.svg';
+import {ReactComponent as IconDices} from '../icons/dices.svg';
+import {ReactComponent as IconRefresh} from '../icons/refresh.svg';
+import {ReactComponent as IconClose} from '../icons/close.svg';
 // Functionals
-import KeyDownListener from './components/KeyDownListener';
-import MouseDownListener from './components/MouseDownListener';
+import KeyDownListener from './KeyDownListener';
+import MouseDownListener from './MouseDownListener';
 // Styles
 import './App.css';
-import './variables.css'
+import '../variables.css'
 // Libraries
 import {CarouselProvider, Slider, Slide, ButtonBack, ButtonNext} from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
