@@ -1,11 +1,11 @@
-### What To Play ?
+### What To Play
 
 Web app that draws a random song title from the list supplied.
 It solves the 'what shall we play next' problem in my band.
 Designed to use mainly on mobile devices.
 
 ## Technologies
-* React JS
+* React.js
 
 ## Features
 * Random song draw
