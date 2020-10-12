@@ -31,8 +31,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      songs: localStorage.getItem('currentSongList') !== null ? JSON.parse(localStorage.getItem('currentSongList')) : this.props.songs,
-      currentSong: localStorage.getItem('currentSong') !== null ? localStorage.getItem('currentSong') : ' ',
+      songs: this.showCookie('currentSongList') !== false ? this.showCookie('currentSongList').split(',') : this.props.songs,
+      currentSong: this.showCookie('currentSong') !== false ? this.showCookie('currentSong') : ' ',
       slideTitle: 'off', //animates song title in Display
       modal: 'closed',
       confirmDialog: 'closed',
@@ -41,6 +41,8 @@ class App extends Component {
       confirmCancel: undefined,
       confirmOk: undefined
     };
+    this.setCookie = this.setCookie.bind(this);
+    this.showCookie = this.showCookie.bind(this);
     this.drawSong = this.drawSong.bind(this);
     this.reloadFullSongList = this.reloadFullSongList.bind(this);
     this.reloadFullSongListConfirm = this.reloadFullSongListConfirm.bind(this);
@@ -52,13 +54,55 @@ class App extends Component {
   }
 
 
-  // Local storage
+  // Cookies
+  setCookie(name, val, days, path, domain, secure) {
+    if (navigator.cookieEnabled) { //czy ciasteczka są włączone
+        const cookieName = encodeURIComponent(name);
+        const cookieVal = encodeURIComponent(val);
+        let cookieText = cookieName + "=" + cookieVal;
+
+        if (typeof days === "number") {
+            const data = new Date();
+            data.setTime(data.getTime() + (days * 24*60*60*1000));
+            cookieText += "; expires=" + data.toGMTString();
+        }
+
+        if (path) {
+            cookieText += "; path=" + path;
+        }
+        if (domain) {
+            cookieText += "; domain=" + domain;
+        }
+        if (secure) {
+            cookieText += "; secure";
+        }
+
+        document.cookie = cookieText;
+    }
+  }
+
+  showCookie(name) {
+    if (document.cookie !== "") {
+        const cookies = document.cookie.split(/; */);
+
+        for (let i=0; i<cookies.length; i++) {
+            const cookiesPart = cookies[i].split("=");
+            const cookieName = cookiesPart[0];
+            const cookieVal = cookiesPart[1];
+            if (cookieName === decodeURIComponent(name)) {
+                return decodeURIComponent(cookieVal);
+            }
+        }
+    }
+    return false;
+  }
+
   componentDidUpdate(prevProps, prevState) {
     if (prevState.songs !== this.state.songs) {
-      localStorage.setItem('currentSongList', JSON.stringify(this.state.songs));
+      this.setCookie('currentSongList', this.state.songs, 1);
     }
     if (prevState.currentSong !== this.state.currentSong) {
-      localStorage.setItem('currentSong', this.state.currentSong);
+      this.setCookie('currentSong', this.state.currentSong, 1);
     }
   }
 
