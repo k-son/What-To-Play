@@ -18,7 +18,7 @@ Designed to use mainly on mobile devices.
 * Song list sorted alphabetically
 * Buttons deactivation when useless
 * Keyboard accessibility
-* Local storage of progress and current song
+* Progress (current song list) and current song stored in the cookies
 
 ## Setup
 Include your song titles in songList.js file.
