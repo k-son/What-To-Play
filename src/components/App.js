@@ -19,8 +19,10 @@ import MouseDownListener from './MouseDownListener';
 import './App.css';
 import '../variables.css'
 // Libraries
+import CookieConsent from "react-cookie-consent";
 import {CarouselProvider, Slider, Slide, ButtonBack, ButtonNext} from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
+
 
 
 class App extends Component {
@@ -444,6 +446,14 @@ class App extends Component {
             )}
           </ul>
         </div>
+
+        {/* Cookie consent. Out of the normal document flow. */}
+        <CookieConsent
+        location={'none'}
+        style={{bottom: "80px", alignItems: "center", padding: "0 20px", backgroundColor: "rgba(0,0,0,0.75)", fontWeight: "300", letterSpacing: "1px"}}
+        buttonStyle={{height: "40px", borderRadius: "3px", fontSize: "16px"}}
+        >This website uses cookies to enhance the user experience.
+        </CookieConsent>
       </div>
     );
   }
