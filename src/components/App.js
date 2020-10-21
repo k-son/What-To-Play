@@ -7,6 +7,7 @@ import CurrentList from './CurrentList';
 import ProgressBar from './ProgressBar';
 import ProgressRing from './ProgressRing';
 import Dialog from './Dialog';
+import Modal from './Modal';
 import {ReactComponent as IconBackArrow} from '../icons/back-arrow.svg';
 import {ReactComponent as IconChoice} from '../icons/one.svg';
 import {ReactComponent as IconDices} from '../icons/dices.svg';
@@ -395,57 +396,16 @@ class App extends Component {
         />
 
         {/* Modal. Out of the normal document flow. */}
-        <div className={`App-modal-${this.state.modal} ${this.state.confirmDialog === 'open' && 'padding-right-20'}`}>
-          <div className="Modal-buttons">
-            {this.progress() < 100 && 
-              <Button 
-                addClassName="btn-reload" 
-                onClick={this.reloadFullSongListConfirm} 
-                icon={<IconRefresh />} 
-                title="Reload full setlist" 
-                ariaLabel="Reaload full setlist" 
-                tabIndex={this.state.confirmDialog === 'open' ? -1 : 0} 
-              />
-            }
-            <Button 
-              addClassName="btn-close" 
-              onClick={this.closeModal} 
-              icon={<IconClose />} 
-              title="Close choice view" 
-              ariaLabel="Close choice view" 
-              tabIndex={this.state.confirmDialog === 'open' ? -1 : 0} 
-            />
-          </div>
-          <ul className="App-modal-list">
-            {this.state.songs
-              .sort((a, b) => a > b ? 1 : -1)
-              .map(item => 
-                <li key={item}>
-                  <button 
-                    className="ModalList-chooseBtn" 
-                    type="button" 
-                    onClick={this.chooseSong} 
-                    aria-label={item} 
-                    tabIndex={this.state.confirmDialog === 'open' ? -1 : 0}
-                  >
-                    <div className="ModalList-circle">
-                      <div></div>
-                    </div>
-                    <p>{item}</p>
-                  </button>
-                  <button 
-                    className="ModalList-removeSongBtn" 
-                    type="button" 
-                    onClick={this.removeSong} 
-                    data-song={item} 
-                    title="Remove song from current list" 
-                    aria-label={`Remove '${item}' from current list`} 
-                    tabIndex={this.state.confirmDialog === 'open' ? -1 : 0}
-                  ></button>
-                </li>
-            )}
-          </ul>
-        </div>
+        <Modal
+          modal={this.state.modal}
+          confirmDialog={this.state.confirmDialog}
+          songs={this.state.songs}
+          progress={this.progress()}
+          btnReload={this.reloadFullSongListConfirm}
+          btnClose={this.closeModal}
+          chooseSong={this.chooseSong}
+          removeSong={this.removeSong}
+        />
 
         {/* Cookie consent. Out of the normal document flow. [react-cookie-consent library] */}
         <CookieConsent
