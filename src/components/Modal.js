@@ -11,7 +11,7 @@ class Modal extends Component {
   }
   render() {
     return (
-      <div className={`App-modal-${this.props.modal} ${this.props.confirmDialog === 'open' && 'padding-right-20'}`}>
+      <div className={`Modal-${this.props.modal} ${this.props.confirmDialog === 'open' && 'padding-right-20'}`}>
         <div className="Modal-buttons">
           {this.props.progress < 100 && 
             <Button 
@@ -32,7 +32,7 @@ class Modal extends Component {
             tabIndex={this.props.confirmDialog === 'open' ? -1 : 0} 
           />
         </div>
-        <ul className="App-modal-list">
+        <ul className="Modal-list">
           {this.props.songs
             .sort((a, b) => a > b ? 1 : -1)
             .map(item => 

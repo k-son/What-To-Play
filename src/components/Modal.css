@@ -1,7 +1,7 @@
 
 /* Modal */
-.App-modal-open,
-.App-modal-closed {
+.Modal-open,
+.Modal-closed {
   position: absolute;
   top: 0;
   right: 0;
@@ -11,13 +11,13 @@
   z-index: 9000;
 }
 
-.App-modal-closed {
+.Modal-closed {
   display: none;
 }
 
 @media only screen and (min-height: 801px) {
-  .App-modal-open,
-  .App-modal-closed {
+  .Modal-open,
+  .Modal-closed {
     padding-top: 4vh;
   }
 }
@@ -65,13 +65,13 @@
 
 
 /* Modal list */
-.App-modal-list {
+.Modal-list {
   list-style-type: none;
   width: 100%;
   margin: 0 auto 80px;
 }
 
-.App-modal-list li {
+.Modal-list li {
   display: flex;
   align-items: center;
   width: 100%;
@@ -81,7 +81,7 @@
 }
 
 @media only screen and (min-width: 1001px) {
-  .App-modal-list li {
+  .Modal-list li {
     max-width: 800px;
   }
 }
