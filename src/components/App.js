@@ -33,8 +33,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      songs: this.showCookie('currentSongList') !== false ? this.showCookie('currentSongList').split(',') : this.props.songs,
-      currentSong: this.showCookie('currentSong') !== false ? this.showCookie('currentSong') : ' ',
+      songs: this.getCookie('currentSongList') !== false ? this.getCookie('currentSongList').split(',') : this.props.songs,
+      currentSong: this.getCookie('currentSong') !== false ? this.getCookie('currentSong') : ' ',
       slideTitle: 'off', //animates song title in Display
       modal: 'closed',
       confirmDialog: 'closed',
@@ -44,7 +44,7 @@ class App extends Component {
       confirmOk: undefined
     };
     this.setCookie = this.setCookie.bind(this);
-    this.showCookie = this.showCookie.bind(this);
+    this.getCookie = this.getCookie.bind(this);
     this.drawSong = this.drawSong.bind(this);
     this.reloadFullSongList = this.reloadFullSongList.bind(this);
     this.reloadFullSongListConfirm = this.reloadFullSongListConfirm.bind(this);
@@ -83,7 +83,7 @@ class App extends Component {
     }
   }
 
-  showCookie(name) {
+  getCookie(name) {
     if (document.cookie !== "") {
         const cookies = document.cookie.split(/; */);
 
