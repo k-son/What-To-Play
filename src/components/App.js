@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {songList} from '../songList';
 import Button from './Button';
-import {Display} from './Display';
-import {Logo} from './Logo';
+import Display from './Display';
+import Logo from './Logo';
 import CurrentList from './CurrentList';
 import ProgressBar from './ProgressBar';
 import ProgressRing from './ProgressRing';
