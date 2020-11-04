@@ -1,26 +1,27 @@
-import React, {Component} from 'react';
+import React from 'react';
 import './Button.css';
 
-class Button extends Component {
-  constructor(props) {
-    super();
-  }
-  render() {
-    return(
-      <div className={`Button-container ${this.props.addClassName}`}>
-        <button type="button" className="Button" onClick={this.props.onClick} tabIndex={this.props.tabindex} aria-labelledby={this.props.ariaLabelledby} aria-label={this.props.ariaLabel} title={this.props.title}>
-          <span className="Button-middleBox">
-            <span className="Button-coloredBox">
-              <span className="Button-innerBox">
-                <span className="Button-iconBox">{this.props.icon}</span> 
-              </span>
+const Button = ({ addClassName, onClick, tabindex, ariaLabelledby, ariaLabel, title, icon, description }) => {
+  return(
+    <div className={`Button-container ${addClassName}`}>
+      <button type="button" className="Button" 
+        onClick={onClick} 
+        tabIndex={tabindex} 
+        aria-labelledby={ariaLabelledby} 
+        aria-label={ariaLabel} 
+        title={title}
+      >
+        <span className="Button-middleBox">
+          <span className="Button-coloredBox">
+            <span className="Button-innerBox">
+              <span className="Button-iconBox">{icon}</span> 
             </span>
           </span>
-        </button>
-        <p className="Button-description" id={this.props.description}>{this.props.description}</p>
-      </div>
-    );
-  }
+        </span>
+      </button>
+      <p className="Button-description" id={description}>{description}</p>
+    </div>
+  );
 }
 
 export default Button;
