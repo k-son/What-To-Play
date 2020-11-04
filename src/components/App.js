@@ -12,7 +12,6 @@ import {ReactComponent as IconBackArrow} from '../icons/back-arrow.svg';
 import {ReactComponent as IconChoice} from '../icons/one.svg';
 import {ReactComponent as IconDices} from '../icons/dices.svg';
 import {ReactComponent as IconRefresh} from '../icons/refresh.svg';
-// Functionals
 import KeyDownListener from './KeyDownListener';
 import MouseDownListener from './MouseDownListener';
 // Styles
