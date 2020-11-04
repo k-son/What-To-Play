@@ -1,7 +1,7 @@
 import React from 'react';
 import './Display.css';
 
-const Display = ({slideTitle, song}) => {
+const Display = ({ slideTitle, song }) => {
   return(
     <div className="Display">
       <div  className="Display-inner">
