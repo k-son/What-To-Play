@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {songList} from '../songList';
+import React, { Component } from 'react';
+import { songList } from '../songList';
 import Button from './Button';
 import Display from './Display';
 import Logo from './Logo';
@@ -8,10 +8,10 @@ import ProgressBar from './ProgressBar';
 import ProgressRing from './ProgressRing';
 import Dialog from './Dialog';
 import Modal from './Modal';
-import {ReactComponent as IconBackArrow} from '../icons/back-arrow.svg';
-import {ReactComponent as IconChoice} from '../icons/one.svg';
-import {ReactComponent as IconDices} from '../icons/dices.svg';
-import {ReactComponent as IconRefresh} from '../icons/refresh.svg';
+import { ReactComponent as IconBackArrow } from '../icons/back-arrow.svg';
+import { ReactComponent as IconChoice } from '../icons/one.svg';
+import { ReactComponent as IconDices } from '../icons/dices.svg';
+import { ReactComponent as IconRefresh } from '../icons/refresh.svg';
 import KeyDownListener from './KeyDownListener';
 import MouseDownListener from './MouseDownListener';
 // Styles
@@ -19,7 +19,7 @@ import './App.css';
 import '../variables.css'
 // Libraries
 import CookieConsent from "react-cookie-consent";
-import {CarouselProvider, Slider, Slide, ButtonBack, ButtonNext} from 'pure-react-carousel';
+import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 
 
