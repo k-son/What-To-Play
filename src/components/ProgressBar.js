@@ -3,24 +3,24 @@ import './ProgressBar.css';
 import SongsLeft from './SongsLeft';
 
 const ProgressBar = ({ progress, songsLeft }) => {
-  let barCol;
+  let barColor;
     if (progress > 66) {
-      barCol = 'var(--btn-color-yellow)'
+      barColor = 'var(--btn-color-yellow)'
     } else if (progress > 33 && progress <= 66) {
-      barCol = 'var(--btn-color-orange)'
+      barColor = 'var(--btn-color-orange)'
     } else {
-      barCol = 'var(--btn-color-red)'
+      barColor = 'var(--btn-color-red)'
     }
 
     return(
       <div className="ProgressBar">
         <SongsLeft 
           songsLeft={songsLeft} 
-          color={barCol} 
+          color={barColor} 
         />
         <div className="ProgressBar-bar">
-          <div style={{width: progress + '%', backgroundColor: barCol}}></div>
-          <span className="ProgressBar-count" style={{left: progress + '%', color: barCol}}>{progress}%</span>
+          <div style={{width: progress + '%', backgroundColor: barColor}}></div>
+          <span className="ProgressBar-count" style={{left: progress + '%', color: barColor}}>{progress}%</span>
         </div>
       </div>
     );

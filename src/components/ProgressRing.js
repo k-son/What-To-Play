@@ -14,13 +14,13 @@ const ProgressRing = ({ sqSize, strokeWidth, percentage, songsLeft }) => {
   // Scale 100% coverage overlay with the actual percent
   const dashOffset = dashArray - dashArray * percentage / 100;
   // Stroke color 
-  let barCol;
+  let barColor;
   if (percentage > 66) {
-    barCol = 'var(--btn-color-yellow)'
+    barColor = 'var(--btn-color-yellow)'
   } else if (percentage > 33 && percentage <= 66) {
-    barCol = 'var(--btn-color-orange)'
+    barColor = 'var(--btn-color-orange)'
   } else {
-    barCol = 'var(--btn-color-red)'
+    barColor = 'var(--btn-color-red)'
   }
 
   return (
@@ -51,14 +51,14 @@ const ProgressRing = ({ sqSize, strokeWidth, percentage, songsLeft }) => {
               fill: "none",
               strokeDasharray: dashArray,
               strokeDashoffset: dashOffset,
-              stroke: barCol,
+              stroke: barColor,
               strokeLinecap: "round",
               strokeLinejoin: "round"
             }} />
       </svg>
       <div className="ProgressRing-text">
-        <p style={{color: barCol}}>{songsLeft}</p>
-        <p style={{color: barCol}}>({percentage}%)</p>
+        <p style={{color: barColor}}>{songsLeft}</p>
+        <p style={{color: barColor}}>({percentage}%)</p>
         <p>songs left</p>
       </div>
     </figure>
