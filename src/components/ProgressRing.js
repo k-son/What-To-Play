@@ -16,11 +16,11 @@ const ProgressRing = ({ sqSize, strokeWidth, percentage, songsLeft }) => {
   // Stroke color 
   let barColor;
   if (percentage > 66) {
-    barColor = 'var(--btn-color-yellow)'
+    barColor = 'var(--btn-color-yellow)';
   } else if (percentage > 33 && percentage <= 66) {
-    barColor = 'var(--btn-color-orange)'
+    barColor = 'var(--btn-color-orange)';
   } else {
-    barColor = 'var(--btn-color-red)'
+    barColor = 'var(--btn-color-red)';
   }
 
   return (
