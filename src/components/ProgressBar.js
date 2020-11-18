@@ -5,11 +5,11 @@ import SongsLeft from './SongsLeft';
 const ProgressBar = ({ progress, songsLeft }) => {
   let barColor;
     if (progress > 66) {
-      barColor = 'var(--btn-color-yellow)'
+      barColor = 'var(--btn-color-yellow)';
     } else if (progress > 33 && progress <= 66) {
-      barColor = 'var(--btn-color-orange)'
+      barColor = 'var(--btn-color-orange)';
     } else {
-      barColor = 'var(--btn-color-red)'
+      barColor = 'var(--btn-color-red)';
     }
 
     return(
