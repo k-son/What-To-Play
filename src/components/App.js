@@ -321,7 +321,7 @@ class App extends Component {
               songsLeft={this.state.songs.length} 
             />
           </div>
-          {/* Showcase displaying song title to play. When no song drawn/selected, a substituting text shows up. */}
+          {/* Showcase displaying song title to play. When no song drawn/selected, displays 'song to play' text. */}
           <div className="Display-box">
             <Display 
               song={this.state.currentSong} 
