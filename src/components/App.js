@@ -55,6 +55,16 @@ class App extends Component {
   }
 
 
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.songs !== this.state.songs) {
+      this.setCookie('currentSongList', this.state.songs, 1);
+    }
+    if (prevState.currentSong !== this.state.currentSong) {
+      this.setCookie('currentSong', this.state.currentSong, 1);
+    }
+  }
+
+  
   // Cookies
   setCookie(name, val, days, path, domain, secure) {
     if (navigator.cookieEnabled) { //czy ciasteczka są włączone
@@ -96,15 +106,6 @@ class App extends Component {
         }
     }
     return false;
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.songs !== this.state.songs) {
-      this.setCookie('currentSongList', this.state.songs, 1);
-    }
-    if (prevState.currentSong !== this.state.currentSong) {
-      this.setCookie('currentSong', this.state.currentSong, 1);
-    }
   }
 
 
