@@ -67,7 +67,7 @@ class App extends Component {
   
   // Cookies
   setCookie(name, val, days, path, domain, secure) {
-    if (navigator.cookieEnabled) { //czy ciasteczka są włączone TEST
+    if (navigator.cookieEnabled) { //czy ciasteczka są włączone
         const cookieName = encodeURIComponent(name);
         const cookieVal = encodeURIComponent(val);
         let cookieText = cookieName + "=" + cookieVal;
