@@ -67,7 +67,7 @@ class App extends Component {
   
   // Cookies
   setCookie(name, val, days, path, domain, secure) {
-    if (navigator.cookieEnabled) { //czy ciasteczka są włączone
+    if (navigator.cookieEnabled) { //czy ciasteczka są włączone TEST
         const cookieName = encodeURIComponent(name);
         const cookieVal = encodeURIComponent(val);
         let cookieText = cookieName + "=" + cookieVal;
@@ -347,7 +347,7 @@ class App extends Component {
                 <Button 
                   addClassName="btn-reload" 
                   onClick={this.reloadFullSongList} 
-                  icon={<IconRefresh />} 
+                  icon={<IconRefresh />}
                   description="Reload" 
                   title="Reload full setlist" 
                   ariaLabelledby="Reload" 
