@@ -1,4 +1,4 @@
-.App {
+.Draw {
   width: 100%;
   height: 100vh;
   background-image: radial-gradient(120% 150% at 50% 20%, #414141, #1a1a1a 60%);
@@ -6,13 +6,13 @@
 }
 
 @media only screen and (min-height: 801px) {
-  .App {
+  .Draw {
     padding-top: 10px;
   }
 }
 
 @media only screen and (min-height: 901px) {
-  .App {
+  .Draw {
     padding-top: 24px;
   }
 }
@@ -162,7 +162,7 @@ main {
 
 
 /* Buttons */
-.App-buttons {
+.Draw-buttons {
   display: grid;
   grid-template-columns: repeat(3, 33.3333%);
   width: 86%;

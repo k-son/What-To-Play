@@ -15,7 +15,7 @@ import { ReactComponent as IconRefresh } from '../icons/refresh.svg';
 import KeyDownListener from './KeyDownListener';
 import MouseDownListener from './MouseDownListener';
 // Styles
-import './App.css';
+import './Draw.css';
 import '../variables.css'
 // Libraries
 import CookieConsent from "react-cookie-consent";
@@ -24,7 +24,7 @@ import 'pure-react-carousel/dist/react-carousel.es.css';
 
 
 
-class App extends Component {
+class Draw extends Component {
   static defaultProps = {
     songs: songList
   }
@@ -279,7 +279,7 @@ class App extends Component {
   // RENDER
   render() {
     return(
-      <div className="App">
+      <div className="Draw">
         {/* Adds outline to element on keyboard access. Removes outline whent accessed by mouse. */}
         <KeyDownListener onKeyDown={this.handleKeyDown} />
         <MouseDownListener onMouseDown={this.handleMouseDown} />
@@ -332,7 +332,7 @@ class App extends Component {
           </div>
           {/* Main buttons */}
           <div className="Buttons-box">
-            <div className="App-buttons">
+            <div className="Draw-buttons">
               {this.state.songs.length > 0 ? 
                 <Button 
                   addClassName="btn-draw" 
@@ -434,4 +434,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default Draw;
