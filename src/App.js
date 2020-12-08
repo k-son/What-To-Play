@@ -285,6 +285,7 @@ class App extends Component {
               btnClose={this.closeModal}
               chooseSong={this.chooseSong}
               removeSong={this.removeSong}
+              reloadFullSongList={this.reloadFullSongList}
             />
           </Route>
         </Switch>

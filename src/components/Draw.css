@@ -179,9 +179,11 @@ main {
   justify-self: center;
 }
 
-.btn-choice {
+/* Link contains btn-choice */
+.Draw-buttons a {
   grid-column: 3 / 4;
   justify-self: end;
+  text-decoration: none;
 }
 
 .btn-reload {

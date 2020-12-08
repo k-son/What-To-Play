@@ -1,7 +1,6 @@
 
 /* Choice */
-.Choice-open,
-.Choice-closed {
+.Choice {
   position: absolute;
   top: 0;
   right: 0;
@@ -11,13 +10,8 @@
   z-index: 9000;
 }
 
-.Choice-closed {
-  display: none;
-}
-
 @media only screen and (min-height: 801px) {
-  .Choice-open,
-  .Choice-closed {
+  .Choice {
     padding-top: 4vh;
   }
 }
@@ -39,7 +33,8 @@
   padding-bottom: 16px;
 }
 
-.Choice-buttons .Button-container:nth-of-type(2) {
+/* Link containing close button */
+.Choice-buttons a {
   margin-left: 48px;
 }
 
@@ -86,22 +81,23 @@
   }
 }
 
+.Choice-list li a {
+  width: 70%;
+  max-width: 640px;
+  margin: 0 auto;
+  text-decoration: none;
+}
 
 /* Choice choose button */
 .ChoiceList-chooseBtn {
   display: flex;
   align-items: center;
-  width: 70%;
-  max-width: 640px;
-  background-color: transparent;
+  width: 100%;
   padding: calc(16px + 6 * ((100vw - 320px) / 1360));
-  margin: 0 auto;
+  background-color: transparent;
   border: none;
   border-bottom: 1px solid #1d1d1d;
   border-radius: 3px;
-}
-
-.ChoiceList-chooseBtn:hover {
   cursor: pointer;
 }
 

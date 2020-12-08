@@ -6,44 +6,47 @@ import {ReactComponent as IconClose} from '../icons/close.svg';
 import '../variables.css';
 import './Choice.css';
 
-const Choice = ({ confirmDialog, progress, btnReload, btnClose, songs, chooseSong, removeSong }) => {
+const Choice = ({ confirmDialog, progress, reloadFullSongList, songs, chooseSong, removeSong }) => {
   return (
     <div className="Choice">
       <div className="Choice-buttons">
         {progress < 100 && 
           <Button 
             addClassName="btn-reload" 
-            onClick={btnReload} 
+            onClick={reloadFullSongList}
             icon={<IconRefresh />} 
             title="Reload full setlist" 
             ariaLabel="Reaload full setlist" 
           />
         }
-        <Button 
-          addClassName="btn-close" 
-          onClick={btnClose} 
-          icon={<IconClose />} 
-          title="Close choice view" 
-          ariaLabel="Close choice view" 
-        />
+        <Link exact to="/" className="Choice-btn-close">
+          <Button 
+            addClassName="btn-close" 
+            icon={<IconClose />} 
+            title="Close choice view" 
+            ariaLabel="Close choice view" 
+          />
+        </Link>
       </div>
       <ul className="Choice-list">
         {songs
           .sort((a, b) => a > b ? 1 : -1)
           .map(item => 
             <li key={item}>
-              <button 
-                className="ChoiceList-chooseBtn" 
-                type="button" 
-                onClick={chooseSong} 
-                aria-label={item} 
-                tabIndex={confirmDialog === 'open' ? -1 : 0}
-              >
-                <div className="ChoiceList-circle">
-                  <div></div>
-                </div>
-                <p>{item}</p>
-              </button>
+              <Link exact to="/">
+                <button 
+                  className="ChoiceList-chooseBtn" 
+                  type="button" 
+                  onClick={chooseSong} 
+                  aria-label={item} 
+                  tabIndex={confirmDialog === 'open' ? -1 : 0}
+                >
+                  <div className="ChoiceList-circle">
+                    <div></div>
+                  </div>
+                  <p>{item}</p>
+                </button>
+              </Link>
               <button 
                 className="ChoiceList-removeSongBtn" 
                 type="button" 

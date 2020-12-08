@@ -4,7 +4,8 @@ import './Button.css';
 const Button = ({ addClassName, onClick, tabindex, ariaLabelledby, ariaLabel, title, icon, description }) => {
   return(
     <div className={`Button-container ${addClassName}`}>
-      <button type="button" className="Button" 
+      <button 
+        className="Button" 
         onClick={onClick} 
         tabIndex={tabindex} 
         aria-labelledby={ariaLabelledby} 
