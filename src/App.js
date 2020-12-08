@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Link, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import Draw from './components/Draw';
 
 const App = () => {
@@ -9,8 +9,7 @@ const App = () => {
         <Route exact path="/">
           <Draw />
         </Route>
-        <Route exact path="/choice">
-        </Route>
+        <Route exact path="/choice" />
       </Switch>
     </div>
   );
