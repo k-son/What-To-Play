@@ -42,8 +42,5 @@ export const songList = [
   'Where did you ssdfsleep last night',
   'Zombisse',
   'Bad romdffance',
-  'Love Buzzee',
-
-  'Like a virgsssfin'
   */
 ];
