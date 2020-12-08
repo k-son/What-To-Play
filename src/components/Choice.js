@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Button from './Button';
-import {ReactComponent as IconRefresh} from '../icons/refresh.svg';
-import {ReactComponent as IconClose} from '../icons/close.svg';
+import { ReactComponent as IconRefresh } from '../icons/refresh.svg';
+import { ReactComponent as IconClose } from '../icons/close.svg';
 import '../variables.css';
 import './Choice.css';
 
@@ -57,7 +57,8 @@ const Choice = ({ confirmDialog, progress, reloadFullSongList, songs, chooseSong
                 tabIndex={confirmDialog === 'open' ? -1 : 0}
               ></button>
             </li>
-        )}
+          )
+        }
       </ul>
     </div>
   );
