@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { songList } from '../songList';
+import { Link } from 'react-router-dom';
 import Button from './Button';
 import Display from './Display';
 import Logo from './Logo';
@@ -7,7 +7,6 @@ import CurrentList from './CurrentList';
 import ProgressBar from './ProgressBar';
 import ProgressRing from './ProgressRing';
 import Dialog from './Dialog';
-import Modal from './Modal';
 import { ReactComponent as IconBackArrow } from '../icons/back-arrow.svg';
 import { ReactComponent as IconChoice } from '../icons/one.svg';
 import { ReactComponent as IconDices } from '../icons/dices.svg';
@@ -25,258 +24,7 @@ import 'pure-react-carousel/dist/react-carousel.es.css';
 
 
 class Draw extends Component {
-  static defaultProps = {
-    songs: songList
-  }
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      songs: this.getCookie('currentSongList') !== false ? this.getCookie('currentSongList').split(',') : this.props.songs,
-      currentSong: this.getCookie('currentSong') !== false ? this.getCookie('currentSong') : ' ',
-      slideTitle: 'off', //animates song title in Display
-      modal: 'closed',
-      confirmDialog: 'closed',
-      confirmQuestion: ' ',
-      confirmTitle: ' ',
-      confirmCancel: undefined,
-      confirmOk: undefined
-    };
-    this.setCookie = this.setCookie.bind(this);
-    this.getCookie = this.getCookie.bind(this);
-    this.drawSong = this.drawSong.bind(this);
-    this.reloadFullSongList = this.reloadFullSongList.bind(this);
-    this.reloadFullSongListConfirm = this.reloadFullSongListConfirm.bind(this);
-    this.putBackCurrentSong = this.putBackCurrentSong.bind(this);
-    this.openModal = this.openModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
-    this.chooseSong = this.chooseSong.bind(this);
-    this.removeSong = this.removeSong.bind(this);
-  }
-
-
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.songs !== this.state.songs) {
-      this.setCookie('currentSongList', this.state.songs, 1);
-    }
-    if (prevState.currentSong !== this.state.currentSong) {
-      this.setCookie('currentSong', this.state.currentSong, 1);
-    }
-  }
-
-  
-  // Cookies
-  setCookie(name, val, days, path, domain, secure) {
-    if (navigator.cookieEnabled) { //czy ciasteczka są włączone
-        const cookieName = encodeURIComponent(name);
-        const cookieVal = encodeURIComponent(val);
-        let cookieText = cookieName + "=" + cookieVal;
-
-        if (typeof days === "number") {
-            const data = new Date();
-            data.setTime(data.getTime() + (days * 24*60*60*1000));
-            cookieText += "; expires=" + data.toGMTString();
-        }
-
-        if (path) {
-            cookieText += "; path=" + path;
-        }
-        if (domain) {
-            cookieText += "; domain=" + domain;
-        }
-        if (secure) {
-            cookieText += "; secure";
-        }
-
-        document.cookie = cookieText;
-    }
-  }
-
-  getCookie(name) {
-    if (document.cookie !== "") {
-        const cookies = document.cookie.split(/; */);
-
-        for (let i=0; i<cookies.length; i++) {
-            const cookiesPart = cookies[i].split("=");
-            const cookieName = cookiesPart[0];
-            const cookieVal = cookiesPart[1];
-            if (cookieName === decodeURIComponent(name)) {
-                return decodeURIComponent(cookieVal);
-            }
-        }
-    }
-    return false;
-  }
-
-
-  // On Draw Button press - draw a random song from current song list
-  drawSong() {
-    const index = Math.floor(Math.random()*(this.state.songs.length));
-    const drawnSong = this.state.songs[index];
-    const filteredList = this.state.songs.filter(el => el !== drawnSong);
-
-    this.setState({
-      songs: filteredList,
-      currentSong: drawnSong,
-      slideTitle: 'on'
-    });
-
-    setTimeout(() => {
-      this.setState({
-        slideTitle: 'off'
-      })
-    }, 10)
-  }
-
-
-  // On Back Button press - move back drawn song to current song list
-  putBackCurrentSong() {
-    this.setState({
-      songs: this.state.songs.concat(this.state.currentSong),
-      currentSong: ' '
-    })
-  }
-
-
-  // On Choose Button press - opens a modal view, then you choose song to play from current song list
-  chooseSong(e) {
-    const chosenSong = e.target.textContent;
-    const filteredList = this.state.songs.filter(el => el !== chosenSong);
-
-    this.setState({
-      songs: filteredList,
-      currentSong: chosenSong,
-      modal: 'closed'
-    })
-  }
-
-
-  // On Reload Button press - loads full setlist when you want to start all over
-  reloadFullSongList() {
-    this.setState({
-      songs: this.props.songs,
-      currentSong: ' '
-    })
-  }
-
-
-  // Reloads full setlist - accessible in modal window when at least one song has already been drawn/chosen
-  reloadFullSongListConfirm() {
-    const closeConfirmDialog = () => {
-      this.setState({
-        confirmDialog: 'closed',
-        confirmCancel: undefined,
-        confirmOk: undefined
-      })
-      document.body.style.overflow = 'auto';
-    }
-    const reload = () => {
-      this.reloadFullSongList();
-      this.setState({
-        confirmDialog: 'closed',
-        confirmCancel: undefined,
-        confirmOk: undefined,
-        modal: 'closed'
-      })
-      document.body.style.overflow = 'auto';
-    }
-
-    this.setState({
-      confirmQuestion: 'Reload full setlist?',
-      confirmDialog: 'open',
-      confirmCancel: closeConfirmDialog,
-      confirmOk: reload
-    })
-
-    document.body.style.overflow = 'hidden';
-  }
-
-
-  // Tracks percentage of the songs left to play in current song list
-  progress() {
-    const percentage = Math.ceil(parseFloat(this.state.songs.length / this.props.songs.length).toFixed(2) * 100);
-    return percentage;
-  }
-
-
-  // Opens modal view with current song list
-  openModal() {
-    this.setState({
-      modal: 'open'
-    })
-  }
-
-
-  // Closes modal view
-  closeModal() {
-    this.setState({
-      modal: 'closed'
-    })
-  }
-
-
-  // Remove song from current song list 
-  removeSong(e) {
-    const songToRemove = e.target.dataset.song;
-    const closeConfirmDialog = () => {
-      this.setState({
-        confirmQuestion: ' ',
-        confirmTitle: ' ',
-        confirmDialog: 'closed',
-        confirmCancel: undefined,
-        confirmOk: undefined
-      })
-      document.body.style.overflow = 'auto';
-    }; 
-    const remove = () => {
-      const filteredList = this.state.songs.filter(el => el !== songToRemove);
-      this.setState({
-        songs: filteredList,
-        confirmQuestion: ' ',
-        confirmTitle: ' ',
-        confirmDialog: 'closed',
-        confirmCancel: undefined,
-        confirmOk: undefined
-      })
-      if (this.state.songs.length === 1) {
-        this.setState({
-          modal: 'closed'
-        })
-      }
-      document.body.style.overflow = 'auto';
-    }
-    
-    this.setState({
-      confirmQuestion: 'Remove song from current list?',
-      confirmTitle: songToRemove,
-      confirmDialog: 'open',
-      confirmCancel: closeConfirmDialog,
-      confirmOk: remove
-    })
-
-    document.body.style.overflow = 'hidden';
-  }
-
-
-  // Adds outline to buttons when accessing by keyboard 
-  handleKeyDown() {
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Tab') {
-          document.body.classList.remove('intent-mouse')
-      }
-    });
-  }
-
-
-  // Removes outline from buttons on mouse click 
-  handleMouseDown() {
-    document.addEventListener('mousedown', () =>
-    document.body.classList.add('intent-mouse') 
-    );
-  }
-
-
-  // RENDER
   render() {
     return(
       <div className="Draw">
@@ -301,81 +49,78 @@ class Draw extends Component {
                   <ProgressRing 
                     sqSize="140" 
                     strokeWidth="6" 
-                    songsLeft={this.state.songs.length} 
-                    percentage={this.progress()} />
+                    songsLeft={this.props.songsLeft} 
+                    percentage={this.props.progress} />
                 </Slide>
                 <Slide className="mobileCarousel-slide" index={1} tabIndex={-1}>
-                  <div><CurrentList songs={this.state.songs} /></div>
+                  <div><CurrentList songs={this.props.songs} /></div>
                 </Slide>
               </Slider>
               <div className="mobileCarousel-buttons">
-                <ButtonBack tabIndex={(this.state.modal === 'open' || this.state.confirmDialog === 'open') ? -1 : 0}>Progress</ButtonBack>
-                <ButtonNext tabIndex={(this.state.modal === 'open' || this.state.confirmDialog === 'open') ? -1 : 0}>Song list</ButtonNext>
+                <ButtonBack>Progress</ButtonBack>
+                <ButtonNext>Song list</ButtonNext>
               </div>
             </CarouselProvider>
           </div>
           {/* Horizontal progress bar and current song list, both visible at the same time - for higher viewports. */}
           <div className="Progress-box">
-            <CurrentList songs={this.state.songs} />
+            <CurrentList songs={this.props.songs} />
             <ProgressBar 
-              progress={this.progress()} 
-              songsLeft={this.state.songs.length} 
+              progress={this.props.progress} 
+              songsLeft={this.props.songsLeft} 
             />
           </div>
           {/* Showcase displaying song title to play. When no song drawn/selected, displays 'song to play' text. */}
           <div className="Display-box">
             <Display 
-              song={this.state.currentSong} 
-              slideTitle={this.state.slideTitle} 
+              song={this.props.song} 
+              slideTitle={this.props.slideTitle} 
             />
-            {this.state.currentSong === ' ' && <p className="substitution">song to play</p>}
+            {this.props.song === ' ' && <p className="substitution">song to play</p>}
           </div>
           {/* Main buttons */}
           <div className="Buttons-box">
             <div className="Draw-buttons">
-              {this.state.songs.length > 0 ? 
+              {this.props.songsLeft > 0 ? 
                 <Button 
                   addClassName="btn-draw" 
-                  onClick={this.drawSong} 
+                  onClick={this.props.drawSong} 
                   icon={<IconDices />} 
                   description="Draw" 
                   title="Draw random song" 
-                  ariaLabelledby="Draw" 
-                  tabIndex={(this.state.modal === 'open' || this.state.confirmDialog === 'open') ? -1 : 0} 
+                  ariaLabelledby="Draw"
                 /> 
                 : 
                 <Button 
                   addClassName="btn-reload" 
-                  onClick={this.reloadFullSongList} 
+                  onClick={this.props.reloadFullSongList} 
                   icon={<IconRefresh />}
                   description="Reload" 
                   title="Reload full setlist" 
-                  ariaLabelledby="Reload" 
-                  tabIndex={(this.state.modal === 'open' || this.state.confirmDialog === 'open') ? -1 : 0} 
+                  ariaLabelledby="Reload"
                 />
               }
-              {this.state.songs.length > 0 && this.state.currentSong !== ' ' ? 
+              {this.props.songsLeft > 0 && this.props.song !== ' ' ? 
                 <Button 
                   addClassName="btn-arrow" 
-                  onClick={this.putBackCurrentSong} 
+                  onClick={this.props.putBackCurrentSong} 
                   icon={<IconBackArrow />} 
                   description="Back" 
                   title="Put back current song" 
-                  ariaLabelledby="Back" 
-                  tabIndex={(this.state.modal === 'open' || this.state.confirmDialog === 'open') ? -1 : 0} 
+                  ariaLabelledby="Back"
                 /> 
                 : null 
               }
-              {this.state.songs.length > 0 && 
-                <Button 
-                  addClassName="btn-choice" 
-                  onClick={this.openModal} 
-                  icon={<IconChoice />} 
-                  description="Choose" 
-                  title="Choose song manually" 
-                  ariaLabelledby="Choose" 
-                  tabIndex={(this.state.modal === 'open' || this.state.confirmDialog === 'open') ? -1 : 0} 
-                />
+              {this.props.songsLeft > 0 && 
+                <Link exact to="/choice">
+                  <Button 
+                    addClassName="btn-choice" 
+                    icon={<IconChoice />} 
+                    description="Choose" 
+                    title="Choose song manually" 
+                    ariaLabelledby="Choose"
+                  />
+                </Link>
               }
             </div>
           </div>
@@ -387,23 +132,11 @@ class Draw extends Component {
 
         {/* Confirm dialog. Out of the normal document flow. */}
         <Dialog 
-          isOpen={this.state.confirmDialog} 
-          question={this.state.confirmQuestion} 
-          songTitle={this.state.confirmTitle} 
-          onCancel={this.state.confirmCancel} 
-          onConfirm={this.state.confirmOk} 
-        />
-
-        {/* Modal. Out of the normal document flow. */}
-        <Modal
-          modal={this.state.modal}
-          confirmDialog={this.state.confirmDialog}
-          songs={this.state.songs}
-          progress={this.progress()}
-          btnReload={this.reloadFullSongListConfirm}
-          btnClose={this.closeModal}
-          chooseSong={this.chooseSong}
-          removeSong={this.removeSong}
+          isOpen={this.props.confirmDialog} 
+          question={this.props.confirmQuestion} 
+          songTitle={this.props.confirmTitle} 
+          onCancel={this.props.confirmCancel} 
+          onConfirm={this.props.confirmOk} 
         />
 
         {/* Cookie consent. Out of the normal document flow. [react-cookie-consent library] */}
