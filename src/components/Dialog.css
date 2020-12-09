@@ -88,6 +88,10 @@
   cursor: pointer;
 }
 
+.Dialog-button:focus {
+  outline: var(--focus-outline);
+}
+
 .Dialog-cancel {
   background-color: var(--btn-color-red);
   margin-right: 40px;

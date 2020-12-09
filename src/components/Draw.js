@@ -6,7 +6,6 @@ import Logo from './Logo';
 import CurrentList from './CurrentList';
 import ProgressBar from './ProgressBar';
 import ProgressRing from './ProgressRing';
-import Dialog from './Dialog';
 import { ReactComponent as IconBackArrow } from '../icons/back-arrow.svg';
 import { ReactComponent as IconChoice } from '../icons/one.svg';
 import { ReactComponent as IconDices } from '../icons/dices.svg';
@@ -129,15 +128,6 @@ class Draw extends Component {
         <div className="Logo-box-mobile">
           <Logo />
         </div>
-
-        {/* Confirm dialog. Out of the normal document flow. */}
-        <Dialog 
-          isOpen={this.props.confirmDialog} 
-          question={this.props.confirmQuestion} 
-          songTitle={this.props.confirmTitle} 
-          onCancel={this.props.confirmCancel} 
-          onConfirm={this.props.confirmOk} 
-        />
 
         {/* Cookie consent. Out of the normal document flow. [react-cookie-consent library] */}
         <CookieConsent

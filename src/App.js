@@ -3,12 +3,12 @@ import { Switch, Route } from 'react-router-dom';
 import { songList } from './songList';
 import Draw from './components/Draw';
 import Choice from './components/Choice';
+import Dialog from './components/Dialog';
 
 class App extends Component {
   static defaultProps = {
     songs: songList
   }
-
   constructor(props) {
     super(props);
     this.state = {
@@ -289,6 +289,14 @@ class App extends Component {
             />
           </Route>
         </Switch>
+      {/* Confirm dialog. Out of the normal document flow. */}
+      <Dialog 
+        isOpen={this.state.confirmDialog} 
+        question={this.state.confirmQuestion} 
+        songTitle={this.state.confirmTitle} 
+        onCancel={this.state.confirmCancel} 
+        onConfirm={this.state.confirmOk} 
+      />
       </div>
     );
   }
