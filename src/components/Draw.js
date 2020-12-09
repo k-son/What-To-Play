@@ -10,8 +10,6 @@ import { ReactComponent as IconBackArrow } from '../icons/back-arrow.svg';
 import { ReactComponent as IconChoice } from '../icons/one.svg';
 import { ReactComponent as IconDices } from '../icons/dices.svg';
 import { ReactComponent as IconRefresh } from '../icons/refresh.svg';
-import KeyDownListener from './KeyDownListener';
-import MouseDownListener from './MouseDownListener';
 // Styles
 import './Draw.css';
 import '../variables.css'
@@ -27,9 +25,6 @@ class Draw extends Component {
   render() {
     return(
       <div className="Draw">
-        {/* Adds outline to element on keyboard access. Removes outline whent accessed by mouse. */}
-        <KeyDownListener onKeyDown={this.handleKeyDown} />
-        <MouseDownListener onMouseDown={this.handleMouseDown} />
         {/* Logo at the top - for high viewports */}
         <div className="Logo-box-desktop">
           <Logo />

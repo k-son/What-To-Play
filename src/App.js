@@ -4,6 +4,8 @@ import { songList } from './songList';
 import Draw from './components/Draw';
 import Choice from './components/Choice';
 import Dialog from './components/Dialog';
+import KeyDownListener from './components/KeyDownListener';
+import MouseDownListener from './components/MouseDownListener';
 
 class App extends Component {
   static defaultProps = {
@@ -234,6 +236,9 @@ class App extends Component {
   render() {
     return(
       <div className="App">
+        {/* Adds outline to element on keyboard access. Removes outline whent accessed by mouse. */}
+        <KeyDownListener onKeyDown={this.handleKeyDown} />
+        <MouseDownListener onMouseDown={this.handleMouseDown} />
         <Switch>
           <Route exact path="/">
             <Draw 
