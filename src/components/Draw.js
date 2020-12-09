@@ -56,8 +56,8 @@ class Draw extends Component {
                 </Slide>
               </Slider>
               <div className="mobileCarousel-buttons">
-                <ButtonBack>Progress</ButtonBack>
-                <ButtonNext>Song list</ButtonNext>
+                <ButtonBack tabIndex={this.props.songsLeft ? 0 : -1}>Progress</ButtonBack>
+                <ButtonNext tabIndex={this.props.songsLeft ? 0 : -1}>Song list</ButtonNext>
               </div>
             </CarouselProvider>
           </div>

@@ -6,14 +6,14 @@ import { ReactComponent as IconClose } from '../icons/close.svg';
 import '../variables.css';
 import './Choice.css';
 
-const Choice = ({ progress, reloadFullSongListConfirm, reloadFullSongList, songs, chooseSong, removeSong, confirmDialog }) => {
+const Choice = ({ progress, btnReload, songs, chooseSong, removeSong, confirmDialog }) => {
   return (
     <div className="Choice">
       <div className="Choice-buttons">
         {progress < 100 && 
           <Button 
             addClassName="btn-reload" 
-            onClick={reloadFullSongListConfirm}
+            onClick={btnReload}
             icon={<IconRefresh />} 
             title="Reload full setlist" 
             ariaLabel="Reaload full setlist"

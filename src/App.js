@@ -15,7 +15,6 @@ class App extends Component {
       songs: this.getCookie('currentSongList') !== false ? this.getCookie('currentSongList').split(',') : this.props.songs,
       currentSong: this.getCookie('currentSong') !== false ? this.getCookie('currentSong') : ' ',
       slideTitle: 'off', //animates song title in Display
-      modal: 'closed',
       confirmDialog: 'closed',
       confirmQuestion: ' ',
       confirmTitle: ' ',
@@ -28,8 +27,6 @@ class App extends Component {
     this.reloadFullSongList = this.reloadFullSongList.bind(this);
     this.reloadFullSongListConfirm = this.reloadFullSongListConfirm.bind(this);
     this.putBackCurrentSong = this.putBackCurrentSong.bind(this);
-    this.openModal = this.openModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
     this.chooseSong = this.chooseSong.bind(this);
     this.removeSong = this.removeSong.bind(this);
   }
@@ -118,15 +115,14 @@ class App extends Component {
   }
 
 
-  // On Choose Button press - opens a modal view, then you choose song to play from current song list
+  //
   chooseSong(e) {
     const chosenSong = e.target.textContent;
     const filteredList = this.state.songs.filter(el => el !== chosenSong);
 
     this.setState({
       songs: filteredList,
-      currentSong: chosenSong,
-      modal: 'closed'
+      currentSong: chosenSong
     })
   }
 
@@ -140,7 +136,7 @@ class App extends Component {
   }
 
 
-  // Reloads full setlist - accessible in modal window when at least one song has already been drawn/chosen
+  // Reloads full setlist - accessible in Choice component when at least one song has already been drawn/chosen
   reloadFullSongListConfirm() {
     const closeConfirmDialog = () => {
       this.setState({
@@ -155,8 +151,7 @@ class App extends Component {
       this.setState({
         confirmDialog: 'closed',
         confirmCancel: undefined,
-        confirmOk: undefined,
-        modal: 'closed'
+        confirmOk: undefined
       })
       document.body.style.overflow = 'auto';
     }
@@ -179,25 +174,10 @@ class App extends Component {
   }
 
 
-  // Opens modal view with current song list
-  openModal() {
-    this.setState({
-      modal: 'open'
-    })
-  }
-
-
-  // Closes modal view
-  closeModal() {
-    this.setState({
-      modal: 'closed'
-    })
-  }
-
-
   // Remove song from current song list 
   removeSong(e) {
     const songToRemove = e.target.dataset.song;
+
     const closeConfirmDialog = () => {
       this.setState({
         confirmQuestion: ' ',
@@ -208,6 +188,7 @@ class App extends Component {
       })
       document.body.style.overflow = 'auto';
     }; 
+
     const remove = () => {
       const filteredList = this.state.songs.filter(el => el !== songToRemove);
       this.setState({
@@ -218,14 +199,9 @@ class App extends Component {
         confirmCancel: undefined,
         confirmOk: undefined
       })
-      if (this.state.songs.length === 1) {
-        this.setState({
-          modal: 'closed'
-        })
-      }
       document.body.style.overflow = 'auto';
     }
-    
+
     this.setState({
       confirmQuestion: 'Remove song from current list?',
       confirmTitle: songToRemove,
@@ -233,7 +209,7 @@ class App extends Component {
       confirmCancel: closeConfirmDialog,
       confirmOk: remove
     })
-
+    
     document.body.style.overflow = 'hidden';
   }
 
@@ -282,10 +258,8 @@ class App extends Component {
               songs={this.state.songs}
               progress={this.progress()}
               btnReload={this.reloadFullSongListConfirm}
-              btnClose={this.closeModal}
               chooseSong={this.chooseSong}
               removeSong={this.removeSong}
-              reloadFullSongList={this.reloadFullSongList}
             />
           </Route>
         </Switch>
