@@ -4,7 +4,7 @@
   --btn-color-red: #c25026;
   --btn-color-red--close: #c25026;
   --btn-color-green: #448735;
-
+  --focus-outline: 2px solid #00c3ff;
   --logo-height: 54px;
   --dice-side: 20px;
 }

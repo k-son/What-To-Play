@@ -84,7 +84,7 @@ class Draw extends Component {
               {this.props.songsLeft > 0 ? 
                 <Button 
                   addClassName="btn-draw" 
-                  onClick={this.props.drawSong} 
+                  onClick={this.props.drawSong}
                   icon={<IconDices />} 
                   description="Draw" 
                   title="Draw random song" 
@@ -112,7 +112,7 @@ class Draw extends Component {
                 : null 
               }
               {this.props.songsLeft > 0 && 
-                <Link exact to="/choice">
+                <Link exact to="/choice" className="Link-btn-choice" tabIndex="-1">
                   <Button 
                     addClassName="btn-choice" 
                     icon={<IconChoice />} 

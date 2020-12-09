@@ -7,7 +7,6 @@ const Button = ({ addClassName, onClick, tabindex, ariaLabelledby, ariaLabel, ti
       <button 
         className="Button" 
         onClick={onClick} 
-        tabIndex={tabindex} 
         aria-labelledby={ariaLabelledby} 
         aria-label={ariaLabel} 
         title={title}

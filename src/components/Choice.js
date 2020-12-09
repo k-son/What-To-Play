@@ -19,7 +19,11 @@ const Choice = ({ confirmDialog, progress, reloadFullSongList, songs, chooseSong
             ariaLabel="Reaload full setlist" 
           />
         }
-        <Link exact to="/" className="Choice-btn-close">
+        <Link
+          exact to="/" 
+          tabIndex="-1"
+          className="Choice-btn-close"
+        >
           <Button 
             addClassName="btn-close" 
             icon={<IconClose />} 
@@ -33,7 +37,10 @@ const Choice = ({ confirmDialog, progress, reloadFullSongList, songs, chooseSong
           .sort((a, b) => a > b ? 1 : -1)
           .map(item => 
             <li key={item}>
-              <Link exact to="/">
+              <Link 
+                exact to="/"
+                tabIndex="-1"
+              >
                 <button 
                   className="ChoiceList-chooseBtn" 
                   type="button" 

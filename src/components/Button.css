@@ -29,6 +29,36 @@
   cursor: pointer;
 }
 
+.btn-draw:hover svg,
+.btn-draw:hover .Button-description {
+  -webkit-filter: saturate(450%);
+          filter: saturate(450%);
+}
+
+.btn-arrow:hover svg,
+.btn-arrow:hover .Button-description {
+  -webkit-filter: saturate(700%);
+          filter: saturate(700%);
+}
+
+.btn-choice:hover svg,
+.btn-choice:hover .Button-description{
+  -webkit-filter: saturate(300%);
+  filter: saturate(300%);
+}
+
+.btn-reload:hover svg,
+.btn-reload:hover .Button-description {
+  -webkit-filter: saturate(350%);
+          filter: saturate(350%);
+}
+
+.btn-close:hover svg,
+.btn-close:hover .Button-description {
+  -webkit-filter: saturate(200%);
+          filter: saturate(200%);
+}
+
 .Button:active {
   background-image: linear-gradient(30deg, #464646, #1f1f1f);
   box-shadow: 0px -2px 2px -1px #595959, 0px 5px 12px -3px #000;
@@ -56,36 +86,6 @@
 .btn-close:active .Button-innerBox {
   -webkit-filter: saturate(40%);
           filter: saturate(40%);
-}
-
-.btn-draw:hover svg,
-.btn-draw:hover .Button-description {
-  -webkit-filter: saturate(450%);
-          filter: saturate(450%);
-}
-
-.btn-arrow:hover svg,
-.btn-arrow:hover .Button-description {
-  -webkit-filter: saturate(700%);
-          filter: saturate(700%);
-}
-
-.btn-choice:hover svg,
-.btn-choice:hover .Button-description {
-  -webkit-filter: saturate(300%);
-  filter: saturate(300%);
-}
-
-.btn-reload:hover svg,
-.btn-reload:hover .Button-description {
-  -webkit-filter: saturate(350%);
-          filter: saturate(350%);
-}
-
-.btn-close:hover svg,
-.btn-close:hover .Button-description {
-  -webkit-filter: saturate(200%);
-          filter: saturate(200%);
 }
 
 .Button-middleBox { 
@@ -205,4 +205,12 @@
 
 .btn-close .Button-description {
   color: var(--btn-color-red--close);
+}
+
+
+
+
+
+.Button:focus {
+  outline: var(--focus-outline);
 }
