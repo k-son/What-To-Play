@@ -1,10 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './Button.css';
 
-class Button extends Component {
-  render () {
-    const { addClassName, onClick, tabIndex, ariaLabelledby, ariaLabel, title, icon, description } = this.props;
-    return(
+const Button = ({ addClassName, onClick, tabIndex, ariaLabelledby, ariaLabel, title, icon, description }) => {
+    return (
       <div className={`Button-container ${addClassName}`}>
         <button 
           className="Button" 
@@ -25,7 +23,6 @@ class Button extends Component {
         <p className="Button-description" id={description}>{description}</p>
       </div>
     );
-  }
 }
 
 export default Button;
