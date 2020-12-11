@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Button from './Button';
 import { ReactComponent as IconRefresh } from '../icons/refresh.svg';
 import { ReactComponent as IconClose } from '../icons/close.svg';
 import '../variables.css';
@@ -13,35 +12,44 @@ import './Choice.css';
 class Choice extends Component {
   constructor(props) {
     super(props);
+
+    this.TestBtn = React.createRef();
+  }
+
+  componentDidUpdate() {
+    this.TestBtn.current.focus();
   }
 
   render() {
     const { progress, btnReload, songs, chooseSong, removeSong, confirmDialog } = this.props;
     return (
-      <div className="Choice">
+      <div className={`Choice ${confirmDialog === 'open' && 'padding-right-20'}`}>
         <div className="Choice-buttons">
           {progress < 100 && 
-            <Button 
-              addClassName="btn-reload" 
-              onClick={btnReload}
-              icon={<IconRefresh />} 
+            <button 
+              className="button-reload" 
+              onClick={btnReload} 
               title="Reload full setlist" 
-              ariaLabel="Reaload full setlist"
+              aria-label="Reaload full setlist"
               tabIndex={confirmDialog === 'open' ? -1 : 0}
-            />
+            >
+              <IconRefresh />
+            </button>
           }
           <Link
             exact to="/" 
             tabIndex="-1"
             className="Choice-btn-close"
           >
-            <Button 
-              addClassName="btn-close" 
-              icon={<IconClose />} 
+            <button 
+              className="button-close" 
               title="Close choice view" 
-              ariaLabel="Close choice view"
+              aria-label="Close choice view"
               tabIndex={confirmDialog === 'open' ? -1 : 0}
-            />
+              ref={this.TestBtn}
+            >
+              <IconClose />
+            </button>
           </Link>
         </div>
         <ul className="Choice-list">

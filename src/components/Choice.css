@@ -38,24 +38,39 @@
   margin-left: 48px;
 }
 
-.Choice-buttons .Button {
-  width: 48px;
-  height: 48px;
+.Choice-buttons button {
+  width: 56px;
+  height: 56px;
   background-color: transparent;
-  background-image: none;
-  box-shadow: none;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
 }
 
-.Choice-buttons .Button-middleBox {
-  background-image: none !important;
+.Choice-buttons button:hover {
+  background-color: rgba(255, 255, 255, .05);
 }
 
-.Choice-buttons .btn-reload .Button-iconBox svg {
-  height: 32px;
+.Choice-buttons button:focus {
+  outline: var(--focus-outline);
 }
 
-.Choice-buttons .btn-close .Button-iconBox svg {
-  height: 20px;
+.Choice-buttons .button-reload svg {
+  height: 44px;
+  fill: var(--btn-color-green);
+}
+
+.Choice-buttons .button-reload:hover svg {
+  filter: saturate(300%);
+}
+
+.Choice-buttons .button-close svg {
+  height: 28px;
+  fill: var(--btn-color-red);
+}
+
+.Choice-buttons .button-close:hover svg {
+  filter: saturate(350%);
 }
 
 
@@ -174,6 +189,7 @@
   margin-right: 12px;
   background-color: transparent;
   border: none;
+  border-radius: 3px;
 }
 
 .ChoiceList-removeSongBtn:hover {
