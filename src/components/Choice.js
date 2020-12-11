@@ -5,10 +5,6 @@ import { ReactComponent as IconClose } from '../icons/close.svg';
 import '../variables.css';
 import './Choice.css';
 
-//didUpdate
-// select button
-// np  ReactDOM.findDOMNode(this.refs.theDiv).focus();
-
 class Choice extends Component {
   constructor(props) {
     super(props);
