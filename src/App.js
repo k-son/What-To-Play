@@ -262,7 +262,7 @@ class App extends Component {
               confirmDialog={this.state.confirmDialog}
               songs={this.state.songs}
               progress={this.progress()}
-              btnReload={this.reloadFullSongListConfirm}
+              reloadSetlist={this.reloadFullSongListConfirm}
               chooseSong={this.chooseSong}
               removeSong={this.removeSong}
             />

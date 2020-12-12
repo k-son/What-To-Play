@@ -9,25 +9,31 @@ class Choice extends Component {
   constructor(props) {
     super(props);
 
-    this.TestBtn = React.createRef();
+    this.getFocus = React.createRef();
   }
 
   componentDidUpdate() {
-    this.TestBtn.current.focus();
+    this.getFocus.current.focus();
   }
 
   render() {
-    const { progress, btnReload, songs, chooseSong, removeSong, confirmDialog } = this.props;
+    const { progress, reloadSetlist, songs, chooseSong, removeSong, confirmDialog } = this.props;
+    let isDialogOpen;
+    if (confirmDialog === 'open') {
+      isDialogOpen = -1;
+    } else {
+      isDialogOpen = 0;
+    }
     return (
       <div className={`Choice ${confirmDialog === 'open' && 'padding-right-20'}`}>
         <div className="Choice-buttons">
           {progress < 100 && 
             <button 
               className="button-reload" 
-              onClick={btnReload} 
+              onClick={reloadSetlist} 
               title="Reload full setlist" 
               aria-label="Reaload full setlist"
-              tabIndex={confirmDialog === 'open' ? -1 : 0}
+              tabIndex={isDialogOpen}
             >
               <IconRefresh />
             </button>
@@ -35,14 +41,13 @@ class Choice extends Component {
           <Link
             exact to="/" 
             tabIndex="-1"
-            className="Choice-btn-close"
           >
             <button 
               className="button-close" 
               title="Close choice view" 
               aria-label="Close choice view"
-              tabIndex={confirmDialog === 'open' ? -1 : 0}
-              ref={this.TestBtn}
+              tabIndex={isDialogOpen}
+              ref={this.getFocus}
             >
               <IconClose />
             </button>
@@ -62,7 +67,7 @@ class Choice extends Component {
                     type="button" 
                     onClick={chooseSong} 
                     aria-label={item} 
-                    tabIndex={confirmDialog === 'open' ? -1 : 0}
+                    tabIndex={isDialogOpen}
                   >
                     <div className="ChoiceList-circle">
                       <div></div>
@@ -77,7 +82,7 @@ class Choice extends Component {
                   data-song={item} 
                   title="Remove song from current list" 
                   aria-label={`Remove '${item}' from current list`} 
-                  tabIndex={confirmDialog === 'open' ? -1 : 0}
+                  tabIndex={isDialogOpen}
                 />
               </li>
             )
