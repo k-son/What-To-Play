@@ -4,7 +4,7 @@ import {ReactComponent as IconRefresh} from '../icons/refresh.svg';
 import {ReactComponent as IconClose} from '../icons/close.svg';
 import './Modal.css';
 
-const Modal = ({ modal, confirmDialog, progress, btnReload, btnClose, songs, chooseSong, removeSong }) => {
+function Modal({ modal, confirmDialog, progress, btnReload, btnClose, songs, chooseSong, removeSong }) {
   return (
     <div className={`Modal-${modal} ${confirmDialog === 'open' && 'padding-right-20'}`}>
       <div className="Modal-buttons">

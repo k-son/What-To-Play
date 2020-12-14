@@ -1,7 +1,7 @@
 import React from 'react';
 import './Dialog.css';
 
-const Dialog = ({ isOpen, question, songTitle, onCancel, onConfirm }) => {
+function Dialog({ isOpen, question, songTitle, onCancel, onConfirm }) {
   return (
     <div className={`Dialog-${isOpen}`}>
       <div className="Dialog-conent">

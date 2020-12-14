@@ -2,7 +2,7 @@ import React from 'react';
 import './Logo.css';
 import Dice from './Dice';
 
- const Logo = () => {
+function Logo() {
   return (
     <div className="Logo">
       <h1 title="what to play ?">

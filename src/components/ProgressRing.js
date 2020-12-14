@@ -1,7 +1,7 @@
 import React from 'react';
 import './ProgressRing.css';
 
-const ProgressRing = ({ sqSize, strokeWidth, percentage, songsLeft }) => {
+function ProgressRing({ sqSize, strokeWidth, percentage, songsLeft }) {
   
   // Size of the enclosing square
   const size = sqSize;

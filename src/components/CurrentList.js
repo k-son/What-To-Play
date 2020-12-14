@@ -1,7 +1,7 @@
 import React from 'react';
 import './CurrentList.css';
 
-const CurrentList = ({ songs }) => {
+function CurrentList({ songs }) {
   return (
     <div className="CurrentList">
       <ul className="CurrentList-list">

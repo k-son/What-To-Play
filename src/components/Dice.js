@@ -1,7 +1,7 @@
 import React from 'react';
 import './Dice.css';
 
-const Dice = () => {
+function Dice() {
   return (
     <div className="Dice-container">
       <div className="Dice">

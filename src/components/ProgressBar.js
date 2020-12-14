@@ -2,7 +2,7 @@ import React from 'react';
 import './ProgressBar.css';
 import SongsLeft from './SongsLeft';
 
-const ProgressBar = ({ progress, songsLeft }) => {
+function ProgressBar({ progress, songsLeft }) {
   let barColor;
     if (progress > 66) {
       barColor = 'var(--btn-color-yellow)';
