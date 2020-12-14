@@ -20,6 +20,7 @@ import 'pure-react-carousel/dist/react-carousel.es.css';
 
 class Draw extends Component {
   render() {
+    const { songs, songsLeft, song, progress, slideTitle, drawSong, reloadFullSongList, putBackCurrentSong } = this.props;
     return(
       <div className="Draw">
         {/* Logo at the top - for high viewports */}
@@ -41,45 +42,45 @@ class Draw extends Component {
                   <ProgressRing 
                     sqSize="140" 
                     strokeWidth="6" 
-                    songsLeft={this.props.songsLeft} 
-                    percentage={this.props.progress} />
+                    songsLeft={songsLeft} 
+                    percentage={progress} />
                 </Slide>
                 <Slide className="mobileCarousel-slide" index={1} tabIndex={-1}>
                   <div>
-                    <CurrentList songs={this.props.songs} />
+                    <CurrentList songs={songs} />
                   </div>
                 </Slide>
               </Slider>
               <div className="mobileCarousel-buttons">
-                <ButtonBack tabIndex={this.props.songsLeft ? 0 : -1}>Progress</ButtonBack>
-                <ButtonNext tabIndex={this.props.songsLeft ? 0 : -1}>Song list</ButtonNext>
+                <ButtonBack tabIndex={songsLeft ? 0 : -1}>Progress</ButtonBack>
+                <ButtonNext tabIndex={songsLeft ? 0 : -1}>Song list</ButtonNext>
               </div>
             </CarouselProvider>
           </div>
           {/* Horizontal progress bar and current song list, both visible at the same time - for higher viewports. */}
           <div className="Progress-box">
-            <CurrentList songs={this.props.songs} />
+            <CurrentList songs={songs} />
             <ProgressBar 
-              progress={this.props.progress} 
-              songsLeft={this.props.songsLeft} 
+              progress={progress} 
+              songsLeft={songsLeft} 
             />
           </div>
           {/* Showcase displaying song title to play. When no song drawn/selected, displays 'song to play' text. */}
           <div className="Display-box">
             <Display 
-              song={this.props.song} 
-              slideTitle={this.props.slideTitle} 
+              song={song} 
+              slideTitle={slideTitle} 
             />
             {/* When no choosen/drawn song, display 'song to play' text */}
-            {this.props.song === ' ' && <p className="substitution">song to play</p>}
+            {song === ' ' && <p className="substitution">song to play</p>}
           </div>
           {/* Main buttons */}
           <div className="Buttons-box">
             <div className="Draw-buttons">
-              {this.props.songsLeft > 0 ? 
+              {songsLeft > 0 ? 
                 <Button 
                   additionalClassName="btn-draw" 
-                  onClick={this.props.drawSong}
+                  onClick={drawSong}
                   icon={<IconDices />} 
                   description="Draw" 
                   title="Draw random song" 
@@ -88,17 +89,17 @@ class Draw extends Component {
                 : 
                 <Button 
                   additionalClassName="btn-reload" 
-                  onClick={this.props.reloadFullSongList} 
+                  onClick={reloadFullSongList} 
                   icon={<IconRefresh />}
                   description="Reload" 
                   title="Reload full setlist" 
                   aria-label="Reload"
                 />
               }
-              {this.props.songsLeft > 0 && this.props.song !== ' ' ? 
+              {songsLeft > 0 && song !== ' ' ? 
                 <Button 
                   additionalClassName="btn-arrow" 
-                  onClick={this.props.putBackCurrentSong} 
+                  onClick={putBackCurrentSong} 
                   icon={<IconBackArrow />} 
                   description="Back" 
                   title="Put back current song" 
@@ -106,7 +107,7 @@ class Draw extends Component {
                 /> 
                 : null 
               }
-              {this.props.songsLeft > 0 && 
+              {songsLeft > 0 && 
                 <Link exact to="/choice" className="Link-btn-choice" tabIndex="-1">
                   <Button 
                     additionalClassName="btn-choice" 
