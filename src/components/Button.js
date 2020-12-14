@@ -1,16 +1,12 @@
 import React from 'react';
 import './Button.css';
 
-const Button = ({ addClassName, onClick, tabIndex, ariaLabelledby, ariaLabel, title, icon, description }) => {
+const Button = ({ addClassName, onClick, icon, description }) => {
     return (
       <div className={`Button-container ${addClassName}`}>
         <button 
           className="Button" 
           onClick={onClick} 
-          aria-labelledby={ariaLabelledby} 
-          aria-label={ariaLabel} 
-          title={title}
-          tabIndex={tabIndex}
         >
           <span className="Button-middleBox">
             <span className="Button-coloredBox">

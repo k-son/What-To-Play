@@ -18,10 +18,7 @@ import CookieConsent from "react-cookie-consent";
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 
-
-
 class Draw extends Component {
-
   render() {
     return(
       <div className="Draw">
@@ -32,7 +29,8 @@ class Draw extends Component {
         <main>
           {/* [pure-react-carousel] For small viewports. With the buttons you can switch between circular progress bar and current song list. */}
           <div className="Carousel-box">
-            <CarouselProvider className="mobileCarousel"
+            <CarouselProvider 
+              className="mobileCarousel"
               naturalSlideWidth={200}
               naturalSlideHeight={200}
               totalSlides={2}
@@ -47,7 +45,9 @@ class Draw extends Component {
                     percentage={this.props.progress} />
                 </Slide>
                 <Slide className="mobileCarousel-slide" index={1} tabIndex={-1}>
-                  <div><CurrentList songs={this.props.songs} /></div>
+                  <div>
+                    <CurrentList songs={this.props.songs} />
+                  </div>
                 </Slide>
               </Slider>
               <div className="mobileCarousel-buttons">
@@ -70,6 +70,7 @@ class Draw extends Component {
               song={this.props.song} 
               slideTitle={this.props.slideTitle} 
             />
+            {/* When no choosen/drawn song, display 'song to play' text */}
             {this.props.song === ' ' && <p className="substitution">song to play</p>}
           </div>
           {/* Main buttons */}
@@ -82,7 +83,7 @@ class Draw extends Component {
                   icon={<IconDices />} 
                   description="Draw" 
                   title="Draw random song" 
-                  ariaLabelledby="Draw"
+                  aria-label="Draw"
                 /> 
                 : 
                 <Button 
@@ -91,7 +92,7 @@ class Draw extends Component {
                   icon={<IconRefresh />}
                   description="Reload" 
                   title="Reload full setlist" 
-                  ariaLabelledby="Reload"
+                  aria-label="Reload"
                 />
               }
               {this.props.songsLeft > 0 && this.props.song !== ' ' ? 
@@ -101,7 +102,7 @@ class Draw extends Component {
                   icon={<IconBackArrow />} 
                   description="Back" 
                   title="Put back current song" 
-                  ariaLabelledby="Back"
+                  aria-label="Back"
                 /> 
                 : null 
               }
@@ -112,7 +113,7 @@ class Draw extends Component {
                     icon={<IconChoice />} 
                     description="Choose" 
                     title="Choose song manually" 
-                    ariaLabelledby="Choose"
+                    aria-label="Choose"
                   />
                 </Link>
               }
