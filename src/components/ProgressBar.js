@@ -20,7 +20,9 @@ function ProgressBar({ progress, songsLeft }) {
         />
         <div className="ProgressBar-bar">
           <div style={{width: progress + '%', backgroundColor: barColor}}></div>
-          <span className="ProgressBar-count" style={{left: progress + '%', color: barColor}}>{progress}%</span>
+          <span className="ProgressBar-count" style={{left: progress + '%', color: barColor}}>
+            {progress}%
+          </span>
         </div>
       </div>
     );
