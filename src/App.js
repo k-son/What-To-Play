@@ -56,7 +56,6 @@ class App extends Component {
             data.setTime(data.getTime() + (days * 24*60*60*1000));
             cookieText += "; expires=" + data.toGMTString();
         }
-
         if (path) {
             cookieText += "; path=" + path;
         }
@@ -243,7 +242,7 @@ class App extends Component {
           <Route exact path="/">
             <Draw 
               songs={this.state.songs}
-              song={this.state.currentSong}
+              currentSong={this.state.currentSong}
               progress={this.progress()}
               songsLeft={this.state.songs.length}
               slideTitle={this.state.slideTitle}

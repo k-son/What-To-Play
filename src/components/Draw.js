@@ -20,7 +20,7 @@ import 'pure-react-carousel/dist/react-carousel.es.css';
 
 class Draw extends Component {
   render() {
-    const { songs, songsLeft, song, progress, slideTitle, drawSong, reloadFullSongList, putBackCurrentSong } = this.props;
+    const { songs, songsLeft, currentSong, progress, slideTitle, drawSong, reloadFullSongList, putBackCurrentSong } = this.props;
     return (
       <div className="Draw">
         {/* Logo at the top - for high viewports */}
@@ -68,11 +68,11 @@ class Draw extends Component {
           {/* Showcase displaying song title to play. When no song drawn/selected, displays 'song to play' text. */}
           <div className="Display-box">
             <Display 
-              song={song} 
+              currentSong={currentSong} 
               slideTitle={slideTitle} 
             />
             {/* When no choosen/drawn song, display 'song to play' text */}
-            {song === ' ' && <p className="substitution">song to play</p>}
+            {currentSong === ' ' && <p className="substitution">song to play</p>}
           </div>
           {/* Main buttons */}
           <div className="Buttons-box">
@@ -96,7 +96,7 @@ class Draw extends Component {
                   aria-label="Reload"
                 />
               }
-              {songsLeft > 0 && song !== ' ' ? 
+              {songsLeft > 0 && currentSong !== ' ' ? 
                 <Button 
                   additionalClassName="btn-arrow" 
                   onClick={putBackCurrentSong} 
