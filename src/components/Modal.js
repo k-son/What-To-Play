@@ -5,6 +5,14 @@ import {ReactComponent as IconClose} from '../icons/close.svg';
 import './Modal.css';
 
 function Modal({ modal, confirmDialog, progress, btnReload, btnClose, songs, chooseSong, removeSong }) {
+
+  let isDialogOpen;
+  if (confirmDialog === 'open') {
+    isDialogOpen = -1;
+  } else {
+    isDialogOpen = 0;
+  }
+  
   return (
     <div className={`Modal-${modal} ${confirmDialog === 'open' && 'padding-right-20'}`}>
       <div className="Modal-buttons">
@@ -15,7 +23,7 @@ function Modal({ modal, confirmDialog, progress, btnReload, btnClose, songs, cho
             icon={<IconRefresh />} 
             title="Reload full setlist" 
             ariaLabel="Reaload full setlist" 
-            tabIndex={confirmDialog === 'open' ? -1 : 0} 
+            tabIndex={isDialogOpen} 
           />
         }
         <Button 
@@ -24,7 +32,7 @@ function Modal({ modal, confirmDialog, progress, btnReload, btnClose, songs, cho
           icon={<IconClose />} 
           title="Close choice view" 
           ariaLabel="Close choice view" 
-          tabIndex={confirmDialog === 'open' ? -1 : 0} 
+          tabIndex={isDialogOpen} 
         />
       </div>
       <ul className="Modal-list">
@@ -37,7 +45,7 @@ function Modal({ modal, confirmDialog, progress, btnReload, btnClose, songs, cho
                 type="button" 
                 onClick={chooseSong} 
                 aria-label={item} 
-                tabIndex={confirmDialog === 'open' ? -1 : 0}
+                tabIndex={isDialogOpen}
               >
                 <div className="ModalList-circle">
                   <div></div>
@@ -51,7 +59,7 @@ function Modal({ modal, confirmDialog, progress, btnReload, btnClose, songs, cho
                 data-song={item} 
                 title="Remove song from current list" 
                 aria-label={`Remove '${item}' from current list`} 
-                tabIndex={confirmDialog === 'open' ? -1 : 0}
+                tabIndex={isDialogOpen}
               ></button>
             </li>
         )}
