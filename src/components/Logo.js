@@ -3,7 +3,7 @@ import './Logo.css';
 import Dice from './Dice';
 
  const Logo = () => {
-  return(
+  return (
     <div className="Logo">
       <h1 title="what to play ?">
         <span>w</span>

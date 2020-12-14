@@ -234,7 +234,7 @@ class App extends Component {
   }
 
   render() {
-    return(
+    return (
       <div className="App">
         {/* Adds outline to element on keyboard access. Removes outline whent accessed by mouse. */}
         <KeyDownListener onKeyDown={this.handleKeyDown} />

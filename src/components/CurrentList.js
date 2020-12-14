@@ -2,7 +2,7 @@ import React from 'react';
 import './CurrentList.css';
 
 const CurrentList = ({ songs }) => {
-  return(
+  return (
     <div className="CurrentList">
       <ul className="CurrentList-list">
         {songs

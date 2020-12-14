@@ -12,7 +12,7 @@ const ProgressBar = ({ progress, songsLeft }) => {
       barColor = 'var(--btn-color-red)';
     }
 
-    return(
+    return (
       <div className="ProgressBar">
         <SongsLeft 
           songsLeft={songsLeft} 

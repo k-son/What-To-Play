@@ -21,7 +21,7 @@ import 'pure-react-carousel/dist/react-carousel.es.css';
 class Draw extends Component {
   render() {
     const { songs, songsLeft, song, progress, slideTitle, drawSong, reloadFullSongList, putBackCurrentSong } = this.props;
-    return(
+    return (
       <div className="Draw">
         {/* Logo at the top - for high viewports */}
         <div className="Logo-box-desktop">

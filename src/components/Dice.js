@@ -2,7 +2,7 @@ import React from 'react';
 import './Dice.css';
 
 const Dice = () => {
-  return(
+  return (
     <div className="Dice-container">
       <div className="Dice">
         <div className="Dice-side front">
