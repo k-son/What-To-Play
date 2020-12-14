@@ -78,7 +78,7 @@ class Draw extends Component {
             <div className="Draw-buttons">
               {this.props.songsLeft > 0 ? 
                 <Button 
-                  addClassName="btn-draw" 
+                  additionalClassName="btn-draw" 
                   onClick={this.props.drawSong}
                   icon={<IconDices />} 
                   description="Draw" 
@@ -87,7 +87,7 @@ class Draw extends Component {
                 /> 
                 : 
                 <Button 
-                  addClassName="btn-reload" 
+                  additionalClassName="btn-reload" 
                   onClick={this.props.reloadFullSongList} 
                   icon={<IconRefresh />}
                   description="Reload" 
@@ -97,7 +97,7 @@ class Draw extends Component {
               }
               {this.props.songsLeft > 0 && this.props.song !== ' ' ? 
                 <Button 
-                  addClassName="btn-arrow" 
+                  additionalClassName="btn-arrow" 
                   onClick={this.props.putBackCurrentSong} 
                   icon={<IconBackArrow />} 
                   description="Back" 
@@ -109,7 +109,7 @@ class Draw extends Component {
               {this.props.songsLeft > 0 && 
                 <Link exact to="/choice" className="Link-btn-choice" tabIndex="-1">
                   <Button 
-                    addClassName="btn-choice" 
+                    additionalClassName="btn-choice" 
                     icon={<IconChoice />} 
                     description="Choose" 
                     title="Choose song manually" 
