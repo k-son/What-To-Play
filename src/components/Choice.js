@@ -18,12 +18,14 @@ class Choice extends Component {
 
   render() {
     const { progress, reloadSetlist, songs, chooseSong, removeSong, confirmDialog } = this.props;
+
     let isDialogOpen;
     if (confirmDialog === 'open') {
       isDialogOpen = -1;
     } else {
       isDialogOpen = 0;
     }
+    
     return (
       <div className={`Choice ${confirmDialog === 'open' && 'padding-right-20'}`}>
         <div className="Choice-buttons">

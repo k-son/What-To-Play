@@ -3,6 +3,7 @@ import './ProgressBar.css';
 import SongsLeft from './SongsLeft';
 
 function ProgressBar({ progress, songsLeft }) {
+
   let barColor;
     if (progress > 66) {
       barColor = 'var(--btn-color-yellow)';
@@ -20,7 +21,10 @@ function ProgressBar({ progress, songsLeft }) {
         />
         <div className="ProgressBar-bar">
           <div style={{width: progress + '%', backgroundColor: barColor}}></div>
-          <span className="ProgressBar-count" style={{left: progress + '%', color: barColor}}>
+          <span 
+            className="ProgressBar-count" 
+            style={{left: progress + '%', color: barColor}}
+          >
             {progress}%
           </span>
         </div>
