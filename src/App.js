@@ -27,7 +27,7 @@ class App extends Component {
     this.getCookie = this.getCookie.bind(this);
     this.drawSong = this.drawSong.bind(this);
     this.reloadFullSongList = this.reloadFullSongList.bind(this);
-    this.reloadFullSongListConfirm = this.reloadFullSongListConfirm.bind(this);
+    this.reloadFullSongListAfterConfirm = this.reloadFullSongListAfterConfirm.bind(this);
     this.putBackCurrentSong = this.putBackCurrentSong.bind(this);
     this.chooseSong = this.chooseSong.bind(this);
     this.removeSong = this.removeSong.bind(this);
@@ -116,7 +116,7 @@ class App extends Component {
   }
 
 
-  //
+  // Select manually choosen song title (in /choice)
   chooseSong(e) {
     const chosenSong = e.target.textContent;
     const filteredList = this.state.songs.filter(el => el !== chosenSong);
@@ -138,7 +138,7 @@ class App extends Component {
 
 
   // Reloads full setlist - accessible in Choice component when at least one song has already been drawn/chosen
-  reloadFullSongListConfirm() {
+  reloadFullSongListAfterConfirm() {
     const closeConfirmDialog = () => {
       this.setState({
         confirmDialog: 'closed',
@@ -261,7 +261,7 @@ class App extends Component {
               confirmDialog={this.state.confirmDialog}
               songs={this.state.songs}
               progress={this.progress()}
-              reloadSetlist={this.reloadFullSongListConfirm}
+              reloadSetlist={this.reloadFullSongListAfterConfirm}
               chooseSong={this.chooseSong}
               removeSong={this.removeSong}
             />
