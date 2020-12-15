@@ -242,6 +242,7 @@ class App extends Component {
     );
   }
 
+  
   render() {
     return (
       <div className="App">
@@ -274,6 +275,7 @@ class App extends Component {
               reloadSetlist={this.reloadFullSongListAfterConfirm}
               chooseSong={this.chooseSong}
               removeSong={this.removeSong}
+              redirect={this.redirectToDraw}
             />
           </Route>
         </Switch>

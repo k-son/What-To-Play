@@ -8,7 +8,6 @@ import './Choice.css';
 class Choice extends Component {
   constructor(props) {
     super(props);
-
     this.getFocus = React.createRef();
   }
 
@@ -17,8 +16,12 @@ class Choice extends Component {
   }
 
   render() {
-    const { progress, reloadSetlist, songs, chooseSong, removeSong, confirmDialog } = this.props;
+    const { progress, reloadSetlist, songs, chooseSong, removeSong, confirmDialog, redirect } = this.props;
 
+    if (songs.length === 0) {
+      redirect();
+    }
+    
     let isDialogOpen;
     if (confirmDialog === 'open') {
       isDialogOpen = -1;
