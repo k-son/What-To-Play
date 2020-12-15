@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { withRouter, Switch, Route } from 'react-router-dom';
 import { songList } from './songList';
 import Draw from './components/Draw';
 import Choice from './components/Choice';
@@ -11,6 +11,7 @@ class App extends Component {
   static defaultProps = {
     songs: songList
   }
+
   constructor(props) {
     super(props);
     this.state = {
@@ -27,6 +28,7 @@ class App extends Component {
     this.getCookie = this.getCookie.bind(this);
     this.drawSong = this.drawSong.bind(this);
     this.reloadFullSongList = this.reloadFullSongList.bind(this);
+    this.redirectToDraw = this.redirectToDraw.bind(this);
     this.reloadFullSongListAfterConfirm = this.reloadFullSongListAfterConfirm.bind(this);
     this.putBackCurrentSong = this.putBackCurrentSong.bind(this);
     this.chooseSong = this.chooseSong.bind(this);
@@ -137,6 +139,13 @@ class App extends Component {
   }
 
 
+  // Redirects to Draw component
+  redirectToDraw() {
+    const { history } = this.props;
+    if (history) history.push('/');
+  }
+
+
   // Reloads full setlist - accessible in Choice component when at least one song has already been drawn/chosen
   reloadFullSongListAfterConfirm() {
     const closeConfirmDialog = () => {
@@ -149,6 +158,7 @@ class App extends Component {
     }
     const reload = () => {
       this.reloadFullSongList();
+      this.redirectToDraw();
       this.setState({
         confirmDialog: 'closed',
         confirmCancel: undefined,
@@ -280,4 +290,4 @@ class App extends Component {
   }
 } 
 
-export default App;
+export default withRouter(App);
