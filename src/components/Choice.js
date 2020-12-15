@@ -72,7 +72,7 @@ class Choice extends Component {
                     tabIndex={isDialogOpen}
                   >
                     <div className="ChoiceList-circle">
-                      <div></div>
+                      <div />
                     </div>
                     <p>{item}</p>
                   </button>
