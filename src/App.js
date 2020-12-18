@@ -7,6 +7,9 @@ import Dialog from './components/Dialog';
 import KeyDownListener from './components/KeyDownListener';
 import MouseDownListener from './components/MouseDownListener';
 
+import { ThemeProvider } from "styled-components";
+import { theme } from './theme';
+
 class App extends Component {
   static defaultProps = {
     songs: songList
@@ -245,49 +248,51 @@ class App extends Component {
   
   render() {
     return (
-      <div className="App">
-        {/* Adds outline to element on keyboard access. Removes outline whent accessed by mouse. */}
-        <KeyDownListener onKeyDown={this.handleKeyDown} />
-        <MouseDownListener onMouseDown={this.handleMouseDown} />
-        <Switch>
-          <Route exact path="/">
-            <Draw 
-              songs={this.state.songs}
-              currentSong={this.state.currentSong}
-              progress={this.progress()}
-              songsLeft={this.state.songs.length}
-              slideTitle={this.state.slideTitle}
-              drawSong={this.drawSong}
-              reloadFullSongList={this.reloadFullSongList}
-              putBackCurrentSong={this.putBackCurrentSong}
-              confirmDialog={this.state.confirmDialog}
-              confirmQuestion={this.state.confirmQuestion}
-              confirmTitle={this.state.confirmTitle}
-              confirmCancel={this.state.confirmCancel}
-              confirmOk={this.state.confirmOk}
-            />
-          </Route>
-          <Route exact path="/choice">
-            <Choice 
-              confirmDialog={this.state.confirmDialog}
-              songs={this.state.songs}
-              progress={this.progress()}
-              reloadSetlist={this.reloadFullSongListAfterConfirm}
-              chooseSong={this.chooseSong}
-              removeSong={this.removeSong}
-              redirect={this.redirectToDraw}
-            />
-          </Route>
-        </Switch>
-      {/* Confirm dialog. Out of the normal document flow. */}
-      <Dialog 
-        isOpen={this.state.confirmDialog} 
-        question={this.state.confirmQuestion} 
-        songTitle={this.state.confirmTitle} 
-        onCancel={this.state.confirmCancel} 
-        onConfirm={this.state.confirmOk} 
-      />
-      </div>
+      <ThemeProvider theme={theme}>
+        <div className="App">
+          {/* Adds outline to element on keyboard access. Removes outline whent accessed by mouse. */}
+          <KeyDownListener onKeyDown={this.handleKeyDown} />
+          <MouseDownListener onMouseDown={this.handleMouseDown} />
+          <Switch>
+            <Route exact path="/">
+              <Draw 
+                songs={this.state.songs}
+                currentSong={this.state.currentSong}
+                progress={this.progress()}
+                songsLeft={this.state.songs.length}
+                slideTitle={this.state.slideTitle}
+                drawSong={this.drawSong}
+                reloadFullSongList={this.reloadFullSongList}
+                putBackCurrentSong={this.putBackCurrentSong}
+                confirmDialog={this.state.confirmDialog}
+                confirmQuestion={this.state.confirmQuestion}
+                confirmTitle={this.state.confirmTitle}
+                confirmCancel={this.state.confirmCancel}
+                confirmOk={this.state.confirmOk}
+              />
+            </Route>
+            <Route exact path="/choice">
+              <Choice 
+                confirmDialog={this.state.confirmDialog}
+                songs={this.state.songs}
+                progress={this.progress()}
+                reloadSetlist={this.reloadFullSongListAfterConfirm}
+                chooseSong={this.chooseSong}
+                removeSong={this.removeSong}
+                redirect={this.redirectToDraw}
+              />
+            </Route>
+          </Switch>
+        {/* Confirm dialog. Out of the normal document flow. */}
+        <Dialog 
+          isOpen={this.state.confirmDialog} 
+          question={this.state.confirmQuestion} 
+          songTitle={this.state.confirmTitle} 
+          onCancel={this.state.confirmCancel} 
+          onConfirm={this.state.confirmOk} 
+        />
+        </div>
+      </ThemeProvider>
     );
   }
 } 

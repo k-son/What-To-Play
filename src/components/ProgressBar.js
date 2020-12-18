@@ -17,6 +17,7 @@ function ProgressBar({ progress, songsLeft }) {
       <div className="ProgressBar">
         <SongsLeft 
           songsLeft={songsLeft} 
+          progress={progress}
           color={barColor} 
         />
         <div className="ProgressBar-bar">
