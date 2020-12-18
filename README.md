@@ -8,20 +8,24 @@ Designed to use mainly on mobile devices.
 * React.js
 
 ## Features
-* Random song draw
-* Withdrawal of a drawn song
-* Manual song selection
-* Progress tracking
-* Remaining songs tracking
-* Removing song from current setlist
-* Reload full setlist
-* Song list sorted alphabetically
-* Buttons deactivation when useless
-* Keyboard accessibility
-* Progress (current song list) and current song stored in the cookies
+- [x] Random song draw
+- [x] Withdrawal of a drawn song
+- [x] Manual song selection
+- [x] Progress tracking
+- [x] Remaining songs tracking
+- [x] Removing song from current setlist
+- [x] Reload full setlist
+- [x] Song list sorted alphabetically
+- [x] Buttons deactivation when useless
+- [x] Keyboard accessibility
+- [x] Progress (current song list) and current song stored in the cookies
 
 ## Setup
 Include your song titles in songList.js file.
+
+## Dependencies
+* [Pure React Carousel](https://github.com/express-labs/pure-react-carousel)
+* [React Cookie Consent](https://github.com/Mastermindzh/react-cookie-consent)
 
 ## Status
 In usage. Constant improvements.
