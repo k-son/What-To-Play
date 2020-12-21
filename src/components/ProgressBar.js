@@ -47,7 +47,7 @@ const Percentage = styled.span`
       }
   }};
   transition: left .4s;
-`
+`;
 
 function ProgressBar(props) {
   return (
