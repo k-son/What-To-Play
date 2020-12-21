@@ -1,36 +1,69 @@
 import React from 'react';
-import './ProgressBar.css';
+import styled from "styled-components";
 import SongsLeft from './SongsLeft';
 
-function ProgressBar({ progress, songsLeft }) {
+const Bar = styled.div`
+  position: relative;
+  width: 68%;
+  max-width: 400px;
+  height: 12px;
+  margin: 20px auto;
+  padding: 0px;
+  background-color: #1d1d1d;
+  border: 1px solid #555;
+  border-radius: 25px;
+`;
 
-  let barColor;
-    if (progress > 66) {
-      barColor = 'var(--btn-color-yellow)';
-    } else if (progress > 33 && progress <= 66) {
-      barColor = 'var(--btn-color-orange)';
+const ColorFill = styled.div`
+  width: ${props => props.progress + '%'};
+  height: 100%;
+  background-color: ${props => {
+    if (props.progress > 66) {
+      return props.theme.color.yellow;
+    } else if (props.progress > 33 && props.progress <= 66) {
+      return props.theme.color.orange;
     } else {
-      barColor = 'var(--btn-color-red)';
+      return props.theme.color.red;
     }
+  }};
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border-radius: 25px;
+  transition: width .4s;
+`;
 
-    return (
-      <div className="ProgressBar">
-        <SongsLeft 
-          songsLeft={songsLeft} 
-          progress={progress}
-          color={barColor} 
-        />
-        <div className="ProgressBar-bar">
-          <div style={{width: progress + '%', backgroundColor: barColor}}></div>
-          <span 
-            className="ProgressBar-count" 
-            style={{left: progress + '%', color: barColor}}
-          >
-            {progress}%
-          </span>
-        </div>
-      </div>
-    );
+const Percentage = styled.span`
+  position: absolute;
+  top: -28px;
+  left: ${props => props.progress + '%'};
+  font-size: 14px;
+  color: ${props => {
+      if (props.progress > 66) {
+        return props.theme.color.yellow;
+      } else if (props.progress > 33 && props.progress <= 66) {
+        return props.theme.color.orange;
+      } else {
+        return props.theme.color.red;
+      }
+  }};
+  transition: left .4s;
+`
+
+function ProgressBar(props) {
+  return (
+    <div>
+      <SongsLeft 
+        songsLeft={props.songsLeft} 
+        progress={props.progress}
+      />
+      <Bar>
+        <ColorFill progress={props.progress} />
+        <Percentage progress={props.progress}>
+          {props.progress}%
+        </Percentage>
+      </Bar>
+    </div>
+  );
 }
 
 export default ProgressBar;
