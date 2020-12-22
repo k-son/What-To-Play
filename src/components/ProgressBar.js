@@ -49,17 +49,17 @@ const Percentage = styled.span`
   transition: left .4s;
 `;
 
-function ProgressBar(props) {
+function ProgressBar({ songsLeft, progress }) {
   return (
     <div>
       <SongsLeft 
-        songsLeft={props.songsLeft} 
-        progress={props.progress}
+        songsLeft={songsLeft} 
+        progress={progress}
       />
       <Bar>
-        <ColorFill progress={props.progress} />
-        <Percentage progress={props.progress}>
-          {props.progress}%
+        <ColorFill progress={progress} />
+        <Percentage progress={progress}>
+          {progress}%
         </Percentage>
       </Bar>
     </div>

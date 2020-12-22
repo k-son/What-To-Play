@@ -28,10 +28,10 @@ const Text = styled.span`
   margin-left: 8px;
 `;
 
-function SongsLeft(props) {
+function SongsLeft({ songsLeft, progress }) {
   return (
     <Wrapper>
-      <Number progress={props.progress}>{props.songsLeft}</Number>
+      <Number progress={progress}>{songsLeft}</Number>
       <Text>songs left</Text>
     </Wrapper>
   );
