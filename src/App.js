@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { withRouter, Switch, Route } from 'react-router-dom';
+import { ThemeProvider } from "styled-components";
+import { theme } from './theme';
 import { songList } from './songList';
 import Draw from './components/Draw';
 import Choice from './components/Choice';
@@ -7,8 +9,6 @@ import Dialog from './components/Dialog';
 import KeyDownListener from './components/KeyDownListener';
 import MouseDownListener from './components/MouseDownListener';
 
-import { ThemeProvider } from "styled-components";
-import { theme } from './theme';
 
 class App extends Component {
   static defaultProps = {
