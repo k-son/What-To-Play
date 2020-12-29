@@ -80,7 +80,7 @@ const ColorRing = styled.span`
         } else {
           return 'saturate(200%)';
         }
-      }};
+    }};
   }
 `;
 
@@ -94,8 +94,8 @@ const InnerRing = styled.span`
   background-image: linear-gradient(30deg, #222, #595959);
 
   ${Wrapper}:active & {
-      filter: saturate(20%);
-    }
+    filter: saturate(20%);
+  }
 `;
 
 const IconBox = styled.span`
@@ -144,6 +144,7 @@ const IconBox = styled.span`
         }
       }};
     }
+  }
 `;
 
 const Description = styled.span`
