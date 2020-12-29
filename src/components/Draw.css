@@ -173,12 +173,12 @@ main {
   max-width: 400px;
 }
 
-.btn-draw {
+.Draw-buttons [action="draw"] {
   grid-column: 1 / 2;
   justify-self: start;
 }
 
-.btn-arrow {
+.Draw-buttons [action="putBack"] {
   grid-column: 2 / 3;
   justify-self: center;
 }
@@ -189,7 +189,7 @@ main {
   text-decoration: none;
 }
 
-.btn-reload {
+.Draw-buttons [action="reload"] {
   grid-column: 2 / 3;
 }
 

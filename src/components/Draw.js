@@ -79,7 +79,7 @@ class Draw extends Component {
             <div className="Draw-buttons">
               {songsLeft > 0 ? 
                 <Button 
-                  additionalClassName="btn-draw" 
+                  action="draw"
                   onClick={drawSong}
                   icon={<IconDices />} 
                   description="Draw" 
@@ -88,7 +88,7 @@ class Draw extends Component {
                 /> 
                 : 
                 <Button 
-                  additionalClassName="btn-reload" 
+                  action="reload"
                   onClick={reloadFullSongList} 
                   icon={<IconRefresh />}
                   description="Reload" 
@@ -98,19 +98,19 @@ class Draw extends Component {
               }
               {songsLeft > 0 && currentSong !== ' ' ? 
                 <Button 
-                  additionalClassName="btn-arrow" 
+                  action="putBack"
                   onClick={putBackCurrentSong} 
                   icon={<IconBackArrow />} 
                   description="Back" 
                   title="Put back current song" 
-                  aria-label="Back"
+                  aria-label="Put back"
                 /> 
                 : null 
               }
               {songsLeft > 0 && 
                 <Link exact to="/choice" className="Link-btn-choice" tabIndex="-1">
                   <Button 
-                    additionalClassName="btn-choice" 
+                    action="choose"
                     icon={<IconChoice />} 
                     description="Choose" 
                     title="Choose song manually" 
