@@ -109,7 +109,11 @@ class Draw extends Component {
                 : null 
               }
               {songsLeft > 0 && 
-                <Link exact="true" to="/choice" className="Link-btn-choice" tabIndex="-1">
+                <Link 
+                  className="Link-btn-choice" 
+                  exact="true" 
+                  to="/choice" 
+                  tabIndex="-1">
                   <Button 
                     action="choose"
                     icon={<IconChoice />} 
