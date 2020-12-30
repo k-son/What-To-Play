@@ -44,7 +44,7 @@ class Choice extends Component {
             </button>
           }
           <Link
-            exact
+            exact="true"
             to="/" 
             tabIndex="-1"
           >
@@ -65,7 +65,7 @@ class Choice extends Component {
             .map(item => 
               <li key={item}>
                 <Link 
-                  exact 
+                  exact="true"
                   to="/"
                   tabIndex="-1"
                 >
