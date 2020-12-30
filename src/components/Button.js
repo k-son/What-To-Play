@@ -6,6 +6,7 @@ const Wrapper = styled.button`
   flex-direction: column;
   align-items: center;
   background: transparent;
+  padding: 4px;
   border: none;
   cursor: pointer;
 
@@ -74,13 +75,7 @@ const ColorRing = styled.span`
   }};
 
   ${Wrapper}:active & {
-    filter: ${props => {
-        if (props.action === 'putBack') {
-          return 'saturate(350%)';
-        } else {
-          return 'saturate(200%)';
-        }
-    }};
+    filter: saturate(200%);
   }
 `;
 
