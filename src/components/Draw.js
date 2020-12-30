@@ -85,6 +85,7 @@ class Draw extends Component {
                   description="Draw" 
                   title="Draw random song" 
                   aria-label="Draw"
+                  tabIndex="1"
                 /> 
                 : 
                 <Button 
