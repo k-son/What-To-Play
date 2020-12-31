@@ -26,35 +26,36 @@ function ProgressRing({ sqSize, strokeWidth, percentage, songsLeft }) {
   return (
     <figure className="ProgressRing">
       <svg
-          width={sqSize}
-          height={sqSize}
-          viewBox={viewBox}>
-          <circle
-            className="ProgressRing-backgroundCircle"
-            cx={sqSize / 2}
-            cy={sqSize / 2}
-            r={radius}
-            strokeWidth={`${strokeWidth}px`} 
-            style={{
-              fill: "none"
-            }}
-            />
-          <circle
-            className="ProgressRing-progressCircle"
-            cx={sqSize / 2}
-            cy={sqSize / 2}
-            r={radius}
-            strokeWidth={`${strokeWidth}px`}
-            // Start progress marker at 12 O'Clock
-            transform={`rotate(-90 ${sqSize / 2} ${sqSize / 2})`}
-            style={{
-              fill: "none",
-              strokeDasharray: dashArray,
-              strokeDashoffset: dashOffset,
-              stroke: barColor,
-              strokeLinecap: "round",
-              strokeLinejoin: "round"
-            }} />
+        width={sqSize}
+        height={sqSize}
+        viewBox={viewBox}>
+        <circle
+          className="ProgressRing-backgroundCircle"
+          cx={sqSize / 2}
+          cy={sqSize / 2}
+          r={radius}
+          strokeWidth={`${strokeWidth}px`} 
+          style={{
+            fill: "none"
+          }}
+        />
+        <circle
+          className="ProgressRing-progressCircle"
+          cx={sqSize / 2}
+          cy={sqSize / 2}
+          r={radius}
+          strokeWidth={`${strokeWidth}px`}
+          // Start progress marker at 12 O'Clock
+          transform={`rotate(-90 ${sqSize / 2} ${sqSize / 2})`}
+          style={{
+            fill: "none",
+            strokeDasharray: dashArray,
+            strokeDashoffset: dashOffset,
+            stroke: barColor,
+            strokeLinecap: "round",
+            strokeLinejoin: "round"
+          }} 
+        />
       </svg>
       <div className="ProgressRing-text">
         <p style={{color: barColor}}>{songsLeft}</p>
