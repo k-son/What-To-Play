@@ -79,7 +79,9 @@ class Choice extends Component {
                     <div className="ChoiceList-circle">
                       <div />
                     </div>
-                    <p>{item}</p>
+                    <p>
+                      {item}
+                    </p>
                   </button>
                 </Link>
                 <button 

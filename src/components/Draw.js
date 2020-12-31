@@ -37,15 +37,27 @@ class Draw extends Component {
               totalSlides={2}
               touchEnabled={false}
             >
-              <Slider className="mobileCarousel-slider" tabIndex={-1}>
-                <Slide className="mobileCarousel-slide" index={0} tabIndex={-1}>
+              <Slider 
+                className="mobileCarousel-slider" 
+                tabIndex={-1}
+              >
+                <Slide 
+                  className="mobileCarousel-slide" 
+                  index={0} 
+                  tabIndex={-1}
+                >
                   <ProgressRing 
                     sqSize="140" 
                     strokeWidth="6" 
                     songsLeft={songsLeft} 
-                    percentage={progress} />
+                    percentage={progress} 
+                  />
                 </Slide>
-                <Slide className="mobileCarousel-slide" index={1} tabIndex={-1}>
+                <Slide 
+                  className="mobileCarousel-slide" 
+                  index={1} 
+                  tabIndex={-1}
+                >
                   <div>
                     <CurrentList songs={songs} />
                   </div>
@@ -113,7 +125,8 @@ class Draw extends Component {
                   className="Link-btn-choice" 
                   exact="true" 
                   to="/choice" 
-                  tabIndex="-1">
+                  tabIndex="-1"
+                >
                   <Button 
                     action="choose"
                     icon={<IconChoice />} 
