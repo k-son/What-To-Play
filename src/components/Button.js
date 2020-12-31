@@ -75,11 +75,7 @@ const ColorRing = styled.span`
   }};
 
   ${Wrapper}:active & {
-<<<<<<< HEAD
     filter: saturate(200%);
-=======
-
->>>>>>> Beautify
   }
 `;
 
