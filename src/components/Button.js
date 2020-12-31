@@ -195,7 +195,9 @@ function Button({ action, onClick, icon, description }) {
           </ColorRing>
         </MiddleRing>
       </OuterRing>
-      <Description action={action}>{description}</Description>
+      <Description action={action}>
+        {description}
+      </Description>
     </Wrapper>
   );
 }
