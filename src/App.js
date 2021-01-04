@@ -18,14 +18,14 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      songs: this.getCookie('currentSongList') !== false ? this.getCookie('currentSongList').split(',') : this.props.songs,
-      currentSong: this.getCookie('currentSong') !== false ? this.getCookie('currentSong') : ' ',
+      songs: this.getCookie('currentSongList').split(',') || this.props.songs,
+      currentSong: this.getCookie('currentSong') || ' ',
       slideTitle: 'off', //animates song title in Display
       confirmDialog: 'closed',
       confirmQuestion: ' ',
       confirmTitle: ' ',
-      confirmCancel: undefined,
-      confirmOk: undefined
+      confirmCancel: null,
+      confirmOk: null
     };
     this.setCookie = this.setCookie.bind(this);
     this.getCookie = this.getCookie.bind(this);
@@ -154,8 +154,8 @@ class App extends Component {
     const closeConfirmDialog = () => {
       this.setState({
         confirmDialog: 'closed',
-        confirmCancel: undefined,
-        confirmOk: undefined
+        confirmCancel: null,
+        confirmOk: null
       })
       document.body.style.overflow = 'auto';
     }
@@ -164,8 +164,8 @@ class App extends Component {
       this.redirectToDraw();
       this.setState({
         confirmDialog: 'closed',
-        confirmCancel: undefined,
-        confirmOk: undefined
+        confirmCancel: null,
+        confirmOk: null
       })
       document.body.style.overflow = 'auto';
     }
@@ -197,8 +197,8 @@ class App extends Component {
         confirmQuestion: ' ',
         confirmTitle: ' ',
         confirmDialog: 'closed',
-        confirmCancel: undefined,
-        confirmOk: undefined
+        confirmCancel: null,
+        confirmOk: null
       })
       document.body.style.overflow = 'auto';
     }; 
@@ -210,8 +210,8 @@ class App extends Component {
         confirmQuestion: ' ',
         confirmTitle: ' ',
         confirmDialog: 'closed',
-        confirmCancel: undefined,
-        confirmOk: undefined
+        confirmCancel: null,
+        confirmOk: null
       })
       document.body.style.overflow = 'auto';
     }
