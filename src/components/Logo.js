@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from "styled-components";
-import Dice from './Dice';
+import RotatingDice from './RotatingDice';
 
 const Wrapper = styled.div`
   display: flex;
@@ -83,7 +83,7 @@ function Logo() {
         <span>a</span>
         <span>y</span>
       </Logotype>
-      <Dice />
+      <RotatingDice />
     </Wrapper>
   )
 };
