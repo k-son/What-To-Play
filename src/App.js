@@ -18,8 +18,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      songs: this.getCookie('currentSongList').split(',') || this.props.songs,
-      currentSong: this.getCookie('currentSong') || ' ',
+      songs: this.getCookie('currentSongList') !== false ? this.getCookie('currentSongList').split(',') : this.props.songs,
+      currentSong: this.getCookie('currentSong') !== false ? this.getCookie('currentSong') : ' ',
       slideTitle: 'off', //animates song title in Display
       confirmDialog: 'closed',
       confirmQuestion: ' ',
