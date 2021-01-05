@@ -22,8 +22,8 @@ const Ring = styled.figure`
           return props.theme.color.red;
         }
       }};
-      strokeLinecap: round;
-      strokeLinejoin: round;
+      stroke-linecap: round;
+      stroke-linejoin: round;
       transition: stroke-dashoffset .4s;
     }
 `;
@@ -109,7 +109,7 @@ function ProgressRing({ sqSize, strokeWidth, percentage, songsLeft }) {
           transform={`rotate(-90 ${sqSize / 2} ${sqSize / 2})`}
           style={{
             strokeDasharray: dashArray,
-            strokeDashoffset: dashOffset,
+            strokeDashoffset: dashOffset
           }} 
         />
       </svg>
