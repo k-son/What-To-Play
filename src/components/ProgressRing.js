@@ -1,5 +1,78 @@
 import React from 'react';
-import './ProgressRing.css';
+import styled from 'styled-components';
+
+const Ring = styled.figure`
+  position: relative;
+  width: fit-content;
+  margin: 0 auto;
+
+    svg circle:first-of-type {
+      fill: none;
+      stroke: #666;
+    }
+
+    svg circle:last-of-type {
+      fill: none;
+      stroke: ${props => {
+        if (props.percentage > 66) {
+          return props.theme.color.yellow;
+        } else if (props.percentage > 33 && props.percentage <= 66) {
+          return props.theme.color.orange;
+        } else {
+          return props.theme.color.red;
+        }
+      }};
+      strokeLinecap: round;
+      strokeLinejoin: round;
+      transition: stroke-dashoffset .4s;
+    }
+`;
+
+const TextBox = styled.div`
+  position: absolute;
+  left: 50%;
+  top: 48%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  text-align: center;
+`;
+
+const SongsLeftCount = styled.p`
+  font-size: 32px;
+  font-weight: 400;
+  line-height: 1;
+  color: ${props => {
+    if (props.percentage > 66) {
+      return props.theme.color.yellow;
+    } else if (props.percentage > 33 && props.percentage <= 66) {
+      return props.theme.color.orange;
+    } else {
+      return props.theme.color.red;
+    }
+  }};
+`;
+
+const PercentageLeft = styled.p`
+  font-size: 14px;
+  font-weight: 300;
+  color: ${props => {
+    if (props.percentage > 66) {
+      return props.theme.color.yellow;
+    } else if (props.percentage > 33 && props.percentage <= 66) {
+      return props.theme.color.orange;
+    } else {
+      return props.theme.color.red;
+    }
+  }};
+`;
+
+const Text = styled.p`
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 1px;
+  margin-top: 8px;
+  color: #999;
+`;
 
 function ProgressRing({ sqSize, strokeWidth, percentage, songsLeft }) {
   
@@ -14,33 +87,20 @@ function ProgressRing({ sqSize, strokeWidth, percentage, songsLeft }) {
   // Scale 100% coverage overlay with the actual percent
   const dashOffset = dashArray - dashArray * percentage / 100;
   // Stroke color 
-  let barColor;
-  if (percentage > 66) {
-    barColor = 'var(--btn-color-yellow)';
-  } else if (percentage > 33 && percentage <= 66) {
-    barColor = 'var(--btn-color-orange)';
-  } else {
-    barColor = 'var(--btn-color-red)';
-  }
 
   return (
-    <figure className="ProgressRing">
+    <Ring percentage={percentage}>
       <svg
         width={sqSize}
         height={sqSize}
         viewBox={viewBox}>
         <circle
-          className="ProgressRing-backgroundCircle"
           cx={sqSize / 2}
           cy={sqSize / 2}
           r={radius}
           strokeWidth={`${strokeWidth}px`} 
-          style={{
-            fill: "none"
-          }}
         />
         <circle
-          className="ProgressRing-progressCircle"
           cx={sqSize / 2}
           cy={sqSize / 2}
           r={radius}
@@ -48,21 +108,17 @@ function ProgressRing({ sqSize, strokeWidth, percentage, songsLeft }) {
           // Start progress marker at 12 O'Clock
           transform={`rotate(-90 ${sqSize / 2} ${sqSize / 2})`}
           style={{
-            fill: "none",
             strokeDasharray: dashArray,
             strokeDashoffset: dashOffset,
-            stroke: barColor,
-            strokeLinecap: "round",
-            strokeLinejoin: "round"
           }} 
         />
       </svg>
-      <div className="ProgressRing-text">
-        <p style={{color: barColor}}>{songsLeft}</p>
-        <p style={{color: barColor}}>({percentage}%)</p>
-        <p>songs left</p>
-      </div>
-    </figure>
+      <TextBox>
+        <SongsLeftCount percentage={percentage}>{songsLeft}</SongsLeftCount>
+        <PercentageLeft percentage={percentage}>({percentage}%)</PercentageLeft>
+        <Text>songs left</Text>
+      </TextBox>
+    </Ring>
   );
 }
 
