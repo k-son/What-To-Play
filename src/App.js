@@ -5,7 +5,7 @@ import { theme } from './theme';
 import { songList } from './songList';
 import Draw from './components/Draw';
 import Choice from './components/Choice';
-import Dialog from './components/Dialog';
+import ModalDialog from './components/ModalDialog';
 import KeyDownListener from './components/KeyDownListener';
 import MouseDownListener from './components/MouseDownListener';
 
@@ -284,7 +284,7 @@ class App extends Component {
             </Route>
           </Switch>
         {/* Confirm dialog. Out of the normal document flow. */}
-        <Dialog 
+        <ModalDialog 
           isOpen={this.state.confirmDialog} 
           question={this.state.confirmQuestion} 
           songTitle={this.state.confirmTitle} 
