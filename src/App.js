@@ -5,7 +5,7 @@ import { theme } from './styles/theme';
 import { GlobalStyle } from './styles/GlobalStyles';
 import { SongList } from './components/SongList';
 import Draw from './components/Draw';
-import Choice from './components/Choice';
+import Choice from './pages/Choice';
 import ModalDialog from './components/ModalDialog';
 import KeyDownListener from './components/KeyDownListener';
 import MouseDownListener from './components/MouseDownListener';
