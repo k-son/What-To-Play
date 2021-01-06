@@ -113,7 +113,7 @@ const SongButton = styled.button`
     }
 `;
 
-const Circle = styled.div`
+const Circle = styled.span`
   flex: 0 0 auto;
   display: flex;
   align-items: center;
@@ -134,7 +134,7 @@ const Circle = styled.div`
     border: 2px solid ${({theme}) => theme.color.green};
   }
 
-    div {
+    span {
       width: 50%;
       height: 50%;
       border-radius: 50%;
@@ -296,7 +296,7 @@ class Choice extends Component {
                     tabIndex={isDialogOpen}
                   >
                     <Circle>
-                      <div />
+                      <span />
                     </Circle>
                     <SongTitle>
                       {item}
