@@ -38,13 +38,13 @@ const Percentage = styled.span`
   left: ${props => props.progress + '%'};
   font-size: 14px;
   color: ${props => {
-      if (props.progress > 66) {
-        return props.theme.color.yellow;
-      } else if (props.progress > 33 && props.progress <= 66) {
-        return props.theme.color.orange;
-      } else {
-        return props.theme.color.red;
-      }
+    if (props.progress > 66) {
+      return props.theme.color.yellow;
+    } else if (props.progress > 33 && props.progress <= 66) {
+      return props.theme.color.orange;
+    } else {
+      return props.theme.color.red;
+    }
   }};
   transition: left .4s;
 `;
