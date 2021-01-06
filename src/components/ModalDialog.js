@@ -82,17 +82,17 @@ const CancelButton = styled(Button)`
   background-color: ${({ theme }) => theme.color.red};
   margin-right: 40px;
 
-    &:hover {
-      filter: saturate(150%);
-    }
+  &:hover {
+    filter: saturate(150%);
+  }
 `;
 
 const OKButton = styled(Button)`
   background-color: ${({ theme }) => theme.color.green};
 
-    &:hover {
-      filter: saturate(250%);
-    }
+  &:hover {
+    filter: saturate(250%);
+  }
 `;
 
 
