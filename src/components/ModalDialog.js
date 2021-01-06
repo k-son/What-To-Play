@@ -76,10 +76,6 @@ const Button = styled.button`
   border: none;
   border-radius: 5px;
   cursor: pointer;
-
-    &:focus {
-      outline: ${({ theme }) => theme.outline};
-    }
 `;
 
 const CancelButton = styled(Button)`

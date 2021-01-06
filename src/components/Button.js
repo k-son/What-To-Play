@@ -9,10 +9,6 @@ const Wrapper = styled.button`
   padding: 4px;
   border: none;
   cursor: pointer;
-
-  &:focus {
-    outline: ${({ theme }) => theme.outline};
-  }
 `;
 
 const OuterRing = styled.span`

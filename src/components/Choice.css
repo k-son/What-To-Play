@@ -51,10 +51,6 @@
   background-color: rgba(255, 255, 255, .05);
 }
 
-.Choice-buttons button:focus {
-  outline: var(--focus-outline);
-}
-
 .Choice-buttons .button-reload svg {
   height: 44px;
   fill: var(--btn-color-green);
@@ -122,10 +118,6 @@
 
 .ChoiceList-chooseBtn:hover .ChoiceList-circle {
   border: 2px solid var(--btn-color-green);
-}
-
-.ChoiceList-chooseBtn:focus {
-  outline: var(--focus-outline);
 }
 
 .ChoiceList-chooseBtn:active .ChoiceList-circle div {
@@ -197,10 +189,6 @@
   background-color: rgba(255, 255, 255, .05);
   -webkit-filter: saturate(200%);
           filter: saturate(200%);
-}
-
-.ChoiceList-removeSongBtn:focus {
-  outline: var(--focus-outline);
 }
 
 .ChoiceList-removeSongBtn::before {

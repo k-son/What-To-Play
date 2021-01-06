@@ -93,10 +93,6 @@ main {
   color: #bbb;
 }
 
-.mobileCarousel [type="button"]:focus {
-  outline: var(--focus-outline);
-}
-
 .mobileCarousel .carousel__back-button {
   margin-right: 24px;
 }

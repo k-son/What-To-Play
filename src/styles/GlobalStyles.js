@@ -18,6 +18,15 @@ export const GlobalStyle = createGlobalStyle`
     min-height: 100vh;
   }
 
+  button:focus {
+    outline: 2px solid #00c3ff;
+  }
+
+  /* used by KeyDownListener and MouseDownListener */
+  .intent-mouse button {
+    outline: none !important;
+  }
+
   ::-webkit-scrollbar {
     width: 20px;
   }
@@ -34,10 +43,5 @@ export const GlobalStyle = createGlobalStyle`
 
   ::-webkit-scrollbar-thumb:hover {
     background-image: linear-gradient(to bottom, #888, #666);
-  }
-
-  /* used by KeyDownListener and MouseDownListener */
-  .intent-mouse button {
-    outline: none !important;
   }
 `;
