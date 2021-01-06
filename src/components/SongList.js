@@ -1,4 +1,4 @@
-export const songList = [  
+export const SongList = [  
   'About a girl',
   'Born to be wild',
   'Creep',
@@ -26,8 +26,6 @@ export const songList = [
   'Where dd you sleep last night',
   'Zombi',
   'Bad omance',
-
-
   'Lover Buzz',
   'Like a pirgin',
   'About a gir',
