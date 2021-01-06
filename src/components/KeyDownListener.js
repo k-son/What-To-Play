@@ -1,11 +1,15 @@
 import React, {Component} from 'react';
+
+// Adds outline to buttons when accessing by keyboard 
 class KeyDownListener extends Component {
   componentDidMount() {
-    document.addEventListener('keydown', this.props.onKeyDown);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Tab') {
+        document.body.classList.remove('intent-mouse');
+      }
+    });
   }
-  componentWillUnmount() {
-    document.removeEventListener('keydown', this.props.onKeyDown);
-  }
+
   render() {
     return null;
   }
