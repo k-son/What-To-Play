@@ -234,7 +234,6 @@ class App extends Component {
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <div className="App">
-          {/* Adds outline to element on keyboard access. Removes outline whent accessed by mouse. */}
           <KeyDownListener />
           <MouseDownListener />
           <Switch>
