@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { withRouter, Switch, Route } from 'react-router-dom';
 import { ThemeProvider } from "styled-components";
-import { theme } from './theme';
+import { theme } from './styles/theme';
+import { GlobalStyle } from './styles/GlobalStyles';
 import { songList } from './songList';
 import Draw from './components/Draw';
 import Choice from './components/Choice';
@@ -249,6 +250,7 @@ class App extends Component {
   render() {
     return (
       <ThemeProvider theme={theme}>
+        <GlobalStyle />
         <div className="App">
           {/* Adds outline to element on keyboard access. Removes outline whent accessed by mouse. */}
           <KeyDownListener onKeyDown={this.handleKeyDown} />
