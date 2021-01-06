@@ -228,24 +228,6 @@ class App extends Component {
     document.body.style.overflow = 'hidden';
   }
 
-
-  // Adds outline to buttons when accessing by keyboard 
-  handleKeyDown() {
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Tab') {
-          document.body.classList.remove('intent-mouse')
-      }
-    });
-  }
-
-
-  // Removes outline from buttons on mouse click 
-  handleMouseDown() {
-    document.addEventListener('mousedown', () =>
-    document.body.classList.add('intent-mouse') 
-    );
-  }
-
   
   render() {
     return (
@@ -253,8 +235,8 @@ class App extends Component {
         <GlobalStyle />
         <div className="App">
           {/* Adds outline to element on keyboard access. Removes outline whent accessed by mouse. */}
-          <KeyDownListener onKeyDown={this.handleKeyDown} />
-          <MouseDownListener onMouseDown={this.handleMouseDown} />
+          <KeyDownListener />
+          <MouseDownListener />
           <Switch>
             <Route exact path="/">
               <Draw 

@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
+
+// Removes outline from buttons on mouse click 
 class MouseDownListener extends Component {
   componentDidMount() {
-    document.addEventListener('mousedown', this.props.onMouseDown);
+    document.addEventListener('mousedown', () => document.body.classList.add('intent-mouse'));
   }
-  componentWillUnmount() {
-    document.removeEventListener('mousedown', this.props.onMouseDown);
-  }
+
   render() {
     return null;
   }
