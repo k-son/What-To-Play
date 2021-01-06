@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Button from './Button';
-import Display from './Display';
-import Logo from './Logo';
-import CurrentList from './CurrentList';
-import ProgressBar from './ProgressBar';
-import ProgressRing from './ProgressRing';
+import Button from '../components/Button';
+import Display from '../components/Display';
+import Logo from '../components/Logo';
+import CurrentList from '../components/CurrentList';
+import ProgressBar from '../components/ProgressBar';
+import ProgressRing from '../components/ProgressRing';
 import { ReactComponent as IconBackArrow } from '../icons/back-arrow.svg';
 import { ReactComponent as IconChoice } from '../icons/one.svg';
 import { ReactComponent as IconDices } from '../icons/dices.svg';

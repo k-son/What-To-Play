@@ -4,7 +4,7 @@ import { ThemeProvider } from "styled-components";
 import { theme } from './styles/theme';
 import { GlobalStyle } from './styles/GlobalStyles';
 import { SongList } from './components/SongList';
-import Draw from './components/Draw';
+import Draw from './pages/Draw';
 import Choice from './pages/Choice';
 import ModalDialog from './components/ModalDialog';
 import KeyDownListener from './components/KeyDownListener';
