@@ -74,16 +74,19 @@ const expandText = keyframes`
   }
 `;
 
-const Title = styled.span`
-  display: ${props => props.animate === 'on' ? 'none' : 'inline'};
+const Text = styled.span`
   font-size: 16px;
   font-weight: 300;
   letter-spacing: 1px;
   line-height: 1.4;
   text-align: center;
+  animation: ${expandText} .4s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+`;
+
+const Title = styled(Text)`
+  display: ${props => props.animate === 'on' ? 'none' : 'inline'};
   text-transform: capitalize;
   color: #c9c9c9;
-  animation: ${expandText} .4s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
 
   @media only screen and (min-width: 600px) {
     font-size: 18px;
@@ -94,6 +97,10 @@ const Title = styled.span`
   }
 `;
 
+const TitleSubstitution = styled(Text)`
+  color: #999;
+`;
+
 
 function Display({ slideTitle, currentSong }) {
   return (
@@ -102,7 +109,7 @@ function Display({ slideTitle, currentSong }) {
         {currentSong !== ' ' ?  
         <Title animate={slideTitle}>{currentSong}</Title>
         :
-        <p className="substitution">song to play</p>}
+        <TitleSubstitution>song to play</TitleSubstitution>}
       </Box>
     </Frame>
   )
