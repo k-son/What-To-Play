@@ -107,7 +107,7 @@ const ButtonsBox = styled.div`
       justify-self: center;
     }
 
-    button[action='reaload'] {
+    button[action='reload'] {
       grid-column: 2 / 3;
       justify-self: center;
     }
