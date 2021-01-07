@@ -36,6 +36,7 @@
 }
 
 .progressCarousel [type="button"]:disabled {
+  /* value of color.yellow in theme.js */
   color: #b19d2d; 
 }
 
