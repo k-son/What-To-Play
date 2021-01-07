@@ -6,10 +6,6 @@ import Logo from '../components/Logo';
 import CurrentList from '../components/CurrentList';
 import ProgressBar from '../components/ProgressBar';
 import ProgressRing from '../components/ProgressRing';
-import { ReactComponent as IconBackArrow } from '../icons/back-arrow.svg';
-import { ReactComponent as IconChoice } from '../icons/one.svg';
-import { ReactComponent as IconDices } from '../icons/dices.svg';
-import { ReactComponent as IconRefresh } from '../icons/refresh.svg';
 // Styles
 import './Draw.css';
 import '../variables.css'
@@ -93,7 +89,6 @@ class Draw extends Component {
                 <Button 
                   action="draw"
                   onClick={drawSong}
-                  icon={<IconDices />} 
                   description="Draw" 
                   title="Draw random song" 
                   aria-label="Draw"
@@ -103,7 +98,6 @@ class Draw extends Component {
                 <Button 
                   action="reload"
                   onClick={reloadFullSongList} 
-                  icon={<IconRefresh />}
                   description="Reload" 
                   title="Reload full setlist" 
                   aria-label="Reload"
@@ -113,7 +107,6 @@ class Draw extends Component {
                 <Button 
                   action="putBack"
                   onClick={putBackCurrentSong} 
-                  icon={<IconBackArrow />} 
                   description="Back" 
                   title="Put back current song" 
                   aria-label="Put back"
@@ -129,7 +122,6 @@ class Draw extends Component {
                 >
                   <Button 
                     action="choose"
-                    icon={<IconChoice />} 
                     description="Choose" 
                     title="Choose song manually" 
                     aria-label="Choose"

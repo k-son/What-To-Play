@@ -1,5 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
+import { ReactComponent as IconBackArrow } from '../icons/back-arrow.svg';
+import { ReactComponent as IconChoice } from '../icons/one.svg';
+import { ReactComponent as IconDices } from '../icons/dices.svg';
+import { ReactComponent as IconRefresh } from '../icons/refresh.svg';
 
 const Wrapper = styled.button`
   display: flex;
@@ -177,7 +181,18 @@ const Description = styled.span`
 `;
 
 
-function Button({ action, onClick, icon, description }) {
+function Button({ action, onClick, description }) {
+  let icon;
+  if (action === 'draw') {
+    icon = <IconDices />;
+  } else if (action === 'reload') {
+    icon = <IconRefresh />;
+  } else if (action === 'putBack') {
+    icon = <IconBackArrow />;
+  } else if (action === 'choose') {
+    icon = <IconChoice />;
+  }
+
   return (
     <Wrapper action={action} onClick={onClick}>
       <OuterRing>
