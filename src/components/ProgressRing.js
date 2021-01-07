@@ -86,7 +86,6 @@ function ProgressRing({ sqSize, strokeWidth, percentage, songsLeft }) {
   const dashArray = radius * Math.PI * 2;
   // Scale 100% coverage overlay with the actual percent
   const dashOffset = dashArray - dashArray * percentage / 100;
-  // Stroke color 
 
   return (
     <Ring percentage={percentage}>
