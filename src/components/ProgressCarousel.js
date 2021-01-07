@@ -8,18 +8,18 @@ import '../styles/ProgressCarousel.css';
 export default function ProgressCarousel({ songsLeft, percentage, songs }) {
   return (
     <CarouselProvider
-      className="mobileCarousel"
+      className="progressCarousel"
       naturalSlideWidth={200}
       naturalSlideHeight={200}
       totalSlides={2}
       touchEnabled={false}
     >
       <Slider 
-        className="mobileCarousel-slider"
+        className="progressCarousel-slider"
         tabIndex={-1}
       >
         <Slide 
-          className="mobileCarousel-slide" 
+          className="progressCarousel-slide" 
           index={0} 
           tabIndex={-1}
         >
@@ -31,7 +31,7 @@ export default function ProgressCarousel({ songsLeft, percentage, songs }) {
           />
         </Slide>
         <Slide 
-          className="mobileCarousel-slide" 
+          className="progressCarousel-slide" 
           index={1} 
           tabIndex={-1}
         >
@@ -41,7 +41,7 @@ export default function ProgressCarousel({ songsLeft, percentage, songs }) {
         </Slide>
       </Slider>
       {/*  With the buttons you can switch between circular progress bar and current song list. */}
-      <div className="mobileCarousel-buttons">
+      <div className="progressCarousel-buttons">
         <ButtonBack tabIndex={songsLeft ? 0 : -1}>Progress</ButtonBack>
         <ButtonNext tabIndex={songsLeft ? 0 : -1}>Song list</ButtonNext>
       </div>

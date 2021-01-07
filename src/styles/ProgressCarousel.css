@@ -1,4 +1,4 @@
-.mobileCarousel {
+.progressCarousel {
   position: relative;
   display: flex;
   align-items: top;
@@ -8,16 +8,16 @@
   padding: 32px 24px;
 }
 
-.mobileCarousel-slider {
+.progressCarousel-slider {
   width: 100%;
 } 
 
-.mobileCarousel-buttons {
+.progressCarousel-buttons {
   position: absolute;
   bottom: -4px;
 }
 
-.mobileCarousel [type="button"] {
+.progressCarousel [type="button"] {
   position: relative;
   font-size: 14px;
   text-transform: uppercase;
@@ -27,19 +27,19 @@
   padding: 8px 4px;
 }
 
-.mobileCarousel [type="button"]:hover {
+.progressCarousel [type="button"]:hover {
   color: #bbb;
 }
 
-.mobileCarousel .carousel__back-button {
+.progressCarousel .carousel__back-button {
   margin-right: 24px;
 }
 
-.mobileCarousel [type="button"]:disabled {
+.progressCarousel [type="button"]:disabled {
   color: #b19d2d; 
 }
 
-.mobileCarousel [type="button"]:disabled::after {
+.progressCarousel [type="button"]:disabled::after {
   display: inline;
   content: "\2022";
   position: absolute;
