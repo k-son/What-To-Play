@@ -99,7 +99,10 @@ function Display({ slideTitle, currentSong }) {
   return (
     <Frame>
       <Box>
+        {currentSong !== ' ' ?  
         <Title animate={slideTitle}>{currentSong}</Title>
+        :
+        <p className="substitution">song to play</p>}
       </Box>
     </Frame>
   )

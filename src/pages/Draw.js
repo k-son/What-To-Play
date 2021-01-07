@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import Button from '../components/Button';
 import Display from '../components/Display';
@@ -14,19 +15,131 @@ import CookieConsent from "react-cookie-consent";
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 
+const Wrapper = styled.div`
+  width: 100%;
+  height: 100vh;
+  background-image: radial-gradient(120% 150% at 50% 20%, #414141, #1a1a1a 60%);
+  overflow-x: hidden;
+
+  @media screen and (min-height: 801px) {
+    padding-top: 10px;
+  }
+
+  @media screen and (min-height: 901px) {
+    padding-top: 24px;
+  }
+`;
+
+const LogoBoxDesktop = styled.div`
+  @media only screen and (max-height: 800px) {
+    display: none;
+  }
+`;
+
+const LogoBoxMobile = styled.div`
+  @media only screen and (min-height: 801px) {
+    display: none;
+  }
+`;
+
+const MainContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: calc(100vh - ${({theme}) => theme.logoHeight});
+  padding: 10px 0;
+  }
+
+  @media screen and (min-height: 650px) {
+    padding: 5vh 0;
+  }
+
+  @media screen and (min-height: 801px) {
+    height: calc(100vh - ${({theme}) => theme.logoHeight} - 10px);
+    padding: 7vh 0;
+  }
+
+  @media screen and (min-height: 901px) {
+    height: calc(100vh - ${({theme}) => theme.logoHeight} - 24px);
+    padding: 12vh 0 8vh;
+  }
+
+  @media screen and (min-height: 1201px) {
+    padding: 16vh 0 8vh;
+  }
+`;
+
+const CarouselBox = styled.div`
+  @media screen and (min-height: 801px) {
+    display: none;
+  }
+`;
+
+const ProgressBox = styled.div`
+  padding: 0 16px;
+
+  @media only screen and (max-height: 800px) {
+    display: none;
+  }
+`;
+
+const DisplayBox = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 130px;
+`;
+
+const ButtonsBox = styled.div`
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 33.3333%);
+  width: 86%;
+  max-width: 400px;
+  /* height: 150px; */
+  margin: 0 auto 32px;
+  z-index: 2;
+
+    button[action='draw'] {
+      grid-column: 1 / 2;
+      justify-self: start;
+    }
+
+    button[action='putBack'] {
+      grid-column: 2 / 3;
+      justify-self: center;
+    }
+
+    button[action='reaload'] {
+      grid-column: 2 / 3;
+      justify-self: center;
+    }
+
+    /* Link contains button[action='choice'] */
+    a {
+      grid-column: 3 / 4;
+      justify-self: end;
+      text-decoration: none;
+    }
+`;
+
+
 class Draw extends Component {
   render() {
     const { songs, songsLeft, currentSong, progress, slideTitle, drawSong, reloadFullSongList, putBackCurrentSong } = this.props;
+
     return (
-      <div className="Draw">
+      <Wrapper>
         {/* Logo at the top - for high viewports */}
-        <div className="Logo-box-desktop">
+        <LogoBoxDesktop>
           <Logo />
-        </div>
-        <main>
+        </LogoBoxDesktop>
+        <MainContainer>
           {/* [pure-react-carousel] For small viewports. With the buttons you can switch between circular progress bar and current song list. */}
-          <div className="Carousel-box">
-            <CarouselProvider 
+          <CarouselBox>
+            <CarouselProvider
               className="mobileCarousel"
               naturalSlideWidth={200}
               naturalSlideHeight={200}
@@ -34,7 +147,7 @@ class Draw extends Component {
               touchEnabled={false}
             >
               <Slider 
-                className="mobileCarousel-slider" 
+                className="mobileCarousel-slider"
                 tabIndex={-1}
               >
                 <Slide 
@@ -64,78 +177,73 @@ class Draw extends Component {
                 <ButtonNext tabIndex={songsLeft ? 0 : -1}>Song list</ButtonNext>
               </div>
             </CarouselProvider>
-          </div>
-          {/* Horizontal progress bar and current song list, both visible at the same time - for higher viewports. */}
-          <div className="Progress-box">
+          </CarouselBox>
+          {/* Horizontal progress bar and current song list, both visible at the same time - for higher viewports */}
+          <ProgressBox>
             <CurrentList songs={songs} />
             <ProgressBar 
               progress={progress} 
               songsLeft={songsLeft} 
             />
-          </div>
-          {/* Showcase displaying song title to play. When no song drawn/selected, displays 'song to play' text. */}
-          <div className="Display-box">
+          </ProgressBox>
+          {/* Horizontal progress bar and current song list, both visible at the same time - for higher viewports */}
+          <DisplayBox>
             <Display 
               currentSong={currentSong} 
               slideTitle={slideTitle} 
             />
-            {/* When no choosen/drawn song, display 'song to play' text */}
-            {currentSong === ' ' && <p className="substitution">song to play</p>}
-          </div>
+          </DisplayBox>
           {/* Main buttons */}
-          <div className="Buttons-box">
-            <div className="Draw-buttons">
-              {songsLeft > 0 ? 
+          <ButtonsBox>
+            {songsLeft > 0 ? 
+              <Button 
+                action="draw"
+                onClick={drawSong}
+                description="Draw" 
+                title="Draw random song" 
+                aria-label="Draw"
+                tabIndex="1"
+              /> 
+              : 
+              <Button 
+                action="reload"
+                onClick={reloadFullSongList} 
+                description="Reload" 
+                title="Reload full setlist" 
+                aria-label="Reload"
+              />
+            }
+            {songsLeft > 0 && currentSong !== ' ' ? 
+              <Button 
+                action="putBack"
+                onClick={putBackCurrentSong} 
+                description="Back" 
+                title="Put back current song" 
+                aria-label="Put back"
+              /> 
+              : null 
+            }
+            {songsLeft > 0 && 
+              <Link 
+                className="Link-btn-choice" 
+                exact="true" 
+                to="/choice" 
+                tabIndex="-1"
+              >
                 <Button 
-                  action="draw"
-                  onClick={drawSong}
-                  description="Draw" 
-                  title="Draw random song" 
-                  aria-label="Draw"
-                  tabIndex="1"
-                /> 
-                : 
-                <Button 
-                  action="reload"
-                  onClick={reloadFullSongList} 
-                  description="Reload" 
-                  title="Reload full setlist" 
-                  aria-label="Reload"
+                  action="choose"
+                  description="Choose" 
+                  title="Choose song manually" 
+                  aria-label="Choose"
                 />
-              }
-              {songsLeft > 0 && currentSong !== ' ' ? 
-                <Button 
-                  action="putBack"
-                  onClick={putBackCurrentSong} 
-                  description="Back" 
-                  title="Put back current song" 
-                  aria-label="Put back"
-                /> 
-                : null 
-              }
-              {songsLeft > 0 && 
-                <Link 
-                  className="Link-btn-choice" 
-                  exact="true" 
-                  to="/choice" 
-                  tabIndex="-1"
-                >
-                  <Button 
-                    action="choose"
-                    description="Choose" 
-                    title="Choose song manually" 
-                    aria-label="Choose"
-                  />
-                </Link>
-              }
-            </div>
-          </div>
-        </main>
-        {/* Logo at the bottom - for lower viewports */}
-        <div className="Logo-box-mobile">
+              </Link>
+            }
+          </ButtonsBox>
+          {/* Logo at the bottom - for lower viewports */}
+        </MainContainer>
+        <LogoBoxMobile>
           <Logo />
-        </div>
-
+        </LogoBoxMobile>
         {/* Cookie consent. Out of the normal document flow. [react-cookie-consent library] */}
         <CookieConsent
           style={{
@@ -157,9 +265,10 @@ class Draw extends Component {
             borderRadius: "3px", 
             fontSize: "16px"
           }}
-          >This website uses cookies to enhance the user experience.
+        >
+          This website uses cookies to enhance the user experience.
         </CookieConsent>
-      </div>
+      </Wrapper>
     );
   }
 }
