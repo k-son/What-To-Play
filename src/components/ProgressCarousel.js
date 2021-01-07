@@ -5,7 +5,8 @@ import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-re
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import '../styles/ProgressCarousel.css';
 
-export default function ProgressCarousel({ songsLeft, percentage, songs }) {
+
+function ProgressCarousel({ songsLeft, percentage, songs }) {
   return (
     <CarouselProvider
       className="progressCarousel"
@@ -48,3 +49,5 @@ export default function ProgressCarousel({ songsLeft, percentage, songs }) {
     </CarouselProvider>
   );
 };
+
+export default ProgressCarousel;

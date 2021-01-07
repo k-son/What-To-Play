@@ -2,6 +2,7 @@ import React from 'react';
 import styled, { keyframes } from "styled-components";
 import { theme } from '../styles/theme';
 
+
 const diceSide = theme.diceSide;
 
 const Wrapper = styled.div`

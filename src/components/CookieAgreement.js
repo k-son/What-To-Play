@@ -1,7 +1,8 @@
 import React from 'react';
 import CookieConsent from "react-cookie-consent";
 
-export default function CookieAgreement() {
+
+function CookieAgreement() {
   return (
     <CookieConsent
       style={{
@@ -28,3 +29,5 @@ export default function CookieAgreement() {
     </CookieConsent>
   );
 }
+
+export default CookieAgreement;

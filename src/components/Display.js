@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
+
 const Frame = styled.div`
   grid-row: 4 / 5;
   align-self: center;

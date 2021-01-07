@@ -5,6 +5,7 @@ import { ReactComponent as IconChoice } from '../icons/one.svg';
 import { ReactComponent as IconDices } from '../icons/dices.svg';
 import { ReactComponent as IconRefresh } from '../icons/refresh.svg';
 
+
 const Wrapper = styled.button`
   display: flex;
   flex-direction: column;

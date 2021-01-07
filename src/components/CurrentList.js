@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+
 const Wrapper = styled.div`
   display: flex;
   align-items: center;
@@ -62,6 +63,7 @@ const Dot = styled.span`
   margin-right: 6px;
   color: #666;
 `;
+
 
 function CurrentList({ songs }) {
   return (

@@ -2,6 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 import RotatingDice from './RotatingDice';
 
+
 const Wrapper = styled.div`
   display: flex;
   justify-content: center;
@@ -67,6 +68,7 @@ const Logotype = styled.h1`
       }
     }
 `;
+
 
 function Logo() {
   return (

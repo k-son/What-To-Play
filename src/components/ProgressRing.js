@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
+
 const Ring = styled.figure`
   position: relative;
   width: fit-content;
@@ -73,6 +74,7 @@ const Text = styled.p`
   margin-top: 8px;
   color: #999;
 `;
+
 
 function ProgressRing({ sqSize, strokeWidth, percentage, songsLeft }) {
   

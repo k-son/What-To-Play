@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { ReactComponent as IconRefresh } from '../icons/refresh.svg';
 import { ReactComponent as IconClose } from '../icons/close.svg';
 
+
 const Wrapper = styled.div`
   position: absolute;
   top: 0;

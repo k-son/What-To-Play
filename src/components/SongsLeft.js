@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from "styled-components";
 
+
 const Wrapper = styled.div`
   position: relative;
   width: 68%;
@@ -27,6 +28,7 @@ const Text = styled.span`
   color: #999;
   margin-left: 8px;
 `;
+
 
 function SongsLeft({ songsLeft, progress }) {
   return (

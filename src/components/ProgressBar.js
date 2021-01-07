@@ -2,6 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 import SongsLeft from './SongsLeft';
 
+
 const Bar = styled.div`
   position: relative;
   width: 68%;
@@ -48,6 +49,7 @@ const Percentage = styled.span`
   }};
   transition: left .4s;
 `;
+
 
 function ProgressBar({ songsLeft, progress }) {
   return (

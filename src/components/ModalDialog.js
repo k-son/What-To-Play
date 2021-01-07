@@ -1,6 +1,7 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 
+
 const Wrapper = styled.div`
   display: ${props => {
     if (props.isOpen === 'open') {
