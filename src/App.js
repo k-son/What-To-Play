@@ -233,7 +233,6 @@ class App extends Component {
     return (
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-        <div className="App">
           <KeyDownListener />
           <MouseDownListener />
           <Switch>
@@ -274,7 +273,6 @@ class App extends Component {
           onCancel={this.state.confirmCancel} 
           onConfirm={this.state.confirmOk} 
         />
-        </div>
       </ThemeProvider>
     );
   }
