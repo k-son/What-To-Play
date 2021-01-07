@@ -7,11 +7,12 @@ import Logo from '../components/Logo';
 import CurrentList from '../components/CurrentList';
 import ProgressBar from '../components/ProgressBar';
 import ProgressRing from '../components/ProgressRing';
+import CookieAgreement from '../components/CookieAgreement';
 // Styles
 import './Draw.css';
 import '../variables.css'
 // Libraries
-import CookieConsent from "react-cookie-consent";
+//import CookieConsent from "react-cookie-consent";
 import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
 import 'pure-react-carousel/dist/react-carousel.es.css';
 
@@ -244,30 +245,7 @@ class Draw extends Component {
         <LogoBoxMobile>
           <Logo />
         </LogoBoxMobile>
-        {/* Cookie consent. Out of the normal document flow. [react-cookie-consent library] */}
-        <CookieConsent
-          style={{
-            alignItems: "center", 
-            justifyContent: "flex-start", 
-            padding: "20px", 
-            backgroundColor: "rgba(0,0,0,0.75)", 
-            fontWeight: "300", 
-            lineHeight: "1.6", 
-            letterSpacing: "1px"
-          }}
-          contentStyle={{
-            flex: "0 1 auto", 
-            marginRight: "20px", 
-            marginBottom: "20px"
-          }}
-          buttonStyle={{
-            height: "40px", 
-            borderRadius: "3px", 
-            fontSize: "16px"
-          }}
-        >
-          This website uses cookies to enhance the user experience.
-        </CookieConsent>
+        <CookieAgreement />
       </Wrapper>
     );
   }
