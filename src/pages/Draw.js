@@ -6,15 +6,9 @@ import Display from '../components/Display';
 import Logo from '../components/Logo';
 import CurrentList from '../components/CurrentList';
 import ProgressBar from '../components/ProgressBar';
-import ProgressRing from '../components/ProgressRing';
+import ProgressCarousel from '../components/ProgressCarousel';
 import CookieAgreement from '../components/CookieAgreement';
-// Styles
-import './Draw.css';
-import '../variables.css'
-// Libraries
-//import CookieConsent from "react-cookie-consent";
-import { CarouselProvider, Slider, Slide, ButtonBack, ButtonNext } from 'pure-react-carousel';
-import 'pure-react-carousel/dist/react-carousel.es.css';
+
 
 const Wrapper = styled.div`
   width: 100%;
@@ -138,46 +132,13 @@ class Draw extends Component {
           <Logo />
         </LogoBoxDesktop>
         <MainContainer>
-          {/* [pure-react-carousel] For small viewports. With the buttons you can switch between circular progress bar and current song list. */}
+          {/* [pure-react-carousel] For small viewports. */}
           <CarouselBox>
-            <CarouselProvider
-              className="mobileCarousel"
-              naturalSlideWidth={200}
-              naturalSlideHeight={200}
-              totalSlides={2}
-              touchEnabled={false}
-            >
-              <Slider 
-                className="mobileCarousel-slider"
-                tabIndex={-1}
-              >
-                <Slide 
-                  className="mobileCarousel-slide" 
-                  index={0} 
-                  tabIndex={-1}
-                >
-                  <ProgressRing 
-                    sqSize="140" 
-                    strokeWidth="6" 
-                    songsLeft={songsLeft} 
-                    percentage={progress} 
-                  />
-                </Slide>
-                <Slide 
-                  className="mobileCarousel-slide" 
-                  index={1} 
-                  tabIndex={-1}
-                >
-                  <div>
-                    <CurrentList songs={songs} />
-                  </div>
-                </Slide>
-              </Slider>
-              <div className="mobileCarousel-buttons">
-                <ButtonBack tabIndex={songsLeft ? 0 : -1}>Progress</ButtonBack>
-                <ButtonNext tabIndex={songsLeft ? 0 : -1}>Song list</ButtonNext>
-              </div>
-            </CarouselProvider>
+            <ProgressCarousel 
+              songsLeft={songsLeft} 
+              percentage={progress}
+              songs={songs}
+            />
           </CarouselBox>
           {/* Horizontal progress bar and current song list, both visible at the same time - for higher viewports */}
           <ProgressBox>
