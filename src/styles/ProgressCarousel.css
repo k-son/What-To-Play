@@ -1,0 +1,50 @@
+.mobileCarousel {
+  position: relative;
+  display: flex;
+  align-items: top;
+  justify-content: center;
+  height: 220px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+.mobileCarousel-slider {
+  width: 100%;
+} 
+
+.mobileCarousel-buttons {
+  position: absolute;
+  bottom: -4px;
+}
+
+.mobileCarousel [type="button"] {
+  position: relative;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #aaa;
+  background-color: transparent;
+  border: none;
+  padding: 8px 4px;
+}
+
+.mobileCarousel [type="button"]:hover {
+  color: #bbb;
+}
+
+.mobileCarousel .carousel__back-button {
+  margin-right: 24px;
+}
+
+.mobileCarousel [type="button"]:disabled {
+  color: #b19d2d; 
+}
+
+.mobileCarousel [type="button"]:disabled::after {
+  display: inline;
+  content: "\2022";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+}
