@@ -265,7 +265,7 @@ class App extends Component {
               />
             </Route>
           </Switch>
-        {/* Confirm dialog. Out of the normal document flow. */}
+        {/* Confirm dialog */}
         <ModalDialog 
           isOpen={this.state.confirmDialog} 
           question={this.state.confirmQuestion} 
