@@ -28,7 +28,7 @@ Include your song titles in songList.js file.
 * [React Cookie Consent](https://github.com/Mastermindzh/react-cookie-consent)
 
 ## To do
-Refactor using hooks.
+Refactor using hooks and reducer.
 
 ## Status
 In usage. Constant improvements.
