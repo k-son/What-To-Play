@@ -91,6 +91,8 @@ const ButtonsBox = styled.div`
   position: relative;
   display: grid;
   grid-template-columns: repeat(3, 33.3333%);
+  grid-template-rows: 1fr;
+  grid-auto-flow: column;
   width: 86%;
   max-width: 400px;
   /* height: 150px; */
@@ -98,13 +100,13 @@ const ButtonsBox = styled.div`
   z-index: 2;
 
     button[action='draw'] {
-      grid-column: 1 / 2;
-      justify-self: start;
+      grid-column: 2 / 3;
+      justify-self: center;
     }
 
     button[action='putBack'] {
-      grid-column: 2 / 3;
-      justify-self: center;
+      grid-column: 1 / 2;
+      justify-self: start;
     }
 
     button[action='reload'] {
@@ -179,7 +181,7 @@ class Draw extends Component {
               <Button 
                 action="putBack"
                 onClick={putBackCurrentSong} 
-                description="Back" 
+                description="Undo" 
                 title="Put back current song" 
                 aria-label="Put back"
               /> 
@@ -194,7 +196,7 @@ class Draw extends Component {
               >
                 <Button 
                   action="choose"
-                  description="Choose" 
+                  description="Select" 
                   title="Choose song manually" 
                   aria-label="Choose"
                 />
