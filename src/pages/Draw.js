@@ -13,8 +13,7 @@ import CookieAgreement from '../components/CookieAgreement';
 const Wrapper = styled.div`
   width: 100%;
   height: 100vh;
-  {/* background-image: radial-gradient(120% 150% at 50% 20%, #414141, #1a1a1a 60%); */}
-  background-color: ${({theme}) => theme.color.white};
+  background-image: radial-gradient(120% 150% at 50% 20%, #414141, #1a1a1a 60%);
   overflow-x: hidden;
 
   @media screen and (min-height: 801px) {

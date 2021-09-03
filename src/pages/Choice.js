@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { ReactComponent as IconRefresh } from '../icons/refresh.svg';
+import { ReactComponent as IconBackArrow } from '../icons/back-arrow.svg';
 import { ReactComponent as IconClose } from '../icons/close.svg';
 
 
@@ -30,55 +31,104 @@ const TopButtonsBox = styled.div`
   padding-bottom: 16px;
 
     a {
-      margin-left: 48px;
-    }
+      text-decoration: none;
+    } 
 `;
 
 const TopButton = styled.button`
-  width: 56px;
-  height: 56px;
-  background-color: transparent;
-  border: none;
-  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 240px;
+  height: 48px;
+  padding: 4px 12px;
+  background-color: rgba(255, 255, 255, .05);
+  border: 2px solid transparent;
+  border-radius: 25px;
   cursor: pointer;
+  
+  @media screen and (min-width: 1000px) {
+    height: 54px;
+    width: 280px;
+  }
 
-    &:hover {
-      background-color: rgba(255, 255, 255, .05);
-    }
-`;
-
-const ReloadButton = styled(TopButton)`
-  display: ${props => props.progress < 100 ? 'inline-block' : 'none'};
-
-    &:hover svg {
-      filter: saturate(300%);
+    &:hover,
+    &:focus {
+      border: 2px solid #888888;
     }
 
     svg {
-      height: 44px;
-      fill: ${({theme}) => theme.color.green};
+      margin-right: 24px;
+    }
+
+    span {
+      position: relative;
+      transform: translateY(1px);
+      font-size: 12px;
+      line-height: 1;
+      text-transform: uppercase;
+      color: #aaa;
+        
+      @media screen and (min-width: 1000px) {
+        font-size: 16px;
+      }
     }
 `;
 
 const CloseButton = styled(TopButton)`
 
-    &:hover svg {
+  @media screen and (min-width: 1000px) {
+      margin: 24px auto;
+    }
+
+    &:hover svg,
+    &:focus svg {
       filter: saturate(350%);
     }
 
+    &:active {
+      border: 2px solid ${({theme}) => theme.color.yellow};
+    }
+
     svg {
-      height: 28px;
-      fill: ${({theme}) => theme.color.red};
+      height: 24px;
+      width: auto;
+      fill: ${({theme}) => theme.color.yellow};
+    }
+`;
+
+const ReloadButton = styled(TopButton)`
+  display: ${props => props.progress < 100 ? 'flex' : 'none'};
+  margin-bottom: 80px;
+
+  @media screen and (min-width: 1000px) {
+    margin-top: 24px;
+  }
+
+    &:hover svg,
+    &:focus svg {
+      filter: saturate(300%);
+    }
+
+    &:active {
+      border: 2px solid ${({theme}) => theme.color.green};
+    }
+
+    svg {
+      height: 32px;
+      width: auto;
+      fill: ${({theme}) => theme.color.green};
     }
 `;
 
 const SongsList = styled.ul`
   list-style-type: none;
   width: 100%;
-  margin: 0 auto 80px;
+  margin: 0 auto;
 `;
 
 const SongsListItem = styled.li`
+  position: relative;
   display: flex;
   align-items: center;
   width: 100%;
@@ -90,6 +140,18 @@ const SongsListItem = styled.li`
     max-width: 800px;
   }
 
+  &:not(:last-of-type)::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: calc(100% + 6px);
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      height: 1px;
+      background-color: #222222;
+    }
+
     a {
       width: 70%;
       max-width: 640px;
@@ -99,14 +161,14 @@ const SongsListItem = styled.li`
 `;
 
 const SongButton = styled.button`
+  position: relative;
   display: flex;
   align-items: center;
   width: 100%;
   padding: calc(16px + 6 * ((100vw - 320px) / 1360));
   background-color: transparent;
   border: none;
-  border-bottom: 1px solid #1d1d1d;
-  border-radius: 3px;
+  border-radius: 25px;
   cursor: pointer;
 
     &:hover {
@@ -119,8 +181,8 @@ const Circle = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 16px;
-  height: 16px;
+  width: 12px;
+  height: 12px;
   border-radius: 50%;
   border: 2px solid #b8b8b8;
   margin-right: 16px;
@@ -164,7 +226,7 @@ const SongTitle = styled.span`
   }
 `;
 
-const RemoveSongButton = styled.button`
+/* const RemoveSongButton = styled.button`
   flex-grow: 0;
   flex-shrink: 0;
   position: relative;
@@ -226,8 +288,37 @@ const RemoveSongButton = styled.button`
         width: 16px;
       }
     }
-`;
+`; */
 
+const RemoveSongButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 32px;
+  margin-right: 24px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+
+    & svg {
+      filter: saturate(200%);
+    }
+  }
+
+    & svg {
+      height: 16px;
+      width: auto;
+      flex-shrink: 0;
+      fill: ${({theme}) => theme.color.red};
+
+      @media screen and (min-width: 1001px) {
+        height: 24px;
+      }
+    }
+`;
 
 class Choice extends Component {
   constructor(props) {
@@ -256,15 +347,6 @@ class Choice extends Component {
     return (
       <Wrapper confirmDialog={confirmDialog}>
         <TopButtonsBox>
-          <ReloadButton 
-            onClick={reloadSetlist} 
-            progress={progress}
-            title="Reload full setlist" 
-            aria-label="Reaload full setlist"
-            tabIndex={isDialogOpen}
-          >
-            <IconRefresh />
-          </ReloadButton>
           <Link
             exact="true"
             to="/" 
@@ -276,7 +358,8 @@ class Choice extends Component {
               tabIndex={isDialogOpen}
               ref={this.getFocus}
             >
-              <IconClose />
+              <IconBackArrow />
+              <span>back to draw</span>
             </CloseButton>
           </Link>
         </TopButtonsBox>
@@ -311,11 +394,25 @@ class Choice extends Component {
                   title="Remove song from current list" 
                   aria-label={`Remove '${item}' from current list`} 
                   tabIndex={isDialogOpen}
-                />
+                >
+                  <IconClose />
+                </RemoveSongButton>
               </SongsListItem>
             )
           }
         </SongsList>
+        <TopButtonsBox>
+          <ReloadButton 
+            onClick={reloadSetlist} 
+            progress={progress}
+            title="Reload full setlist" 
+            aria-label="Reaload full setlist"
+            tabIndex={isDialogOpen}
+          >
+            <IconRefresh />
+            <span>Reload full setlist</span>
+          </ReloadButton>
+        </TopButtonsBox>
       </Wrapper>
     );
   }

@@ -42,7 +42,7 @@ const Item = styled.li`
   line-height: 1.4;
   text-transform: capitalize;
   text-align: center;
-  color: ${({theme}) => theme.color.text};
+  color: #888;
 
   @media screen (min-width: 1000px) {
     font-size: 18px;
