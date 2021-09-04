@@ -236,16 +236,23 @@ const RemoveSongButton = styled.button`
   justify-content: center;
   align-items: center;
   width: 40px;
-  height: 32px;
+  height: 40px;
   margin-right: 24px;
   background-color: transparent;
   border: none;
   cursor: pointer;
+  border-radius: 50%;
+
+  @media screen and (min-width: 1000px) {
+    width: 48px;
+    height: 48px;
+  }
 
   &:hover {
+    background-color: rgba(255, 255, 255, .1);
 
     & svg {
-      filter: saturate(200%);
+      filter: saturate(300%);
     }
   }
 
