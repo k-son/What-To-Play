@@ -161,6 +161,10 @@ const Description = styled.span`
     }
   }};
 
+  &[action='reload'] {
+    width: 200px;
+  }
+
   ${Wrapper}:hover & {
     filter: ${props => {
       if (props.action === 'draw') {

@@ -43,8 +43,8 @@ function ProgressCarousel({ songsLeft, percentage, songs }) {
       </Slider>
       {/*  With the buttons you can switch between circular progress bar and current song list. */}
       <div className="progressCarousel-buttons">
-        <ButtonBack tabIndex={songsLeft ? 0 : -1}>Progress View</ButtonBack>
-        <ButtonNext tabIndex={songsLeft ? 0 : -1}>Song list View</ButtonNext>
+        <ButtonBack tabIndex={songsLeft ? 0 : -1}>Progress</ButtonBack>
+        <ButtonNext tabIndex={songsLeft ? 0 : -1}>Remaining Songs</ButtonNext>
       </div>
     </CarouselProvider>
   );

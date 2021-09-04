@@ -172,7 +172,7 @@ class Draw extends Component {
               <Button 
                 action="reload"
                 onClick={reloadFullSongList} 
-                description="Reload" 
+                description="Reload Setlist" 
                 title="Reload full setlist" 
                 aria-label="Reload"
               />

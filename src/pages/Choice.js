@@ -75,7 +75,7 @@ const TopButton = styled.button`
     }
 `;
 
-const CloseButton = styled(TopButton)`
+const BackButton = styled(TopButton)`
 
   @media screen and (min-width: 1000px) {
       margin: 24px auto;
@@ -145,11 +145,16 @@ const SongsListItem = styled.li`
       display: block;
       position: absolute;
       top: calc(100% + 6px);
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100%;
+      right: 0;
+      margin-right: 24px;
+      width: 86%;
       height: 1px;
       background-color: #222222;
+
+      @media screen and (min-width: 1001px) {
+        width: 87%;
+        margin-right: 16px;
+      }
     }
 
     a {
@@ -226,70 +231,6 @@ const SongTitle = styled.span`
   }
 `;
 
-/* const RemoveSongButton = styled.button`
-  flex-grow: 0;
-  flex-shrink: 0;
-  position: relative;
-  display: block;
-  width: 52px;
-  height: 52px;
-  margin-right: 12px;
-  background-color: transparent;
-  border: none;
-  border-radius: 3px;
-
-  &:hover {
-    cursor: pointer;
-    background-color: rgba(255, 255, 255, .05);
-    filter: saturate(200%);
-  }
-
-    &::before {
-      display: block;
-      content: "";
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      width: 24px;
-      height: 24px;
-      background-color: ${({theme}) => theme.color.red};
-      border-radius: 50%;
-
-      @media screen and (min-width: 600px) {
-        width: 28px;
-        height: 28px;
-      }
-
-      @media screen and (min-width: 1000px) {
-        width: 32px;
-        height: 32px;
-      }
-    }
-
-    &::after {
-      display: block;
-      content: "";
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      width: 12px;
-      height: 2px;
-      background-color: #eee;
-      border-radius: 5px;
-      z-index: 2;
-
-      @media screen and (min-width: 600px) {
-        width: 14px;
-      }
-
-      @media screen and (min-width: 1000px) {
-        width: 16px;
-      }
-    }
-`; */
-
 const RemoveSongButton = styled.button`
   display: flex;
   justify-content: center;
@@ -352,21 +293,21 @@ class Choice extends Component {
             to="/" 
             tabIndex="-1"
           >
-            <CloseButton
-              title="Close choice view" 
-              aria-label="Close choice view"
+            <BackButton
+              title="Back to draw screen" 
+              aria-label="Back to draw screen"
               tabIndex={isDialogOpen}
               ref={this.getFocus}
             >
               <IconBackArrow />
               <span>back to draw</span>
-            </CloseButton>
+            </BackButton>
           </Link>
         </TopButtonsBox>
         <SongsList>
           {songs
             .sort((a, b) => a > b ? 1 : -1)
-            .map(item => 
+            .map(item => (
               <SongsListItem key={item}>
                 <Link
                   exact="true"
@@ -398,7 +339,7 @@ class Choice extends Component {
                   <IconClose />
                 </RemoveSongButton>
               </SongsListItem>
-            )
+            ))
           }
         </SongsList>
         <TopButtonsBox>
@@ -410,7 +351,7 @@ class Choice extends Component {
             tabIndex={isDialogOpen}
           >
             <IconRefresh />
-            <span>Reload full setlist</span>
+            <span>Reload setlist</span>
           </ReloadButton>
         </TopButtonsBox>
       </Wrapper>

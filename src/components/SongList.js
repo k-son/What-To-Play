@@ -12,7 +12,6 @@ export const SongList = [
   'Zombie',
   'Bad romance',
   'Love Buzz',
-  'Like a virgin',
     /*
   'Abou a girl',
   'Born to be ild',
