@@ -242,6 +242,7 @@ const RemoveSongButton = styled.button`
   border: none;
   cursor: pointer;
   border-radius: 50%;
+  border: 2px solid transparent;
 
   @media screen and (min-width: 1000px) {
     width: 48px;
@@ -254,6 +255,11 @@ const RemoveSongButton = styled.button`
     & svg {
       filter: saturate(300%);
     }
+  }
+
+  &:active {
+    border: 2px solid ${({theme}) => theme.color.red};
+    filter: saturate(230%);
   }
 
     & svg {

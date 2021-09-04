@@ -77,6 +77,7 @@ const Button = styled.button`
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  border: 2px solid transparent;
 `;
 
 const CancelButton = styled(Button)`
@@ -86,6 +87,10 @@ const CancelButton = styled(Button)`
   &:hover {
     filter: saturate(150%);
   }
+
+  &:active {
+    border: 2px solid ${({ theme }) => theme.color.white};
+  }
 `;
 
 const OKButton = styled(Button)`
@@ -93,6 +98,10 @@ const OKButton = styled(Button)`
 
   &:hover {
     filter: saturate(250%);
+  }
+
+  &:active {
+    border: 2px solid ${({ theme }) => theme.color.white};
   }
 `;
 
