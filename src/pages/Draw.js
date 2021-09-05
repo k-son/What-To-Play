@@ -185,7 +185,12 @@ class Draw extends Component {
                 title="Put back current song" 
                 aria-label="Put back"
               /> 
-              : null 
+              : 
+              <Button 
+                action="Disabled"
+                title="Disabled button"
+                aria-label="Disabled button"
+              />  
             }
             {songsLeft > 0 && 
               <Link 

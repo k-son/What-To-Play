@@ -13,7 +13,13 @@ const Wrapper = styled.button`
   background: transparent;
   padding: 4px;
   border: none;
-  cursor: pointer;
+  cursor: ${props => {
+    if (props.action === 'Disabled') {
+      return 'not-allowed';
+    } else {
+      return 'pointer';
+    }
+  }};
 `;
 
 const OuterRing = styled.span`
