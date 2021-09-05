@@ -187,7 +187,7 @@ class Draw extends Component {
               /> 
               : 
               <Button 
-                action="Disabled"
+                action="disabled"
                 title="Disabled button"
                 aria-label="Disabled button"
               />  
