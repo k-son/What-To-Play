@@ -15,7 +15,7 @@ const Wrapper = styled.button`
   border: none;
   cursor: ${props => {
     if (props.action === 'disabled') {
-      return 'not-allowed';
+      return 'arrow';
     } else {
       return 'pointer';
     }
