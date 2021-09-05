@@ -190,6 +190,7 @@ class Draw extends Component {
                 action="disabled"
                 title="Disabled button"
                 aria-label="Disabled button"
+                tabIndex="-1"
               />  
             }
             {songsLeft > 0 && 
